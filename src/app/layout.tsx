@@ -1,6 +1,8 @@
+import "./globals.css";
+
+
 import type { Metadata } from "next";
 import { Inter } from "next/font/google"; // Use Inter as Geist is unavailable
-import "./globals.css";
 // import Navbar from "@/components/common/navbar";
 // import Footer from "@/components/common/Footer";
 
@@ -20,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={inter.variable}> {/* Moved className to <html> */}
+    <html lang="en" className={inter.variable}>
       <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />

@@ -1,7 +1,7 @@
 "use client"
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { motion } from "framer-motion";
-
+import Image from "next/image";
 const Footer = () => {
     return (
         <motion.div
@@ -21,7 +21,7 @@ const Footer = () => {
                     >
                         <div className="max-w-[300px]">
                             {/* <h2 className="text-2xl font-bold">Neecop</h2> */}
-                            <img src="./landing/dulogo.svg" alt="" />
+                            <Image src="./landing/dulogo.svg" alt="" />
                             <p className="text-gray-400 mt-2">
                                 Bridging Future Partnerships through right access to investors, partners and mentors.
                             </p>
@@ -43,9 +43,6 @@ const Footer = () => {
                         className="border-t border-gray-800 my-6"
                     ></motion.div>
                 </div>
-
-
-
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}

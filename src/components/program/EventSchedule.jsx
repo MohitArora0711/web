@@ -4,7 +4,6 @@ import { useState } from "react";
 export default function EventSchedule() {
     const [activeDay, setActiveDay] = useState("day1");
     const [filter, setFilter] = useState("all");
-
     const events = {
         day1: [
             {

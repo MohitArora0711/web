@@ -1,7 +1,7 @@
 "use client"
 import React from "react";
 import { motion } from "framer-motion";
-
+import Image from "next/image";
 const Step = () => {
     return (
         <div className="relative md:px-[100px] md:py-32 px-4 py-32">
@@ -27,7 +27,7 @@ const Step = () => {
                     </button>
                 </motion.div>
                 <div className="hidden md:block w-full mt-10">
-                    <img src="landing/step.png" alt="step" className="w-[90%] h-auto relative top-[-260px]" />
+                    <Image src="landing/step.png" alt="step" className="w-[90%] h-auto relative top-[-260px]" />
                     <div className="absolute">
                         <div className="relative w-[270px] top-[-450px] left-[340px] text-[200px] font-bold text-[#1E5EFF] opacity-10">
                             1

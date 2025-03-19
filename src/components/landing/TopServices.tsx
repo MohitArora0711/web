@@ -57,7 +57,7 @@ export default function TopServices() {
                                 <div className="absolute bottom-5 left-5">
 
                                     <div className="px-2 py-2 text-sm text-white bg-white/30 backdrop-blur-lg font-bold rounded-full gap-2 flex">
-                                        <img className="w-5 h-5 bg-white/80 backdrop-blur-lg rounded-full" src="/landing/arrow.png" alt="" />
+                                        <Image className="w-5 h-5 bg-white/80 backdrop-blur-lg rounded-full" src="/landing/arrow.png" alt="" />
                                         {service.title}
                                     </div>
                                 </div>

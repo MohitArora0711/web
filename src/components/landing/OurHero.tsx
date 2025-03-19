@@ -1,9 +1,10 @@
+import Image from "next/image";
 
 const OurHero = () => {
     return (
         <section className="flex flex-col md:flex-row text-center items-center justify-between px-8 md:px-16 lg:px-24 py-32">
             <div className="md:w-1/2 ">
-            <img src="/landing/dulogo.svg" alt="" />
+            <Image src="/landing/dulogo.svg" alt="" />
                 <h1 className="text-3xl md:text-5xl font-bold text-blue-700 mb-2 mt-5">
                     <span className="text-gray-700 text-xl md:text-2xl font-semibold ">FEB</span>  21 - 22 - 23 <span className="text-gray-700 text-xl md:text-2xl font-semibold ">2025</span>
                 </h1>
@@ -25,7 +26,7 @@ const OurHero = () => {
                     <div className="hidden md:flex flex-col justify-center bg-white/30 backdrop-blur-lg rounded-xl md:rounded-3xl px-4 py-1 cursor-pointer">
                     <h1 className="font-semibold text-[10px] text-white">Malik clinic</h1>
                             <div className="flex flex-row justify-center items-center gap-2">
-                                <img src="/landing/arrow.png" className="h-3 w-3 bg-white/50 rounded-full" alt="Arrow Icon" />
+                                <Image src="/landing/arrow.png" className="h-3 w-3 bg-white/50 rounded-full" alt="ArrowIcon" />
                                 <span className="font-semibold text-[10px] text-white">4.7 ⭐</span>
                             </div>
                         </div>
@@ -34,7 +35,7 @@ const OurHero = () => {
                     <div className="hidden md:flex flex-col justify-center bg-white/30 backdrop-blur-lg rounded-xl md:rounded-3xl px-4 py-1 cursor-pointer">
                     <h1 className="font-semibold text-[10px] text-white">metha shop</h1>
                             <div className="flex flex-row justify-center items-center gap-2">
-                                <img src="/landing/arrow.png" className="h-3 w-3 bg-white/50 rounded-full" alt="Arrow Icon" />
+                                <Image src="/landing/arrow.png" className="h-3 w-3 bg-white/50 rounded-full" alt="Arrow Icon" />
                                 <span className="font-semibold text-[10px] text-white">4.6 ⭐</span>
                             </div>
                         </div>
@@ -46,7 +47,7 @@ const OurHero = () => {
                     <div className="hidden md:flex flex-col justify-center bg-white/30 backdrop-blur-lg rounded-xl md:rounded-3xl px-4 py-1 cursor-pointer">
                     <h1 className="font-semibold text-[10px] text-white">Hair mafiya</h1>
                             <div className="flex flex-row justify-center items-center gap-2">
-                                <img src="/landing/arrow.png" className="h-3 w-3 bg-white/50 rounded-full" alt="Arrow Icon" />
+                                <Image src="/landing/arrow.png" className="h-3 w-3 bg-white/50 rounded-full" alt="Arrow Icon" />
                                 <span className="font-semibold text-[10px] text-white">4.6 ⭐</span>
                             </div>
                         </div>
@@ -58,7 +59,7 @@ const OurHero = () => {
                         <div className="hidden md:flex flex-col justify-center bg-white/30 backdrop-blur-lg rounded-xl md:rounded-3xl px-4 py-1 cursor-pointer">
                             <h1 className="font-semibold text-[10px] text-white">Royal Hair Lounge</h1>
                             <div className="flex flex-row justify-center items-center gap-2">
-                                <img src="/landing/arrow.png" className="h-3 w-3 bg-white/50 rounded-full" alt="Arrow Icon" />
+                                <Image src="/landing/arrow.png" className="h-3 w-3 bg-white/50 rounded-full" alt="Arrow Icon" />
                                 <span className="font-semibold text-[10px] text-white">4.9 ⭐</span>
                             </div>
                         </div>
@@ -67,7 +68,7 @@ const OurHero = () => {
                     <div className="hidden md:flex flex-col justify-center bg-white/30 backdrop-blur-lg rounded-xl md:rounded-3xl px-4 py-1 cursor-pointer">
                     <h1 className="font-semibold text-[10px] text-white">Luxury Locks</h1>
                             <div className="flex flex-row justify-center items-center gap-2">
-                                <img src="/landing/arrow.png" className="h-3 w-3 bg-white/50 rounded-full" alt="Arrow Icon" />
+                                <Image src="/landing/arrow.png" className="h-3 w-3 bg-white/50 rounded-full" alt="Arrow Icon" />
                                 <span className="font-semibold text-[10px] text-white">4.8 ⭐</span>
                             </div>
                         </div>
