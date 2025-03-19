@@ -10,7 +10,7 @@ const speakers = [
     { title: "Satya Nadella", image: "/speaker/img5.png" },
     { title: "Tim Cook", image: "/speaker/img6.png" },
     { title: "Mukesh Ambani", image: "/speaker/img7.png" },
-    { title: "Jeff Bezos", image: "/speaker/img8.png" },
+    // { title: "Jeff Bezos", image: "/speaker/img8.png" },
 ];
 
 const Home = () => {

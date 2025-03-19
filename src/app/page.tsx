@@ -12,7 +12,6 @@ import TopServices from "@/components/landing/TopServices";
 export default function Home() {
 
 
-
   const speakers = [
     { title: "Dr. S. Jaishankar", image: "/speaker/img1.png" },
     { title: "Ratan Tata", image: "/speaker/img2.png" },
@@ -26,7 +25,7 @@ export default function Home() {
 
   return (
     <>
-      <div >
+      <div className="bg-white" >
         <Navbar />
         <OurHero />
         <div className="hidden md:block">

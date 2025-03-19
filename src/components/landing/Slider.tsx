@@ -53,7 +53,8 @@ const InfiniteCarousel: React.FC<InfiniteCarouselProps> = ({ services, speed }) 
                                     <Image
                                         src={service.image}
                                         alt={service.title}
-                                        layout="fill"
+                                        width={10} height={10} 
+                                        // layout="fill"
                                         objectFit="cover"
                                         className="transition-transform duration-500 group-hover:scale-105"
                                     />

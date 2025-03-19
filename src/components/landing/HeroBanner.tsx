@@ -63,7 +63,7 @@ const FeatureCard = ({ icon, title, description }: FeatureCardProps) => {
     return (
         <div className="border-white/20 border rounded-2xl p-2 flex items-center gap-4 backdrop-blur-lg">
             <div className="w-14 h-20 flex justify-center items-center bg-white/20 rounded-lg">
-                <Image src={icon} alt={title} className="w-7 h-7" />
+                <Image src={icon} alt={title} className="w-7 h-7" width={10 } height={10} />
             </div>
             <div>
                 <h3 className="text-white font-semibold text-lg mb-1">{title}</h3>

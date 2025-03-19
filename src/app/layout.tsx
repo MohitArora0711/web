@@ -12,7 +12,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "DU Festival 2025", // Fixed title typo
+  title: "Delhi Startup summit 2025", // Fixed title typo
   description: "Book appointments effortlessly", // Improved description for clarity
 };
 

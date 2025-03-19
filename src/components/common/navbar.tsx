@@ -15,6 +15,8 @@ export default function Navbar() {
                 <Image
                     className="text-xl font-bold cursor-pointer w-10"
                     src="/landing/logodulit.png" alt="du fest "
+                    width={10}
+                    height={10}
                 />
 
                 <div className="hidden md:flex space-x-6">

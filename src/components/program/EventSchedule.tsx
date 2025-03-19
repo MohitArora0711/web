@@ -1,10 +1,22 @@
 "use client";
 import { useState } from "react";
 
+interface Event {
+    time: string;
+    title: string;
+    description: string;
+    location: string;
+}
+
+type EventsData = {
+    [key: string]: Event[];
+};
+
 export default function EventSchedule() {
-    const [activeDay, setActiveDay] = useState("day1");
-    const [filter, setFilter] = useState("all");
-    const events = {
+    const [activeDay, setActiveDay] = useState<string>("day1");
+    const [filter, setFilter] = useState<string>("all");
+    
+    const events: EventsData = {
         day1: [
             {
                 time: "10:30 AM - 11:50 AM",
@@ -50,7 +62,9 @@ export default function EventSchedule() {
         ],
     };
 
-    const filteredEvents = filter === "all" ? events[activeDay] : events[activeDay].filter(event => event.location === filter);
+    const filteredEvents: Event[] = filter === "all" 
+        ? events[activeDay] 
+        : events[activeDay].filter(event => event.location === filter);
 
     return (
         <div className="p-6">

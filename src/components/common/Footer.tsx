@@ -21,7 +21,11 @@ const Footer = () => {
                     >
                         <div className="max-w-[300px]">
                             {/* <h2 className="text-2xl font-bold">Neecop</h2> */}
-                            <Image src="./landing/dulogo.svg" alt="" />
+                            <Image
+                                src="/landing/dulogo.svg"
+                                alt="Logo"
+                                width={100}
+                                height={50} />
                             <p className="text-gray-400 mt-2">
                                 Bridging Future Partnerships through right access to investors, partners and mentors.
                             </p>
@@ -73,7 +77,7 @@ const Footer = () => {
                             <ul className=" space-y-8 max-sm:space-y-5">
                                 <li>Home</li>
                                 <li>Partner</li>
-                                
+
                             </ul>
                         </motion.div>
                         <motion.div

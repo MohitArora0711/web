@@ -29,7 +29,7 @@ const cards: CardItem[] = [
 export default function CardScroller() {
     const [startIndex, setStartIndex] = useState(0);
     const visibleCards = 3;
-    
+
     const handleNext = () => {
         setStartIndex((prev) => (prev + visibleCards < cards.length ? prev + visibleCards : 0));
     };
@@ -40,14 +40,14 @@ export default function CardScroller() {
 
     return (
         <motion.div
-        initial={{ opacity: 0, y: 50 }} 
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        viewport={{ once: true, amount: 0.2 }}
-        className="relative w-full px-[60px] rounded-lg overflow-hidden"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.2 }}
+            className="relative w-full px-[60px] rounded-lg overflow-hidden"
         >
             <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white via-white/60 to-transparent z-10 pointer-events-none"></div>
-            
+
             <div className="relative w-full flex items-center">
                 <button className="absolute left-0 z-10 p-2 bg-gray-200 rounded-full shadow-md" onClick={handlePrev}>
                     <ChevronLeft size={20} />
@@ -83,7 +83,7 @@ export default function CardScroller() {
                     <ChevronRight size={20} />
                 </button>
             </div>
-            
+
             <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white via-white/60 to-transparent z-10 pointer-events-none"></div>
         </motion.div>
     );
