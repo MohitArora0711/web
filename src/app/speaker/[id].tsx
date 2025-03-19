@@ -1,11 +1,11 @@
 import React from 'react'
 
-function page() {
+function id() {
   return (
     <div>
-      
+      <h1>heidi</h1>
     </div>
   )
 }
 
-export default page
+export default id

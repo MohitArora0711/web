@@ -3,10 +3,13 @@ import React from 'react'
 
 function Hero() {
     return (
-        <div className='text-center mt-40'>
-            <h1 className='font-bold text-[65px]'>Bridging Future <span className=' text-blue-700'>Partnerships</span></h1>
-            <p className='text-[17px] my-3  text-gray-600 '>Simplify Startup & MSME’s fundings with our efficient, user-friendly Financial solution partner</p>
-            <button className='bg-blue-600 py-5 px-12 font-bold  text-white rounded-2xl cursor-pointer  my-5 hover:bg-blue-500'>START NOW</button>
+        <div className='text-center mb-36 flex justify-center items-center flex-col '>
+            <p className='md:text-xl bg-black/10 px-5 rounded-full my-5 '>Join the Events</p>
+            <h1 className='hidden md:block font-bold text-3xl md:text-[65px]'>Make your  <span className=' text-blue-700'>REGISTRATION</span></h1>
+            <h1 className='md:hidden font-bold text-3xl md:text-[65px]'><span className=' text-blue-700 font-bold'>REGISTRATION</span></h1>
+            <p className=' md:text-2xl text-semibold  my-3  text-gray-600 w-[70%]'>
+                Come join us for a three-day literary extravaganza! Click on the register button, fill in your details, download your pass, and you're all set to be a part of our grandest edition yet!                </p>
+            <button className='bg-blue-600 md:py-5 md:px-12 py-3 px-5 font-bold  text-white rounded-2xl cursor-pointer  my-5 hover:bg-blue-500 '>Register to attend</button>
         </div>
     )
 }

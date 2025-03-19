@@ -1,20 +1,17 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google"; // Use Inter as Geist is unavailable
 import "./globals.css";
+// import Navbar from "@/components/common/navbar";
+// import Footer from "@/components/common/Footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: "Slotkart",
-  description: "book effortlessly appointment",
+  title: "DU Festival 2025", // Fixed title typo
+  description: "Book appointments effortlessly", // Improved description for clarity
 };
 
 export default function RootLayout({
@@ -23,10 +20,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+    <html lang="en" className={inter.variable}> {/* Moved className to <html> */}
+      <head>
+        <meta charSet="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </head>
+      <body suppressHydrationWarning={true} className="antialiased">
         {children}
       </body>
     </html>

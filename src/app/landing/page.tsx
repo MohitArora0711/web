@@ -1,3 +1,4 @@
+"use client"
 import FAQ from "@/components/landing/FAQ";
 import Hero from "@/components/landing/hero";
 import HeroBanner from "@/components/landing/HeroBanner";
@@ -12,7 +13,6 @@ export default function Home() {
       <div >
         <OurHero />
         <TabsComponent />
-        
         <Step />
         <TopServices/>
         <Hero />

@@ -1,9 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
-import { FiShoppingCart, FiUser } from "react-icons/fi";
-import { FaMapMarkerAlt } from "react-icons/fa";
-import { IoIosArrowDown } from "react-icons/io";
-import { CiSearch } from "react-icons/ci";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Menu } from "lucide-react";
 
 export default function Navbar() {
     return (
@@ -13,52 +11,63 @@ export default function Navbar() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="fixed top-0 left-0 right-0 z-50 bg-white/30 backdrop-blur-lg shadow-md"
         >
-            <div className="px-20 py-3 flex items-center justify-between">
-
+            <div className="px-6 md:px-20 py-3 flex items-center justify-between">
                 {/* Logo */}
-                <motion.h1
-                    className="text-xl font-bold cursor-pointer"
+                <motion.img
+                    className="text-xl font-bold cursor-pointer w-10"
                     whileHover={{ scale: 1.05 }}
-                >
-                    Slotkart.com
-                </motion.h1>
+                    src="/landing/logodulit.png" alt="du fest "
+                />
 
-                {/* Navigation Links */}
-                <div className="flex space-x-6">
-                    {["Beauty", "Panels", "Native"].map((item) => (
+                {/* Desktop Navigation */}
+                <div className="hidden md:flex space-x-6">
+                    {[{ name: "Home", link: "/" },
+                    { name: "Speaker", link: "/speaker" },
+                    { name: "Program", link: "/program" },
+                    { name: "Partner", link: "/partner" },
+                    { name: "House Of Fiction", link: "/house-of-fiction" }
+                    ].map((item) => (
                         <a
-                            key={item}
-                            href="#"
+                            key={item.name}
+                            href={item.link}
                             className="text-gray-500 hover:text-black transition-colors text-sm font-medium"
                         >
-                            {item}
+                            {item.name}
                         </a>
                     ))}
                 </div>
 
-                {/* Location and Search Bar */}
-                <div className="flex items-center space-x-3">
-                    {/* Location Selector */}
-                    <div className="flex items-center px-4 py-2 bg-white rounded-full shadow-sm border cursor-pointer">
-                        <FaMapMarkerAlt className="text-gray-500 text-sm mr-2" />
-                        <span className="text-sm text-gray-600">Connaught Place, New ...</span>
-                        <IoIosArrowDown className="ml-2 text-gray-500" />
-                    </div>
-
-                    <div className="flex items-center px-4 py-2 bg-white rounded-full shadow-sm border">
-                        <CiSearch className="text-gray-500 text-lg mr-2" />
-                        <input
-                            type="text"
-                            placeholder="Search for 'AC s..."
-                            className="outline-none text-sm text-gray-600 bg-transparent placeholder-gray-400 w-40"
-                        />
-                    </div>
+                {/* Mobile Menu */}
+                <div className="md:hidden">
+                    <Sheet>
+                        <SheetTrigger>
+                            <Menu className="h-6 w-6 text-gray-700" />
+                        </SheetTrigger>
+                        <SheetContent side="left" className="p-6">
+                            <div className="flex flex-col space-y-4">
+                                {[{ name: "Home", link: "/" },
+                                { name: "Speaker", link: "/speaker" },
+                                { name: "Program", link: "/program" },
+                                { name: "Partner", link: "/partner" },
+                                { name: "House Of Fiction", link: "/house-of-fiction" }
+                                ].map((item) => (
+                                    <a
+                                        key={item.name}
+                                        href={item.link}
+                                        className="text-gray-700 hover:text-black transition-colors text-lg font-medium"
+                                    >
+                                        {item.name}
+                                    </a>
+                                ))}
+                            </div>
+                        </SheetContent>
+                    </Sheet>
                 </div>
 
-                <div className="flex items-center space-x-6">
-                    <FiShoppingCart className="text-gray-600 text-xl cursor-pointer" />
-                    <FiUser className="text-gray-600 text-xl cursor-pointer" />
-                </div>
+                {/* Register Button */}
+                <button className="hidden md:block bg-blue-600 rounded-xl px-5 py-2 font-semibold text-white">
+                    Register
+                </button>
             </div>
         </motion.div>
     );

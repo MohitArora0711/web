@@ -1,3 +1,5 @@
+import Footer from "@/components/common/Footer";
+import Navbar from "@/components/common/navbar";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
@@ -22,11 +24,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+    <html lang="en" className="bg-white">
+      <body>
+        <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );

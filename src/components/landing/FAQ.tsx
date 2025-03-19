@@ -5,14 +5,14 @@ import { motion } from "framer-motion";
 const FAQ = () => {
     return (
         <motion.div
-            className="px-24 pb-20"
+            className="md:px-24 px-5 pb-20"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true }}
         >
             <section className="py-12 ">
-                <div className="mx-auto">
+                <div className="md:mx-auto">
                     <h2 className="text-xl font-semibold text-gray-900">
                         Creative Freedom
                     </h2>
@@ -39,28 +39,28 @@ const FAQ = () => {
                     >
                         {[
                             {
-                                title: "Can I upgrade my subscription?",
-                                text: "Absolutely! Upgrading your subscription plan with Slate is a breeze. Simply log into your account, navigate to the billing section."
+                                title: "How can I register for the festival?",
+                                text: "Registering for the Delhi University Literature Festival is simple! Click on the 'Register' button, fill in your details, download your festival pass, and you’re all set!"
                             },
                             {
-                                title: "Can I cancel my subscription?",
-                                text: "Of course! We believe in offering flexibility to our valued customers. If you decide to cancel your subscription with Slate,"
+                                title: "Is there an entry fee for the festival?",
+                                text: "No, the festival is absolutely free for all attendees! However, prior registration is required to secure your spot."
                             },
                             {
-                                title: "Does Slate offer a free trial period?",
-                                text: "Yes, indeed! We understand that getting started with a new SaaS platform can be overwhelming."
+                                title: "Will there be a live stream of the sessions?",
+                                text: "Yes! For those who can’t make it in person, selected sessions will be streamed live on our official YouTube channel and social media handles."
                             },
                             {
-                                title: "Does Slate offer a free trial period?",
-                                text: "Of course! We believe in offering flexibility to our valued customers. If you decide to cancel your subscription with Slate,"
+                                title: "Can I get a certificate for attending the festival?",
+                                text: "Yes, attendees can receive a participation certificate. Make sure to check in at the venue or attend live sessions online to be eligible."
                             },
                             {
-                                title: "Can I upgrade my subscription?",
-                                text: "Yes, indeed! We understand that getting started with a new SaaS platform can be overwhelming."
+                                title: "Who are the keynote speakers for 2025?",
+                                text: "This year, we are honored to host distinguished speakers including Dr. S. Jaishankar, A. Rajarajan, Hardeep Singh Puri, Amb. Lakshmi Puri, and many more!"
                             },
                             {
-                                title: "Add your question title here?",
-                                text: "Absolutely! Upgrading your subscription plan with Slate is a breeze. Simply log into your account, navigate to the billing section."
+                                title: "What are the festival dates and venue?",
+                                text: "The Delhi University Literature Festival 2025 will take place on **February 21-23, 2025**, at **Shri Ram College of Commerce, University of Delhi**."
                             }
                         ].map((faq, index) => (
                             <motion.div

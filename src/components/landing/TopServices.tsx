@@ -4,10 +4,15 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 const services = [
-    { title: "Salon Booking", image: "/landing/img1.jpg" },
-    { title: "Doctor Appointment", image: "/landing/img2.jpg" },
-    { title: "Spa & Wellness", image: "/landing/img3.jpg" },
-    { title: "Fitness Trainer", image: "/landing/img8.jpg" },
+    { title: "Dr. S. Jaishankar", image: "/speaker/img1.png" },
+    { title: "Dr. S. Jaishankar", image: "/speaker/img1.png" },
+    { title: "Dr. S. Jaishankar", image: "/speaker/img1.png" },
+    { title: "Dr. S. Jaishankar", image: "/speaker/img1.png" },
+    { title: "Dr. S. Jaishankar", image: "/speaker/img1.png" },
+    { title: "Dr. S. Jaishankar", image: "/speaker/img1.png" },
+    { title: "Dr. S. Jaishankar", image: "/speaker/img1.png" },
+    { title: "Dr. S. Jaishankar", image: "/speaker/img1.png" },
+   
 ];
 
 export default function TopServices() {
@@ -35,29 +40,38 @@ export default function TopServices() {
                         </div>
                     </div>
                 </div>
-                <div className="mt-10 grid grid-cols-4 gap-6">
+                <div className="mt-10 grid grid-cols-4 gap-20">
                     {services.map((service, index) => (
                         <div key={index} className="relative group">
-                            <div className="relative h-[300px] rounded-[30px] overflow-hidden">
-                                <Image
-                                    src={service.image}
-                                    alt={service.title}
-                                    layout="fill"
-                                    objectFit="cover"
-                                    className="transition-transform duration-500 group-hover:scale-105"
-                                />
-                                <div className="absolute inset-0 bg-black/40"></div>
-                            </div>
-                            <div className="absolute bottom-5 left-5">
-                                <div className="px-2 py-2 text-sm text-white bg-white/30 backdrop-blur-lg font-bold rounded-full gap-2 flex">
-                                    <img className="w-5 h-5 bg-white/80 backdrop-blur-lg rounded-full" src="/landing/arrow.png" alt="" />
-                                    {service.title}
+                            <a href="">
+                                <div className="relative h-[300px] rounded-[30px] overflow-hidden">
+                                    <Image
+                                        src={service.image}
+                                        alt={service.title}
+                                        layout="fill"
+                                        objectFit="cover"
+                                        className="transition-transform duration-500 group-hover:scale-105"
+                                    />
+                                    <div className="absolute inset-0 bg-black/10"></div>
                                 </div>
-                            </div>
+                                <div className="absolute bottom-5 left-5">
+
+                                    <div className="px-2 py-2 text-sm text-white bg-white/30 backdrop-blur-lg font-bold rounded-full gap-2 flex">
+                                        <img className="w-5 h-5 bg-white/80 backdrop-blur-lg rounded-full" src="/landing/arrow.png" alt="" />
+                                        {service.title}
+                                    </div>
+                                </div>
+                            </a>
                         </div>
                     ))}
                 </div>
             </div>
+            <a 
+    href="#"
+    className="font-bold rounded-2xl cursor-pointer my-5 mt-16 text-blue-600 underline hover:text-blue-800"
+>
+    Show More...
+</a>
         </motion.section>
     );
 }
