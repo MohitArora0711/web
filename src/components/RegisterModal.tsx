@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X } from "lucide-react";
+import { Loader, X } from "lucide-react";
 import Image from "next/image";
 
 interface RegisterModalProps {
@@ -23,8 +23,11 @@ export function RegisterModal({ isOpen, onClose }: RegisterModalProps) {
     });
     const [isSubmitted, setIsSubmitted] = useState(false);
 
+    const [isLoading, setisLoading] = useState(false);
+
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        setisLoading(true);
         await fetch("/api/register", {
             method: 'POST',
             headers: {
@@ -34,6 +37,7 @@ export function RegisterModal({ isOpen, onClose }: RegisterModalProps) {
         }).then((res) => {
             if (res.ok) {
                 setIsSubmitted(true);
+                setisLoading(false);
             }
         })
     };
@@ -206,12 +210,14 @@ export function RegisterModal({ isOpen, onClose }: RegisterModalProps) {
                                             </div>
                                         </div>
 
-                                        <button
+                                        {isLoading ? <div className="w-full bg-blue-600 p-3 flex justify-center items-center rounded-xl">
+                                            <Loader color="white" className="animate-spin duration-1000"/>
+                                        </div> :<button
                                             type="submit"
                                             className="w-full py-3 px-4 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition-colors shadow-lg shadow-blue-500/20 hover:shadow-blue-500/30"
                                         >
                                             Register Now
-                                        </button>
+                                        </button>}
                                     </form>
                                 ) : (
                                     <motion.div
@@ -241,6 +247,7 @@ export function RegisterModal({ isOpen, onClose }: RegisterModalProps) {
                                         <button
                                             onClick={() => {
                                                 setIsSubmitted(false);
+                                                setisLoading(false);
                                                 setFormData({
                                                     festivalDate: "",
                                                     name: "",

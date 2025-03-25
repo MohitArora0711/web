@@ -9,6 +9,8 @@ import InfiniteCarousel from "@/components/landing/Slider";
 import Step from "@/components/landing/Step";
 import TabsComponent from "@/components/landing/Tabs";
 import TopServices from "@/components/landing/TopServices";
+import { Analytics } from "@vercel/analytics/react"
+
 export default function Home() {
 
 
@@ -47,6 +49,7 @@ export default function Home() {
         <FAQ />
         <Hero />
         <Footer />
+        <Analytics />
       </div>
     </>
   );
