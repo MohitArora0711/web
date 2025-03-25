@@ -5,13 +5,14 @@ const OurHero = () => {
         <section className="flex flex-col md:flex-row md:text-center text-left md:items-center md:justify-between px-8 md:px-16 lg:px-24 py-32">
             <div className="md:w-1/2 text-left ">
             {/* <Image src="/landing/dulogo.svg" alt=""  width={500} height={2}/> */}
-            <h1 className="text-7xl font-bold text-blue-600">Delhi Startup Submmit <span className="text-yellow-500">2025</span> </h1>
+            <h1 className="text-7xl font-bold text-blue-600">Delhi Startup  <span className="text-yellow-500">Submmit </span>2025 </h1>
                 <h1 className="text-tex md:text-5xl font-bold text-blue-700 mb-2 mt-5">
                     <span className="text-gray-700 text-xl md:text-2xl font-semibold ">APR</span>  25 - 26 - 27 <span className="text-gray-700 text-xl md:text-2xl font-semibold ">2025</span>
                 </h1>
                 <div className="w-20 border-t-2 border-gray-400 mx-auto mb-3"></div>
                 <h2 className="text-xl md:text-2xl font-bold text-gray-900 md:my-4">
                 UNIVERSITY OF DELHI
+
 
                 </h2>
                 <h3 className="text-lg text-blue-700 font-bold">

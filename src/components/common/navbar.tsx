@@ -3,7 +3,12 @@ import { motion } from "framer-motion";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
 import Image from "next/image";
+import { useState } from "react";
+import { RegisterModal } from "../RegisterModal";
+
 export default function Navbar() {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
     return (
         <motion.div
             initial={{ opacity: 0, y: -20 }}
@@ -61,10 +66,18 @@ export default function Navbar() {
                         </SheetContent>
                     </Sheet>
                 </div>
-                <button className="hidden md:block bg-blue-600 rounded-xl px-5 py-2 font-semibold text-white">
+                <button 
+                    onClick={() => setIsModalOpen(true)}
+                    className="hidden md:block bg-blue-600 hover:bg-blue-700 transition-colors rounded-xl px-5 py-2 font-semibold text-white"
+                >
                     Register
                 </button>
             </div>
+
+            <RegisterModal 
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+            />
         </motion.div>
     );
 }

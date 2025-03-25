@@ -20,12 +20,8 @@ const Footer = () => {
                         viewport={{ once: true }}
                     >
                         <div className="max-w-[300px]">
-                            {/* <h2 className="text-2xl font-bold">Neecop</h2> */}
-                            <Image
-                                src="/landing/dulogo.svg"
-                                alt="Logo"
-                                width={100}
-                                height={50} />
+                            <h2 className="text-2xl font-bold">Delhi Startup Summit </h2>
+                            
                             <p className="text-gray-400 mt-2">
                                 Bridging Future Partnerships through right access to investors, partners and mentors.
                             </p>
