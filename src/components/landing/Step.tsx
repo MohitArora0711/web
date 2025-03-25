@@ -23,9 +23,9 @@ const Step = () => {
                     <p className="text-gray-600 mb-6 font-semibold">
                         Get ready for an unforgettable experience filled with music, dance, art, and literature. Be a part of DU’s grandest cultural fest!
                     </p>
-                    <button className="bg-blue-600 text-white font-semibold py-3 px-6 rounded-full shadow-lg hover:bg-blue-700 transition">
+                    {/* <button className="bg-blue-600 text-white font-semibold py-3 px-6 rounded-full shadow-lg hover:bg-blue-700 transition">
                         Register Now
-                    </button>
+                    </button> */}
                 </motion.div>
                 <div className="hidden md:block w-full mt-10">
                 <Image src={stepImage} alt="step" width={800} height={600} className="w-[90%] h-auto relative top-[-260px]" />

@@ -13,15 +13,15 @@ export default function Navbar() {
         <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="fixed top-0 left-0 right-0 z-50 bg-white/30 backdrop-blur-lg shadow-md"
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="fixed top-0 left-0 right-0 z-50 w-screen bg-white/30 backdrop-blur-lg shadow-md"
         >
             <div className="px-6 md:px-20 py-3 flex items-center justify-between">
                 <Image
-                    className="text-xl font-bold cursor-pointer w-10"
-                    src="/landing/logodulit.png" alt="du fest "
-                    width={10}
-                    height={10}
+                    className="text-xl font-bold cursor-pointer rounded-full w-16 h-16"
+                    src="/logo.png" alt="du fest "
+                    width={100}
+                    height={100}
                 />
 
                 <div className="hidden md:flex space-x-6">
