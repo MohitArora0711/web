@@ -6,7 +6,7 @@ export async function POST(req: NextRequest) {
   const uri = process.env.MONGO_URI;
 
 
-  const client = new MongoClient(uri!!, {
+  const client = new MongoClient(uri!, {
     serverApi: {
       version: ServerApiVersion.v1,
       strict: true,
@@ -24,6 +24,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ message: "Data saved successfully !" }, { status: 200 });
   } catch (error) {
+    console.log(error)
     return NextResponse.json({ message: "Something went wrong !" }, { status: 500 });
   } finally {
     await client.close();
