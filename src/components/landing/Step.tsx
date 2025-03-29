@@ -2,7 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import stepImage from "../../../public/landing/step.png"; 
+import stepImage from "../../../public/landing/step.png";
 const Step = () => {
     return (
         <div className="relative md:px-[100px] md:py-32 px-4 py-32">
@@ -15,10 +15,11 @@ const Step = () => {
                     className="title-section w-full text-center  md:max-w-[400px] md:text-left"
                 >
                     <p className="text-blue-500 uppercase font-semibold text-sm mb-2">
-                        DELHI UNIVERSITY CULTURAL FEST 2025
-                    </p>
+                        Delhi Startup Summit 2025
+                     </p>
                     <h1 className="text-4xl font-bold text-gray-900 leading-tight mb-4">
-                        Join the most exciting <br /> cultural festival of the year!
+
+                        Join the most exciting  <br /> <span>startup conclave </span> of the year!
                     </h1>
                     <p className="text-gray-600 mb-6 font-semibold">
                         Get ready for an unforgettable experience filled with music, dance, art, and literature. Be a part of DU’s grandest cultural fest!
@@ -28,8 +29,8 @@ const Step = () => {
                     </button>
                 </motion.div>
                 <div className="hidden md:block w-full mt-10">
-                <Image src={stepImage} alt="step" width={800} height={600} className="w-[90%] h-auto relative top-[-260px]" />
-                <div className="absolute">
+                    <Image src={stepImage} alt="step" width={800} height={600} className="w-[90%] h-auto relative top-[-260px]" />
+                    <div className="absolute">
                         <div className="relative w-[270px] top-[-450px] left-[340px] text-[200px] font-bold text-[#1E5EFF] opacity-10">
                             1
                         </div>

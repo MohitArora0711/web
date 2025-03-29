@@ -28,14 +28,14 @@ export default function TopServices() {
                     <div className="flex flex-col w-full">
                         <div>
                             <span className="px-3 py-1 text-xs font-semibold bg-gray-200 rounded-full">
-                                Delhi University Literature Festival
+                            Delhi Startup Summit 2025
                             </span>
                         </div>
                         <div className="flex flex-row justify-between w-full">
-                            <h2 className="text-4xl font-bold mt-4">Our Prominiaent Speaker</h2>
-                            <p className="text-gray-600 max-w-md text-sm">
+                            <h2 className="text-4xl font-bold mt-4">Our Prominent Speaker</h2>
+                            {/* <p className="text-gray-600 max-w-md text-sm">
                                 Simplify your bookings! Whether it’s a salon visit, a doctor’s appointment, or a fitness session, we make scheduling easy and hassle-free.
-                            </p>
+                            </p> */}
                         </div>
                     </div>
                 </div>

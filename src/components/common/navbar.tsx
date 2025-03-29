@@ -17,13 +17,15 @@ export default function Navbar() {
             className="fixed top-0 left-0 right-0 z-50 bg-white/30 backdrop-blur-lg shadow-md"
         >
             <div className="px-6 md:px-20 py-3 flex items-center justify-between">
-                <Image
+                {/* <Image
                     className="text-xl font-bold cursor-pointer w-10"
                     src="/landing/logodulit.png" alt="du fest "
                     width={10}
                     height={10}
-                />
+                /> */}
+                <h1 className="font-bold ">Delhi Startup Summit 2025
 
+                </h1>
                 <div className="hidden md:flex space-x-6">
                     {[{ name: "Home", link: "/" },
                     { name: "Speaker", link: "/speaker" },
@@ -66,7 +68,7 @@ export default function Navbar() {
                         </SheetContent>
                     </Sheet>
                 </div>
-                <button 
+                <button
                     onClick={() => setIsModalOpen(true)}
                     className="hidden md:block bg-blue-600 hover:bg-blue-700 transition-colors rounded-xl px-5 py-2 font-semibold text-white"
                 >
@@ -74,7 +76,7 @@ export default function Navbar() {
                 </button>
             </div>
 
-            <RegisterModal 
+            <RegisterModal
                 isOpen={isModalOpen}
                 onClose={() => setIsModalOpen(false)}
             />
