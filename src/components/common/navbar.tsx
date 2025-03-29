@@ -6,33 +6,40 @@ import Image from "next/image";
 import { useState } from "react";
 import { RegisterModal } from "../RegisterModal";
 
+interface NavItem {
+    name: string;
+    link: string;
+}
+
 export default function Navbar() {
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
+    const navItems: NavItem[] = [
+        { name: "Home", link: "/" },
+        { name: "Speaker", link: "/speaker" },
+        { name: "Program", link: "/program" },
+        { name: "Partner", link: "/partner" },
+        { name: "House Of Fiction", link: "/house-of-fiction" },
+    ];
 
     return (
         <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="fixed top-0 left-0 right-0 z-50 bg-white/30 backdrop-blur-lg shadow-md"
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="fixed top-0 left-0 right-0 z-50 w-screen bg-white/30 backdrop-blur-lg shadow-md"
         >
             <div className="px-6 md:px-20 py-3 flex items-center justify-between">
-                {/* <Image
-                    className="text-xl font-bold cursor-pointer w-10"
-                    src="/landing/logodulit.png" alt="du fest "
-                    width={10}
-                    height={10}
-                /> */}
-                <h1 className="font-bold ">Delhi Startup Summit 2025
+                <Image
+                    className="text-xl font-bold cursor-pointer rounded-full w-16 h-16"
+                    src="/logo.png"
+                    alt="du fest"
+                    width={100}
+                    height={100}
+                />
 
-                </h1>
                 <div className="hidden md:flex space-x-6">
-                    {[{ name: "Home", link: "/" },
-                    { name: "Speaker", link: "/speaker" },
-                    { name: "Program", link: "/program" },
-                    { name: "Partner", link: "/partner" },
-                    { name: "House Of Fiction", link: "/house-of-fiction" }
-                    ].map((item) => (
+                    {navItems.map((item) => (
                         <a
                             key={item.name}
                             href={item.link}
@@ -50,12 +57,7 @@ export default function Navbar() {
                         </SheetTrigger>
                         <SheetContent side="left" className="p-6">
                             <div className="flex flex-col space-y-4">
-                                {[{ name: "Home", link: "/" },
-                                { name: "Speaker", link: "/speaker" },
-                                { name: "Program", link: "/program" },
-                                { name: "Partner", link: "/partner" },
-                                { name: "House Of Fiction", link: "/house-of-fiction" }
-                                ].map((item) => (
+                                {navItems.map((item) => (
                                     <a
                                         key={item.name}
                                         href={item.link}

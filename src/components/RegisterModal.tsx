@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X } from "lucide-react";
+import { Loader, X } from "lucide-react";
 import Image from "next/image";
 
 interface RegisterModalProps {
@@ -23,10 +23,23 @@ export function RegisterModal({ isOpen, onClose }: RegisterModalProps) {
     });
     const [isSubmitted, setIsSubmitted] = useState(false);
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const [isLoading, setisLoading] = useState(false);
+
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        // Here you would typically send the data to your backend
-        setIsSubmitted(true);
+        setisLoading(true);
+        await fetch("/api/register", {
+            method: 'POST',
+            headers: {
+                'Content-Type': "application/json"
+            },
+            body: JSON.stringify(formData)
+        }).then((res) => {
+            if (res.ok) {
+                setIsSubmitted(true);
+                setisLoading(false);
+            }
+        })
     };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -43,13 +56,13 @@ export function RegisterModal({ isOpen, onClose }: RegisterModalProps) {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    className="absolute inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm h-screen "
+                    className="absolute inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm h-screen max-sm:pt-96"
                 >
-                    <motion.div 
+                    <motion.div
                         initial={{ scale: 0.9, opacity: 0 }}
                         animate={{ scale: 1, opacity: 1 }}
                         exit={{ scale: 0.9, opacity: 0 }}
-                        className="absolute h-[45rem] m-5 scrollbar-thin   md:top-[50px]  -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl bg-white rounded-2xl shadow-xl overflow-y-auto"
+                        className="absolute h-fit m-5 scrollbar-thin   md:top-[50px]  -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl bg-white rounded-2xl shadow-xl overflow-y-auto text-start"
                     >
                         <button
                             onClick={onClose}
@@ -60,7 +73,7 @@ export function RegisterModal({ isOpen, onClose }: RegisterModalProps) {
 
                         <div className="flex flex-col md:flex-row">
                             {/* Left side - Image */}
-                            <div className="hidden md:block w-1/2 relative">
+                            <div className="hidden md:block w-2/3 relative">
                                 <Image
                                     src="/landing/img1.jpg"
                                     alt="Registration"
@@ -76,7 +89,7 @@ export function RegisterModal({ isOpen, onClose }: RegisterModalProps) {
                             </div>
 
                             {/* Right side - Form */}
-                            <div className="w-full md:w-1/2 p-6 md:p-8">
+                            <div className="w-full p-6 md:p-8">
                                 {!isSubmitted ? (
                                     <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
                                         <div className="md:hidden mb-6">
@@ -84,7 +97,7 @@ export function RegisterModal({ isOpen, onClose }: RegisterModalProps) {
                                             <p className="text-gray-600 mt-2">Experience the biggest cultural festival of Delhi University</p>
                                         </div>
                                         <h2 className="text-2xl font-bold text-gray-800 mb-6 hidden md:block">Registration Form</h2>
-                                        
+
                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                                             <div className="space-y-1.5 md:space-y-2">
                                                 <label className="text-sm font-medium text-gray-700">Festival Date *</label>
@@ -197,12 +210,14 @@ export function RegisterModal({ isOpen, onClose }: RegisterModalProps) {
                                             </div>
                                         </div>
 
-                                        <button
+                                        {isLoading ? <div className="w-full bg-blue-600 p-3 flex justify-center items-center rounded-xl">
+                                            <Loader color="white" className="animate-spin duration-1000"/>
+                                        </div> :<button
                                             type="submit"
                                             className="w-full py-3 px-4 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition-colors shadow-lg shadow-blue-500/20 hover:shadow-blue-500/30"
                                         >
                                             Register Now
-                                        </button>
+                                        </button>}
                                     </form>
                                 ) : (
                                     <motion.div
@@ -232,6 +247,7 @@ export function RegisterModal({ isOpen, onClose }: RegisterModalProps) {
                                         <button
                                             onClick={() => {
                                                 setIsSubmitted(false);
+                                                setisLoading(false);
                                                 setFormData({
                                                     festivalDate: "",
                                                     name: "",

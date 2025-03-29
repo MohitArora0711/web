@@ -1,7 +1,7 @@
 "use client"
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { motion } from "framer-motion";
-import Image from "next/image";
+// import Image from "next/image";
 const Footer = () => {
     return (
         <motion.div
@@ -9,7 +9,7 @@ const Footer = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true }}
-            className="bg-blue-900 pt-32 pb-20 px-40 max-sm:px-10 max-sm:py-20 m-2 md:m-5 rounded-[40px] justify-stretch flex"
+            className="bg-blue-900 p-20 max-sm:px-10 max-sm:py-20 m-2 md:m-5 rounded-[40px] justify-stretch flex"
         >
             <footer className="text-white flex-col px-6 md:px-16 max-sm:p-0 flex justify-between w-full">
                 <div className="flex flex-col md:flex-row justify-between items-center gap-6">
@@ -48,9 +48,9 @@ const Footer = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
                     viewport={{ once: true }}
-                    className="mx-auto flex flex-col items-center text-gray-400 text-sm w-full justify-between"
+                    className="mx-auto flex flex-col items-end text-gray-400 text-sm w-full justify-between"
                 >
-                    <div className="min-w-[300px] max-sm:w-full max-sm:items-center flex flex-col gap-6 mr-20 max-sm:m-0 items-start">
+                    <div className="min-w-[300px] max-sm:w-full max-sm:items-center flex flex-col gap-6 mr-20 max-sm:m-0 items-end">
                         <div className="flex gap-8 mb-4 md:mb-0">
                             <FaFacebookF className="cursor-pointer text-2xl hover:text-white transition duration-300" />
                             <FaTwitter className="cursor-pointer text-2xl hover:text-white transition duration-300" />
@@ -61,7 +61,7 @@ const Footer = () => {
                         </div>
                     </div>
 
-                    <div className="flex justify-around items-center  max-sm:flex-row md:flex-row gap-25 max-sm:gap-8 max-sm:pt-12 p-5  w-full">
+                    {/* <div className="flex justify-around items-center  max-sm:flex-row md:flex-row gap-25 max-sm:gap-8 max-sm:pt-12 p-5  w-full">
                         <motion.div
                             initial={{ opacity: 0, x: -30 }}
                             whileInView={{ opacity: 1, x: 0 }}
@@ -89,7 +89,7 @@ const Footer = () => {
                                 <li>Register</li>
                             </ul>
                         </motion.div>
-                    </div>
+                    </div> */}
                 </motion.div>
             </footer>
         </motion.div>
