@@ -9,6 +9,7 @@ import InfiniteCarousel from "@/components/landing/Slider";
 import Step from "@/components/landing/Step";
 import TabsComponent from "@/components/landing/Tabs";
 import TopServices from "@/components/landing/TopServices";
+import NewHero from "@/components/newlanding/newhero";
 import { Analytics } from "@vercel/analytics/react"
 
 export default function Home() {
@@ -29,7 +30,8 @@ export default function Home() {
     <>
       <div className="bg-white" >
         <Navbar />
-        <OurHero />
+        {/* <OurHero /> */}
+        <NewHero/>
         <div className="hidden md:block">
           <TabsComponent />
         </div>
