@@ -11,13 +11,13 @@ const Counter = () => {
         const now = new Date().getTime();
         const difference = eventDate - now;
 
-        if (difference <= 0) return { days: 0, hours: 0, minutes: 0 };
+        if (difference <= 0) return [0, 0, 0];
 
-        return {
-            days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-            hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-            minutes: Math.floor((difference / (1000 * 60)) % 60),
-        };
+        return [
+            Math.floor(difference / (1000 * 60 * 60 * 24)),
+            Math.floor((difference / (1000 * 60 * 60)) % 24),
+            Math.floor((difference / (1000 * 60)) % 60),
+        ];
     }
 
     useEffect(() => {
@@ -28,22 +28,22 @@ const Counter = () => {
     }, []);
 
     return (
-        <motion.section 
+        <motion.section
             className="px-4 md:px-28 py-32"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true }}
         >
-            <motion.div 
+            <motion.div
                 className="flex flex-col md:flex-row items-start justify-between md:items-start mb-12"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
-                // viewport={{ once: true }}
+            // viewport={{ once: true }}
             >
                 <div>
-                    <motion.h2 
+                    <motion.h2
                         className="text-6xl md:text-8xl font-bold leading-tight"
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -53,7 +53,7 @@ const Counter = () => {
                         REGISTER
                     </motion.h2>
                     <div className="flex gap-8 justify-center">
-                        <motion.h2 
+                        <motion.h2
                             className="text-6xl md:text-8xl font-bold leading-tight"
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
@@ -62,7 +62,7 @@ const Counter = () => {
                         >
                             NOW
                         </motion.h2>
-                        <motion.button 
+                        <motion.button
                             className="flex items-center justify-center md:mt-12 gap-2 my-8 px-6 py-3 text-white font-medium text-lg rounded-full bg-gradient-to-br from-[#C512F8] to-[#00CFC3] shadow-lg transition-transform transform hover:scale-105"
                             initial={{ opacity: 0, scale: 0.8 }}
                             whileInView={{ opacity: 1, scale: 1 }}
@@ -73,7 +73,7 @@ const Counter = () => {
                         </motion.button>
                     </div>
                 </div>
-                <motion.div 
+                <motion.div
                     className="flex flex-col items-end"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -87,7 +87,7 @@ const Counter = () => {
                 </motion.div>
             </motion.div>
 
-            <motion.div 
+            <motion.div
                 className="bg-black text-white p-10 md:py-20 rounded-3xl flex md:justify-between md:items-center relative h-[300px] overflow-hidden"
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -98,7 +98,7 @@ const Counter = () => {
                     <p className="text-gray-400 text-sm">The event will start in...</p>
                     <div className="flex items-right gap-6 font-bold mt-2">
                         {['days', 'hours', 'minutes'].map((unit, index) => (
-                            <motion.div 
+                            <motion.div
                                 key={unit}
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
@@ -106,7 +106,7 @@ const Counter = () => {
                                 viewport={{ once: true }}
                             >
                                 <div>
-                                    <span className="text-6xl md:text-9xl ">{String(timeLeft[unit]).padStart(2, "0")}</span>
+                                    <span className="text-6xl md:text-9xl ">{String(timeLeft[index]).padStart(2, "0")}</span>
                                     {unit !== 'minutes' && <span className="text-6xl md:text-9xl ">:</span>}
                                 </div>
                                 <span>{unit.toUpperCase()}</span>
