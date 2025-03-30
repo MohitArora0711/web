@@ -9,9 +9,9 @@ const Footer = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true }}
-            className="bg-blue-900 p-20 max-sm:px-10 max-sm:py-20 m-2 md:m-5 rounded-[40px] justify-stretch flex"
+            className="bg-black p-24 max-sm:px-10 max-sm:py-20 m-2 md:m-5 rounded-[40px] justify-stretch flex overflow-hidden relative"
         >
-            <footer className="text-white flex-col px-6 md:px-16 max-sm:p-0 flex justify-between w-full">
+            <div className="text-white flex-col md:flex-row px-6 md:px-16 max-sm:p-0 flex justify-between w-full mb-8">
                 <div className="flex flex-col md:flex-row justify-between items-center gap-6">
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}
@@ -21,7 +21,7 @@ const Footer = () => {
                     >
                         <div className="max-w-[300px]">
                             <h2 className="text-2xl font-bold">Delhi Startup Summit </h2>
-                            
+
                             <p className="text-gray-400 mt-2">
                                 Bridging Future Partnerships through right access to investors, partners and mentors.
                             </p>
@@ -48,11 +48,11 @@ const Footer = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
                     viewport={{ once: true }}
-                    className="mx-auto flex flex-col items-end text-gray-400 text-sm w-full justify-between"
+                    className="mx-auto flex flex-col  items-end text-gray-400 text-sm justify-end"
                 >
                     <div className="min-w-[300px] max-sm:w-full max-sm:items-center flex flex-col gap-6 mr-20 max-sm:m-0 items-end">
-                        <div className="flex gap-8 mb-4 md:mb-0">
-                            <FaFacebookF className="cursor-pointer text-2xl hover:text-white transition duration-300" />
+                        <div className="flex gap-12 mb-4 md:mb-0">
+                            <FaFacebookF className="cursor-pointer text-2xl   hover:text-white transition duration-300" />
                             <FaTwitter className="cursor-pointer text-2xl hover:text-white transition duration-300" />
                             <FaInstagram className="cursor-pointer text-2xl hover:text-white transition duration-300" />
                             <a target="_blank" href="https://www.linkedin.com/company/neecop/posts/?feedView=all">
@@ -61,37 +61,14 @@ const Footer = () => {
                         </div>
                     </div>
 
-                    {/* <div className="flex justify-around items-center  max-sm:flex-row md:flex-row gap-25 max-sm:gap-8 max-sm:pt-12 p-5  w-full">
-                        <motion.div
-                            initial={{ opacity: 0, x: -30 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.8, ease: "easeOut" }}
-                            viewport={{ once: true }}
-                            className="space-y-8"
-                        >
-                            <h4 className="font-medium text-white">Product</h4>
-                            <ul className=" space-y-8 max-sm:space-y-5">
-                                <li>Home</li>
-                                <li>Partner</li>
-
-                            </ul>
-                        </motion.div>
-                        <motion.div
-                            initial={{ opacity: 0, x: -30 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.8, ease: "easeOut" }}
-                            viewport={{ once: true }}
-                            className="space-y-8"
-                        >
-                            <h4 className="font-medium text-white">Product</h4>
-                            <ul className=" space-y-8 max-sm:space-y-5">
-                                <li>Sponser</li>
-                                <li>Register</li>
-                            </ul>
-                        </motion.div>
-                    </div> */}
                 </motion.div>
-            </footer>
+                <h1 className="md:hidden  absolute left-5  text-[23vw] bottom-[-4vh] o font-bold bg-gradient-to-b from-gray-500 to-black bg-clip-text text-transparent">
+                    NEECOP
+                </h1>
+            </div>
+            <h1 className="hidden md:block absolute left-12  text-[23vw] bottom-[-38vh] o font-bold bg-gradient-to-b from-gray-600 to-black bg-clip-text text-transparent">
+                NEECOP
+            </h1>
         </motion.div>
     );
 };

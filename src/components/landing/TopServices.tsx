@@ -28,7 +28,7 @@ export default function TopServices() {
                     <div className="flex flex-col w-full">
                         <div>
                             <span className="px-3 py-1 text-xs font-semibold bg-gray-200 rounded-full">
-                            Delhi Startup Summit 2025
+                                Delhi Startup Summit 2025
                             </span>
                         </div>
                         <div className="flex flex-row justify-between w-full">

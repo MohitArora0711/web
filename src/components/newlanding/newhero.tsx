@@ -1,58 +1,45 @@
 'use client';
 
 import Image from 'next/image';
+import { ArrowUpRight } from "lucide-react";
 
 export default function NewHero() {
     return (
-        <section className="relative flex flex-col items-center justify-center text-center py-20 px-5 bg-[#f9f6f3]">
-            {/* Gradient Border */}
-            <div className="relative p-10 max-w-3xl w-full shadow-lg bg-white rounded-2xl"
+        <section className=" w-full flex flex-col items-center justify-center text-center pt-8 px-2 md:px-28  ">
+            <div className="relative  md:p-10 w-full shadow-lg py-10"
                 style={{
-                    border: '4px solid transparent',
-                    borderRadius: '16px',
+                    border: '3px solid transparent',
+                    borderRadius: '30px',
                     backgroundClip: 'padding-box, border-box',
                     backgroundImage: 'linear-gradient(white, white), linear-gradient(135deg, #C512F8, #00CFC3)',
                 }}>
-                
-                {/* University of Delhi Text */}
-                <div className="absolute top-4 left-4 text-xs font-semibold text-purple-600">
-                    <span className="text-purple-900">UNIVERSITY OF</span> DELHI
+
+                <div className=" px-20 py-10 md:absolute top-4 left-4 text-bold bg-gradient-to-b from-[#C512F8] to-[#00CFC3] text-transparent bg-clip-text md:text-left font-bold text-2xl">
+                    UNIVERSITY OF <br /> DELHI
                 </div>
-
-                {/* Main Logo with Peacock */}
-                <div className="flex flex-col items-center">
-                    <Image src="/logo.png" alt="Delhi Startup Summit 2025" width={300} height={300} />
+                <div className="flex justify-center items-start gap-2">
+                    <Image src="/neecop.png" alt="Delhi Startup Summit 2025" width={400} height={400} />
+                    <Image className='hidden md:block md:absolute left-[65%]' src="/landing/rocket.png" alt="Delhi Startup Summit 2025" width={80} height={80} />
                 </div>
-
-                {/* Gradient Text for Event Name */}
-                <h1 className="text-4xl font-bold mt-4 bg-gradient-to-r from-[#C512F8] to-[#00CFC3] text-transparent bg-clip-text">
-                    DELHI STARTUP SUMMIT 2025
-                </h1>
-
-                {/* Event Date */}
-                <div className="absolute top-4 right-4 text-xs font-semibold text-gray-700">
+                <div className=" text-2xl px-20 py-5 md:py-10 text-center md:absolute top-[30%] right-12 text-bold bg-gradient-to-b bg-clip-text  " >
                     <p>April</p>
-                    <p className="text-blue-600 text-lg font-bold">25-26-27</p>
+                    <p className="font-bold bg-gradient-to-b from-[#C512F8] to-[#00CFC3] text-transparent bg-clip-text  text-3xl ">25-26-27</p>
                     <p>2025</p>
                 </div>
 
-                {/* Bottom Text */}
-                <div className="mt-5 text-gray-700">
-                    <p className="text-lg font-semibold">Student-led initiatives</p>
+                <div className=" px-20 py-5 md:py-10 md:absolute bottom-4 left-4 text-bold bg-gradient-to-b from-[#C512F8] to-[#00CFC3] text-transparent bg-clip-text md:text-left font-bold text-2xl">
+                    Kirori Mal College, <br /> University of Delhi
+                </div>
+                <div className="mt-5 text-gray-700 flex items-center justify-center gap-2 w-full flex-col">
+                    <p className="text-xl font-bold">Student-led Initiatives</p>
                     <p className="text-sm">Powered by</p>
-                    <p className="text-xl font-bold text-blue-600">neecop</p>
-                </div>
-
-                {/* KMC , DU */}
-                <div className="absolute bottom-4 left-4 text-lg font-semibold text-blue-600">
-                    KMC , DU
-                </div>
-
-                {/* Small Icon in Top Right */}
-                <div className="absolute top-6 right-10">
-                    <Image src="/icon.png" alt="Small Icon" width={20} height={20} />
+                    <Image src="/neecoplogo.png" alt="" width={150} height={150} />
                 </div>
             </div>
+            <button className="flex items-center justify-center gap-2 my-8 px-6 py-3 text-white font-medium text-lg rounded-full bg-gradient-to-br from-[#C512F8] to-[#00CFC3] shadow-lg transition-transform transform hover:scale-105">
+                Register now <ArrowUpRight size={20} />
+            </button>
+
         </section>
     );
 }

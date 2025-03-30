@@ -1,14 +1,14 @@
 "use client"
 import Footer from "@/components/common/Footer";
 import Navbar from "@/components/common/navbar";
-import FAQ from "@/components/landing/FAQ";
-import Hero from "@/components/landing/hero";
-// import HeroBanner from "@/components/landing/HeroBanner";
-import OurHero from "@/components/landing/OurHero";
+import AboutUs from "@/components/landing/AboutUs";
+import Agenda from "@/components/landing/Agenda";
+import Contact from "@/components/landing/Contact";
+import Counter from "@/components/landing/Counter";
+import Features from "@/components/landing/Feature";
 import InfiniteCarousel from "@/components/landing/Slider";
-import Step from "@/components/landing/Step";
-import TabsComponent from "@/components/landing/Tabs";
-import TopServices from "@/components/landing/TopServices";
+import SpeakerSection from "@/components/landing/Speaker"
+import WhyAttend from "@/components/landing/WhyAttend";
 import NewHero from "@/components/newlanding/newhero";
 import { Analytics } from "@vercel/analytics/react"
 
@@ -30,26 +30,23 @@ export default function Home() {
     <>
       <div className="bg-white" >
         <Navbar />
-        {/* <OurHero /> */}
-        <NewHero/>
+        <NewHero />
+        <Features />
+        <Agenda />
+        <AboutUs />
         <div className="hidden md:block">
-          <TabsComponent />
-        </div>
-        <div className="hidden md:block">
-          <Step />
-        </div>
-        <div className="hidden md:block">
-          <TopServices />
-        </div>
-        <div className="block md:hidden">
-          <h1 className="text-3xl text-center font-bold">Our Speaker</h1>
+          <SpeakerSection />
+        </div >
+        <div className="block md:hidden px-4 my-24">
+          <div className="flex flex-col gap-8  w-full text-left">
+            <h1 className="text-5xl font-bold text-left">KEYNOTE <br /> SPEAKERS</h1>
+            <p className=" text-left"> Meet the industry leaders shaping india’s startup ecosystem </p>
+          </div>
           <InfiniteCarousel services={speakers} speed={2200} />
         </div>
-        <div className=" md:hidden">
-          <Step />
-        </div>
-        <FAQ />
-        <Hero />
+        <WhyAttend />
+        <Counter />
+        <Contact />
         <Footer />
         <Analytics />
       </div>
