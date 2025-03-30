@@ -2,28 +2,36 @@
 // import { SpinningText } from "../magicui/spinning-text";
 import { ArrowUpRight } from "lucide-react";
 import { AvatarCircles } from "../magicui/avatar-circles";
+import { motion } from "framer-motion";
 
 export default function Features() {
-
-
     const avatars = [
         {
             imageUrl: "/landing/img1.jpg",
             profileUrl: "/landing/img1.jpg",
         },
-
     ];
 
-
     return (
-        <section className="flex flex-col h-full md:flex-row gap-6 justify-center p-5 md:p-10 md:h-[600px] md:px-32">
-            <div className="rounded-[40px] flex flex-col  justify-between w-full  h-full bg-gradient-to-b from-[#C512F8] to-[#00CFC3] md:w-1/2 p-10">
-                <div className=" flex flex-col items-start">
+        <motion.section 
+            initial={{ opacity: 0, y: 50 }} 
+            whileInView={{ opacity: 1, y: 0 }} 
+            transition={{ duration: 0.6, ease: "easeOut" }} 
+            viewport={{ once: true }}
+            className="flex flex-col h-full md:flex-row gap-6 justify-center p-5 md:p-10 md:h-[600px] md:px-32"
+        >
+            <motion.div 
+                initial={{ opacity: 0, y: 50 }} 
+                whileInView={{ opacity: 1, y: 0 }} 
+                transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }} 
+                className="rounded-[40px] flex flex-col justify-between w-full h-full bg-gradient-to-b from-[#C512F8] to-[#00CFC3] md:w-1/2 p-10"
+            >
+                <div className="flex flex-col items-start">
                     <h1 className="text-4xl text-white font-bold">Speakers</h1>
-                    <div className=" flex flex-row  mt-10 ">
+                    <div className="flex flex-row mt-10">
                         <div className="flex w-1/3">
                             <div className="hidden w-12 h-12 bg-gray-200 rounded-full md:flex items-center justify-center">
-                                <ArrowUpRight size={30} className="text-blue-700 " />
+                                <ArrowUpRight size={30} className="text-blue-700" />
                             </div>
                         </div>
                         <p className="text-xl text-white">Hear from global AI leaders, researchers, and entrepreneurs who are defining the future of artificial intelligence.</p>
@@ -35,26 +43,34 @@ export default function Features() {
                         And more <ArrowUpRight size={20} />
                     </button>
                 </div>
-            </div>
+            </motion.div>
             <div className="flex flex-col md:w-1/2 gap-6">
-                <div className=" flex  flex-col gap-6 w-full h-1/2  bg-black rounded-[40px] p-10 text-white ">
-                    <h1 className=" text-4xl font-bold">Workshops</h1>
+                <motion.div 
+                    initial={{ opacity: 0, y: 50 }} 
+                    whileInView={{ opacity: 1, y: 0 }} 
+                    transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }} 
+                    className="flex flex-col gap-6 w-full h-1/2 bg-black rounded-[40px] p-10 text-white"
+                >
+                    <h1 className="text-4xl font-bold">Workshops</h1>
                     <p className="w-[95%] text-lg">
                         Explore advanced machine learning, natural language processing, AI-driven automation, and emerging cybersecurity applications.
                     </p>
-                </div>
-                <div className="relative w-full h-1/2 rounded-[40px] p-10 text-white">
+                </motion.div>
+                <motion.div 
+                    initial={{ opacity: 0, y: 50 }} 
+                    whileInView={{ opacity: 1, y: 0 }} 
+                    transition={{ duration: 0.6, ease: "easeOut", delay: 0.6 }} 
+                    className="relative w-full h-1/2 rounded-[40px] p-10 text-white"
+                >
                     <div className="absolute inset-0 bg-gradient-to-b from-[#00CFC3] to-[#C512F8] opacity-25 rounded-[40px]"></div>
-
                     <div className="relative flex flex-col gap-6 w-full h-full text-black">
                         <h1 className="text-4xl font-bold">Networking Opportunities</h1>
                         <p className="w-[95%] text-lg">
                             Enjoy exclusive networking sessions, roundtables, and social events to foster collaboration and spark new partnerships.
                         </p>
                     </div>
-                </div>
-
+                </motion.div>
             </div>
-        </section>
+        </motion.section>
     );
 }

@@ -2,10 +2,17 @@
 
 import Image from 'next/image';
 import { ArrowUpRight } from "lucide-react";
+import { motion } from 'framer-motion';
 
 export default function NewHero() {
     return (
-        <section className=" w-full flex flex-col items-center justify-center text-center pt-8 px-2 md:px-28  ">
+        <motion.section
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className=" w-full flex flex-col items-center justify-center text-center pt-8 px-2 md:px-28  "
+        >
             <div className="relative  md:p-10 w-full shadow-lg py-10"
                 style={{
                     border: '3px solid transparent',
@@ -39,7 +46,6 @@ export default function NewHero() {
             <button className="flex items-center justify-center gap-2 my-8 px-6 py-3 text-white font-medium text-lg rounded-full bg-gradient-to-br from-[#C512F8] to-[#00CFC3] shadow-lg transition-transform transform hover:scale-105">
                 Register now <ArrowUpRight size={20} />
             </button>
-
-        </section>
+        </motion.section>
     );
 }
