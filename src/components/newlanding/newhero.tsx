@@ -22,7 +22,7 @@ export default function NewHero() {
                 }}>
 
                 <div className=" px-20 py-10 md:absolute top-4 left-4 text-bold bg-gradient-to-b from-[#C512F8] to-[#00CFC3] text-transparent bg-clip-text md:text-left font-bold text-2xl">
-                    UNIVERSITY OF <br /> DELHI
+                    {/* UNIVERSITY OF <br /> DELHI */}
                 </div>
                 <div className="flex justify-center items-start gap-2">
                     <Image src="/neecop.png" alt="Delhi Startup Summit 2025" width={400} height={400} />
@@ -35,7 +35,7 @@ export default function NewHero() {
                 </div>
 
                 <div className=" px-20 py-5 md:py-10 md:absolute bottom-4 left-4 text-bold bg-gradient-to-b from-[#C512F8] to-[#00CFC3] text-transparent bg-clip-text md:text-left font-bold text-2xl">
-                    Kirori Mal College, <br /> University of Delhi
+                     <br /> University of Delhi
                 </div>
                 <div className="mt-5 text-gray-700 flex items-center justify-center gap-2 w-full flex-col">
                     <p className="text-xl font-bold">Student-led Initiatives</p>

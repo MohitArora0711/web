@@ -27,14 +27,14 @@ export default function Features() {
                 className="rounded-[40px] flex flex-col justify-between w-full h-full bg-gradient-to-b from-[#C512F8] to-[#00CFC3] md:w-1/2 p-10"
             >
                 <div className="flex flex-col items-start">
-                    <h1 className="text-4xl text-white font-bold">Speakers</h1>
+                    <h1 className="text-4xl text-white font-bold">Fireside Chats</h1>
                     <div className="flex flex-row mt-10">
                         <div className="flex w-1/3">
                             <div className="hidden w-12 h-12 bg-gray-200 rounded-full md:flex items-center justify-center">
                                 <ArrowUpRight size={30} className="text-blue-700" />
                             </div>
                         </div>
-                        <p className="text-xl text-white">Hear from global AI leaders, researchers, and entrepreneurs who are defining the future of artificial intelligence.</p>
+                        <p className="text-xl text-white">Hear from Industry Leaders, Investors, and Entrepreneurs who are defining the future of Startup Ecosystem. Gain exclusive insights into startup success stories, emerging business trends, and the future of innovation.</p>
                     </div>
                 </div>
                 <div className="flex flex-row md:flex-row gap-12 items-center justify-center mt-10">
@@ -52,8 +52,9 @@ export default function Features() {
                     className="flex flex-col gap-6 w-full h-1/2 bg-black rounded-[40px] p-10 text-white"
                 >
                     <h1 className="text-4xl font-bold">Workshops</h1>
-                    <p className="w-[95%] text-lg">
-                        Explore advanced machine learning, natural language processing, AI-driven automation, and emerging cybersecurity applications.
+                    <p className="w-[95%] text-lg">  
+                    Practical sessions on fundraising, MVP building, product development, and team building.
+                    Gain expert insights and actionable strategies to launch, scale, and sustain a successful business.
                     </p>
                 </motion.div>
                 <motion.div 
@@ -66,7 +67,7 @@ export default function Features() {
                     <div className="relative flex flex-col gap-6 w-full h-full text-black">
                         <h1 className="text-4xl font-bold">Networking Opportunities</h1>
                         <p className="w-[95%] text-lg">
-                            Enjoy exclusive networking sessions, roundtables, and social events to foster collaboration and spark new partnerships.
+                        Connect with MSME owners, startup founders, investors, and industry experts. Build meaningful relationships, explore collaborations, and unlock new business opportunities in a dynamic networking environment.
                         </p>
                     </div>
                 </motion.div>

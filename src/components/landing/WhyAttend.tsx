@@ -11,13 +11,13 @@ const WhyAttend = () => {
             number: "01",
             title: "CREATING A COLLABORATIVE PLATFORM",
             description:
-                "Gain firsthand knowledge from top AI experts and pioneers shaping the industry.",
+                "Bringing together students, entrepreneurs, investors, and industry experts."
         },
         {
             number: "02",
             title: "KNOWLEDGE & SKILL DEVELOPMENT",
             description:
-                "Participate in interactive workshops, live demos, and deep-dive sessions to sharpen your skills.",
+                "Equipping students with insights into startup culture, government policies,and funding avenues.",
         }
     ];
     const cardsdown = [
@@ -25,13 +25,13 @@ const WhyAttend = () => {
             number: "03",
             title: "BRIDGING THE GAPS IN INDIA’S STARTUP ECOSYSTEM",
             description:
-                "Connect with AI leaders, investors, startups, and fellow professionals at curated networking events.",
+                "Identifying challenges and providing solutions for student entrepreneurs.",
         },
         {
             number: "04",
             title: "CONNECTING STARTUPS WITH INVESTORS & POLICYMAKERS",
             description:
-                "Explore groundbreaking AI solutions, from emerging startups to tech giants redefining the future.",
+                "Helping student-led ventures get funding and policy support. ",
         },
     ];
 
