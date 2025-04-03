@@ -49,7 +49,7 @@ export default function Agenda() {
             >
                 <div className="flex flex-col items-start">
                     <h2 className="text-3xl font-extrabold">Day 1</h2>
-                    <p className="text-xl font-semibold">09:00 - 19:00</p>
+                    <p className="text-xl font-semibold">11:00 - 21:00</p>
                 </div>
                 <div className="col-span-2">
                     <h3 className="text-2xl font-bold">Indian Startup Ecosystem: Emerging Trends and Industries
@@ -71,7 +71,7 @@ export default function Agenda() {
             >
                 <div className="flex flex-col items-start">
                     <h2 className="text-3xl font-extrabold">Day 2</h2>
-                    <p className="text-xl font-semibold">09:00 - 19:00</p>
+                    <p className="text-xl font-semibold">11:00 - 21:00</p>
                 </div>
                 <div className="col-span-2 flex flex-col justify-between">
                     <div>
