@@ -52,7 +52,8 @@ export default function Agenda() {
                     <p className="text-xl font-semibold">09:00 - 19:00</p>
                 </div>
                 <div className="col-span-2">
-                    <h3 className="text-2xl font-bold">AI Innovations & Trends</h3>
+                    <h3 className="text-2xl font-bold">Indian Startup Ecosystem: Emerging Trends and Industries
+                    </h3>
                     <p className="text-lg mt-2">
                         Indian Startup Ecosystem: Emerging Trends and Industries.  
                         Kickoff the summit with Workshops on Venture Building: Ideation, Product Development, Scaling, and more!  
