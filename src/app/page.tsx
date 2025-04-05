@@ -6,7 +6,7 @@ import Agenda from "@/components/landing/Agenda";
 import Contact from "@/components/landing/Contact";
 import Counter from "@/components/landing/Counter";
 import Features from "@/components/landing/Feature";
-import InfiniteCarousel from "@/components/landing/Slider";
+// import InfiniteCarousel from "@/components/landing/Slider";
 // import SpeakerSection from "@/components/landing/Speaker"
 import WhyAttend from "@/components/landing/WhyAttend";
 import NewHero from "@/components/newlanding/newhero";
@@ -15,16 +15,16 @@ import { Analytics } from "@vercel/analytics/react"
 export default function Home() {
 
 
-  const speakers = [
-    { title: "Dr. S. Jaishankar", image: "/speaker/img1.png" },
-    { title: "Ratan Tata", image: "/speaker/img2.png" },
-    { title: "Elon Musk", image: "/speaker/img3.png" },
-    { title: "Sundar Pichai", image: "/speaker/img4.png" },
-    { title: "Satya Nadella", image: "/speaker/img5.png" },
-    { title: "Tim Cook", image: "/speaker/img6.png" },
-    { title: "Mukesh Ambani", image: "/speaker/img7.png" },
-    { title: "Jeff Bezos", image: "/speaker/img8.png" },
-  ];
+  // const speakers = [
+  //   { title: "Dr. S. Jaishankar", image: "/speaker/img1.png" },
+  //   { title: "Ratan Tata", image: "/speaker/img2.png" },
+  //   { title: "Elon Musk", image: "/speaker/img3.png" },
+  //   { title: "Sundar Pichai", image: "/speaker/img4.png" },
+  //   { title: "Satya Nadella", image: "/speaker/img5.png" },
+  //   { title: "Tim Cook", image: "/speaker/img6.png" },
+  //   { title: "Mukesh Ambani", image: "/speaker/img7.png" },
+  //   { title: "Jeff Bezos", image: "/speaker/img8.png" },
+  // ];
 
   return (
     <>
