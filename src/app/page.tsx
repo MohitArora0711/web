@@ -7,7 +7,7 @@ import Contact from "@/components/landing/Contact";
 import Counter from "@/components/landing/Counter";
 import Features from "@/components/landing/Feature";
 import InfiniteCarousel from "@/components/landing/Slider";
-import SpeakerSection from "@/components/landing/Speaker"
+// import SpeakerSection from "@/components/landing/Speaker"
 import WhyAttend from "@/components/landing/WhyAttend";
 import NewHero from "@/components/newlanding/newhero";
 import { Analytics } from "@vercel/analytics/react"
