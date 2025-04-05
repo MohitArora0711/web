@@ -10,6 +10,7 @@ export default function Features() {
             profileUrl: "/landing/img1.jpg",
         },
 
+        
     ];
 
     return (
