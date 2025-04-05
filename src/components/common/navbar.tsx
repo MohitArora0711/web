@@ -20,16 +20,17 @@ export default function Navbar() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+
     return (
-        <div className="flex w-full justify-between items-center px-10 py-4 border-black relative">
+        <div className="fixed z-10 bg-white/30 backdrop-blur-lg shadow-s flex w-full justify-between items-center px-12 py-4 rounded-lg">
             <h1 className="text-xl font-bold">Delhi Startup Summit</h1>
-            
+
             <div className="hidden md:flex space-x-6 items-center">
                 {navItems.map((item) => (
                     <Link key={item.name} href={item.link}>
                         <span
                             className={`relative px-5 py-2 font-medium transition-all hover:text-black ${pathname === item.link
-                                ? "text-black before:absolute before:inset-0 before:rounded-full border-[2px] rounded-full border-black before:-z-10"
+                                ? "text-black before:absolute before:inset-0 before:rounded-full border-[2px] rounded-full  border-black before:-z-10"
                                 : "text-gray-600"}`}
                         >
                             {item.name}
@@ -43,13 +44,11 @@ export default function Navbar() {
                     Register
                 </button>
             </div>
-            
-            {/* Mobile Menu Button */}
+
             <button className="md:hidden" onClick={() => setIsMenuOpen(true)}>
                 <Menu size={28} />
             </button>
 
-            {/* Mobile Menu */}
             <div className={`fixed z-10 top-0 right-0 h-full w-3/4 bg-white shadow-lg transform transition-transform duration-300 ease-in-out ${isMenuOpen ? "translate-x-0" : "translate-x-full"}`}>
                 <div className="flex justify-between items-center p-5 border-b">
                     <h2 className="text-xl font-bold">Menu</h2>

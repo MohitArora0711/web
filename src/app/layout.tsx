@@ -2,7 +2,7 @@ import "./globals.css";
 
 
 import type { Metadata } from "next";
-import { Inter } from "next/font/google"; // Use Inter as Geist is unavailable
+import { Inter } from "next/font/google"; 
 // import Navbar from "@/components/common/navbar";
 // import Footer from "@/components/common/Footer";
 
@@ -12,8 +12,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Delhi Startup summit 2025", // Fixed title typo
-  description: "Book appointments effortlessly", // Improved description for clarity
+  title: "Delhi Startup summit 2025", 
+  description: "Book appointments effortlessly", 
 };
 
 export default function RootLayout({
