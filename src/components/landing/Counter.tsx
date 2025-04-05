@@ -25,7 +25,7 @@ const Counter = () => {
             setTimeLeft(calculateTimeLeft());
         }, 1000);
         return () => clearInterval(timer);
-    }, []);
+    });
 
     return (
         <motion.section

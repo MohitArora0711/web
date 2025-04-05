@@ -76,14 +76,14 @@ const PartnerSection = () => {
                     <div key={index} className="text-center">
                         <h2 className="text-2xl font-semibold mb-6">{section.title}</h2>
                         <div className="flex flex-wrap justify-center gap-6">
-                            {section.images.map((img, idx) => (
+                            {/* {section.images.map((img, idx) => (
                                 <img
                                     key={idx}
                                     src={img}
                                     alt={`${section.title} ${idx + 1}`}
                                     className="w-36 md:w-48 lg:w-56 h-auto object-contain shadow-md rounded-lg p-2 bg-white"
                                 />
-                            ))}
+                            ))} */}
                         </div>
                     </div>
                 ))}

@@ -10,7 +10,7 @@ const navItems = [
     { name: "Home", link: "/" },
     // { name: "Schedule", link: "/schedule" },
     // { name: "Speakers", link: "/speakers" },
-    { name: "Partner", link: "/partner" },
+    // { name: "Partner", link: "/partner" },
     // { name: "Venue", link: "/venue" },
     // { name: "Startup Social", link: "/startup-social" }
 ];

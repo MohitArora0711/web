@@ -56,7 +56,7 @@ export function RegisterModal({ isOpen, onClose }: RegisterModalProps) {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    className="absolute inset-0 z-50 flex items-center justify-center p-4 h-screen max-sm:pt-96"
+                    className="absolute inset-0 z-50 flex items-center justify-center p-4 h-screen max-sm:pt-96 backdrop-blur-sm"
                 >
                     <motion.div
                         initial={{ scale: 0.9, opacity: 0 }}
@@ -74,10 +74,10 @@ export function RegisterModal({ isOpen, onClose }: RegisterModalProps) {
                         <div className="flex flex-col md:flex-row">
                             <div className="hidden md:block w-2/3 relative">
                                 <Image
-                                    src="/register.jpg"
+                                    src="/neecop.png"
                                     alt="Registration"
                                     fill
-                                    className="object-cover object-left  "
+                                    className="object-contain"
                                     priority
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />

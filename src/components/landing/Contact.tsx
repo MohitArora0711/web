@@ -12,7 +12,7 @@ const Contact = () => {
                     <div className="flex flex-row flex-wrap gap-8 mb-6">
                         <div className="flex flex-col gap-8">
                             <h3 className="font-bold">CONTACT US</h3>
-                            <p className="text-gray-400">+91 918595870292</p>
+                            <p className="text-gray-400">+91 8595870292</p>
                         </div>
                         <div className="flex flex-col gap-8">
                             <h3 className="font-bold">EVENT LOCATION</h3>

@@ -21,7 +21,7 @@ const OurHero = () => {
                 </h2>
                 <h3 className="text-lg text-blue-700 font-bold">
                 </h3>
-                <button onClick={() => setIsModalOpen(true)} className="mt-4 bg-blue-600 text-white text-lg font-semibold py-3 px-6 rounded-full shadow-lg hover:bg-blue-700 transition">
+                <button onClick={() => {setIsModalOpen(true);window.scrollTo({top:0})}} className="mt-4 bg-blue-600 text-white text-lg font-semibold py-3 px-6 rounded-full shadow-lg hover:bg-blue-700 transition">
                     REGISTER
                 </button>
             </div>

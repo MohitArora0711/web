@@ -9,7 +9,7 @@ import { RegisterModal } from '../RegisterModal';
 export default function NewHero() {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    // const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     return (
         <motion.section
@@ -152,7 +152,8 @@ export default function NewHero() {
                 transition={{ delay: .1, duration: 0.1 }}
                 onClick={() => {
                     setIsModalOpen(true);
-                    setIsMenuOpen(false);
+                    // setIsMenuOpen(false);
+                    window.scrollTo({top:0});
                 }}
             >
                 Register now
