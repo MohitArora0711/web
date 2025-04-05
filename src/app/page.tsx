@@ -7,7 +7,7 @@ import Contact from "@/components/landing/Contact";
 import Counter from "@/components/landing/Counter";
 import Features from "@/components/landing/Feature";
 import InfiniteCarousel from "@/components/landing/Slider";
-import SpeakerSection from "@/components/landing/Speaker"
+// import SpeakerSection from "@/components/landing/Speaker"
 import WhyAttend from "@/components/landing/WhyAttend";
 import NewHero from "@/components/newlanding/newhero";
 import { Analytics } from "@vercel/analytics/react"
@@ -34,9 +34,9 @@ export default function Home() {
         <Features />
         <Agenda />
         <AboutUs />
-        <div className="hidden md:block">
+        {/* <div className="hidden md:block">
           <SpeakerSection />
-        </div >
+        </div > */}
         <div className="block md:hidden px-4 my-24">
           <div className="flex flex-col gap-8  w-full text-left">
             <h1 className="text-5xl font-bold text-left">KEYNOTE <br /> SPEAKERS</h1>

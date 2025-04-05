@@ -1,5 +1,4 @@
 // import Image from "next/image";
-// import { SpinningText } from "../magicui/spinning-text";
 import { ArrowUpRight } from "lucide-react";
 import { AvatarCircles } from "../magicui/avatar-circles";
 import { motion } from "framer-motion";
@@ -56,7 +55,7 @@ export default function Features() {
                         initial={{ opacity: 0, y: 50 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
-                        className="flex flex-col gap-6 w-full h-1/2 bg-white border-2 text-black rounded-[40px] p-10 "
+                        className="flex flex-col gap-6 w-full h-1/2 bg-white border-2 border-gray-800 text-black rounded-[40px] p-10 "
                     >
                         <h1 className="text-4xl font-bold">Workshops</h1>
                         <p className="w-[95%] text-lg">

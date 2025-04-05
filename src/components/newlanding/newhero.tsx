@@ -165,5 +165,6 @@ export default function NewHero() {
             <RegisterModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
 
         </motion.section>
+
     );
 }

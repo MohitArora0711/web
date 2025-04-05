@@ -8,20 +8,19 @@ const Contact = () => {
                 <div className="w-full md:w-1/3 mt-16">
                     <h2 className="text-5xl font-bold mb-4">We’re Here To Connect And Assist You</h2>
                     <p className="text-gray-400 text-xl mb-6">
-                        Have questions about the summit? Need help with registration or travel? Our team is ready to assist you.
-                    </p>
+                        Have questions about the summit? Need help with registration or travel? Our team is ready to assist you.                    </p>
                     <div className="flex flex-row flex-wrap gap-8 mb-6">
                         <div className="flex flex-col gap-8">
                             <h3 className="font-bold">CONTACT US</h3>
-                            <p className="text-gray-400">+31 20 123 4567</p>
+                            <p className="text-gray-400">+91 918595870292</p>
                         </div>
                         <div className="flex flex-col gap-8">
                             <h3 className="font-bold">EVENT LOCATION</h3>
-                            <p className="text-gray-400">Horizon Convention Center</p>
+                            <p className="text-gray-400">Kirori Mal College, University of Delhi</p>
                         </div>
                         <div className="flex flex-col gap-8">
                             <h3 className="font-bold">EMAIL</h3>
-                            <p className="text-gray-400">info@nexus.com</p>
+                            <p className="text-gray-400">queries@neecop.com</p>
                         </div>
                         <div className="flex flex-col gap-8">
                             <h3 className="font-bold">FOLLOW US</h3>
@@ -38,32 +37,18 @@ const Contact = () => {
                         </div>
                     </div>
                 </div>
-                <div className="w-full mb-8 md:w-1/2 bg-gradient-to-br from-purple-500 to-blue-400 p-8 mt-12 rounded-[30px] md:rounded-[40px] ">
-                    <h3 className="text-white font-semibold text-3xl mb-6">Resgister now for event</h3>
-                    <p className="text-white mb-4">
-                        Reach out with inquiries about tickets, partnerships, or event details.
-                    </p>
-                    <form className="flex flex-col space-y-3">
-                        <select className="bg-transparent border-b border-white focus:outline-none focus:border-white placeholder-white p-2">
-                            <option>All three days</option>
-                            <option>Day 1</option>
-                            <option>Day 2</option>
-                            <option>Day 3</option>
-                        </select>
-                        <input type="text" placeholder="Name" className=" text-white bg-transparent border-b border-white focus:outline-none focus:border-white placeholder-white p-2" />
-                        <input type="email" placeholder="Email" className="bg-transparent border-b border-white focus:outline-none focus:border-white placeholder-white p-2" />
-                        <input type="text" placeholder="Phone" className="bg-transparent border-b border-white focus:outline-none focus:border-white placeholder-white p-2" />
-                        <input type="number" placeholder="Age" className="bg-transparent border-b border-white focus:outline-none focus:border-white placeholder-white p-2" />
-                        <select className="bg-transparent border-b border-white focus:outline-none focus:border-white placeholder-white p-2">
-                            <option>Select Gender</option>
-                            <option>Male</option>
-                            <option>Female</option>
-                            <option>Rather not to say</option>
+                <div className="w-full mb-8 md:w-1/2 bg-gradient-to-br from-purple-500 to-blue-400 p-4 mt-12 rounded-[30px] md:rounded-[40px] ">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1753.9234959603322!2d77.2395041!3d28.6195928!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce328e21150a5%3A0x1db02b6d0ba0702a!2sBharat%20Mandapam!5e0!3m2!1sen!2sin!4v1712301296734!5m2!1sen!2sin"
+                        width="100%"
+                        height="100%"
+                        style={{ border: 0 }}
+                        allowFullScreen
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                        className="h-[550px] rounded-[30px] md:rounded-[35px]"
+                    ></iframe>
 
-                        </select>
-                        <input type="text" placeholder="College/Profession" className="bg-transparent border-b border-white focus:outline-none focus:border-white placeholder-white p-2" />
-                        <button type="submit" className=" bg-black text-white rounded-full w-48  py-5 mt-10 font-semibold ">Register Now</button>
-                    </form>
                 </div>
 
             </div>
