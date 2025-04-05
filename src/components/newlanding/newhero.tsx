@@ -3,8 +3,13 @@
 import Image from 'next/image';
 import { ArrowUpRight } from "lucide-react";
 import { motion } from 'framer-motion';
+import { RegisterModal } from '../RegisterModal';
+import { useState } from 'react';
 
 export default function NewHero() {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+
     return (
         <motion.section
             initial={{ opacity: 0, y: 50 }}
@@ -35,7 +40,7 @@ export default function NewHero() {
                 </div>
 
                 <div className=" px-20 py-5 md:py-10 md:absolute bottom-4 left-4 text-bold bg-gradient-to-b from-[#C512F8] to-[#00CFC3] text-transparent bg-clip-text md:text-left font-bold text-2xl">
-                     <br /> University of Delhi
+                    <br /> University of Delhi
                 </div>
                 <div className="mt-5 text-gray-700 flex items-center justify-center gap-2 w-full flex-col">
                     <p className="text-xl font-bold">Student-led Initiatives</p>
@@ -43,9 +48,12 @@ export default function NewHero() {
                     <Image src="/neecoplogo.png" alt="" width={150} height={150} />
                 </div>
             </div>
-            <button className="flex items-center justify-center gap-2 my-8 px-6 py-3 text-white font-medium text-lg rounded-full bg-gradient-to-br from-[#C512F8] to-[#00CFC3] shadow-lg transition-transform transform hover:scale-105">
+            <button onClick={()=>{setIsModalOpen(true);window.scrollTo({top:0})}} className="flex items-center justify-center gap-2 my-8 px-6 py-3 text-white font-medium text-lg rounded-full bg-gradient-to-br from-[#C512F8] to-[#00CFC3] shadow-lg transition-transform transform hover:scale-105">
                 Register now <ArrowUpRight size={20} />
             </button>
+            <RegisterModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+
         </motion.section>
+
     );
 }

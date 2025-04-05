@@ -75,7 +75,7 @@ export function RegisterModal({ isOpen, onClose }: RegisterModalProps) {
                             {/* Left side - Image */}
                             <div className="hidden md:block w-2/3 relative">
                                 <Image
-                                    src="/landing/img1.jpg"
+                                    src="/neecop.png"
                                     alt="Registration"
                                     fill
                                     className="object-cover"
