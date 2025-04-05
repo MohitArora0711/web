@@ -23,7 +23,7 @@ export default function Navbar() {
 
     return (
         <div className="fixed z-10 bg-white/30 backdrop-blur-lg shadow-s flex w-full justify-between items-center px-12 py-4 rounded-lg">
-            <h1 className="text-xl font-bold">Delhi Startup Summit</h1>
+            <h1 className="text-xl font-bold max-sm:text-center max-sm:w-full">Delhi Startup Summit</h1>
 
             <div className="hidden md:flex space-x-6 items-center">
                 {navItems.map((item) => (
@@ -45,18 +45,18 @@ export default function Navbar() {
                 </button>
             </div>
 
-            <button className="md:hidden" onClick={() => setIsMenuOpen(true)}>
+            <button className="md:hidden max-sm:hidden" onClick={() => setIsMenuOpen(true)}>
                 <Menu size={28} />
             </button>
 
             <div className={`fixed z-10 top-0 right-0 h-full w-3/4 bg-white shadow-lg transform transition-transform duration-300 ease-in-out ${isMenuOpen ? "translate-x-0" : "translate-x-full"}`}>
-                <div className="flex justify-between items-center p-5 border-b">
-                    <h2 className="text-xl font-bold">Menu</h2>
+                <div className="flex justify-end w-full items-center p-5 border-b">
+                    {/* <h2 className="text-xl font-bold">Menu</h2> */}
                     <button onClick={() => setIsMenuOpen(false)}>
                         <X size={28} />
                     </button>
                 </div>
-                <div className="flex flex-col space-y-6 p-6">
+                <div className="flex flex-col space-y-6 p-6 bg-white">
                     {navItems.map((item) => (
                         <Link key={item.name} href={item.link}>
                             <span className={`block text-lg font-medium transition-all ${pathname === item.link ? "text-black font-bold" : "text-gray-600 hover:text-black"}`}>

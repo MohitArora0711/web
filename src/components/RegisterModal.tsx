@@ -82,8 +82,8 @@ export function RegisterModal({ isOpen, onClose }: RegisterModalProps) {
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                                 <div className="absolute bottom-8 left-8 text-white">
-                                    <h2 className="text-3xl font-bold mb-4">Join DU Fest 2024</h2>
-                                    <p className="text-lg">Experience the biggest cultural festival of Delhi University</p>
+                                    <h2 className="text-3xl font-bold mb-4">Delhi Startup Summit 2025</h2>
+                                    <p className="text-lg">Experience the biggest startup summit of Delhi University</p>
                                 </div>
                             </div>
 
@@ -92,7 +92,7 @@ export function RegisterModal({ isOpen, onClose }: RegisterModalProps) {
                                 {!isSubmitted ? (
                                     <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
                                         <div className="md:hidden mb-6">
-                                            <h2 className="text-2xl font-bold text-gray-800">Join DU Fest 2024</h2>
+                                            <h2 className="text-2xl font-bold text-gray-800">Delhi Startup Summit 2025</h2>
                                             <p className="text-gray-600 mt-2">Experience the biggest cultural festival of Delhi University</p>
                                         </div>
                                         <h2 className="text-2xl font-bold text-gray-800 mb-6 hidden md:block">Registration Form</h2>

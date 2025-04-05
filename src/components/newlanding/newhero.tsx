@@ -53,7 +53,7 @@ export default function NewHero() {
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.5, duration: 0.8 }}
                         >
-                            <span className="bg-gradient-to-r from-[#9747FF] to-[#00CFC3] text-transparent bg-clip-text">Student-led initiatives</span>
+                            <span className="bg-gradient-to-r from-[#9747FF] to-[#00CFC3] text-transparent bg-clip-text">Student-led initiative</span>
                         </motion.h1>
                         <motion.h1
                             className="text-6xl md:text-7xl font-bold mb-6"
@@ -72,9 +72,9 @@ export default function NewHero() {
                         >
                             Empowers students with innovation, mentorship, funding, networking, and hands-on entrepreneurial experience.
                         </motion.p>
-                        <div className='flex flex-row  gap-28 items-center mt-8'>
+                        <div className='flex flex-row  gap-28 max-sm:gap-5 max-sm:justify-between items-center mt-8'>
                             <motion.div
-                                className="text-left flex justify-center items-center flex-col "
+                                className="text-left flex max-sm:w-full justify-center items-center flex-col max-sm:items-start "
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 transition={{ delay: 1.1, duration: 0.8 }}
@@ -87,14 +87,14 @@ export default function NewHero() {
                             </motion.div>
 
                             <motion.div
-                                className="flex "
+                                className="flex max-sm:w-full "
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.7, duration: 0.8 }}
                             >
-                                <div className="text-center">
+                                <div className="text-center max-sm:text-end max-sm:w-full">
                                     <p className="text-lg font-semibold text-gray-600">April</p>
-                                    <p className="font-bold text-3xl bg-gradient-to-b from-[#C512F8] to-[#00CFC3] text-transparent bg-clip-text">25-26-27</p>
+                                    <p className="font-bold text-3xl bg-gradient-to-b from-[#C512F8] to-[#00CFC3] text-transparent bg-clip-text">26-27</p>
                                     <p className="text-lg font-semibold text-gray-600">2025</p>
                                 </div>
                             </motion.div>

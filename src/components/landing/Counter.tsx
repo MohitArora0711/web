@@ -50,7 +50,7 @@ const Counter = () => {
                         transition={{ duration: 0.8, ease: "easeOut" }}
                         viewport={{ once: true }}
                     >
-                        REGISTER
+                        Reach
                     </motion.h2>
                     <div className="flex gap-8 justify-center">
                         <motion.h2
@@ -60,7 +60,7 @@ const Counter = () => {
                             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
                             viewport={{ once: true }}
                         >
-                            NOW
+                            At
                         </motion.h2>
                         <motion.button
                             className="flex items-center justify-center md:mt-12 gap-2 my-8 px-6 py-3 text-white font-medium text-lg rounded-full bg-gradient-to-br from-[#C512F8] to-[#00CFC3] shadow-lg transition-transform transform hover:scale-105"
@@ -68,8 +68,9 @@ const Counter = () => {
                             whileInView={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.5, ease: "easeOut", delay: 0.3 }}
                             viewport={{ once: true }}
+                            onClick={()=>window.open("https://maps.app.goo.gl/TizeTpUhuUpgByWEA","_blank")}
                         >
-                            And More <ArrowUpRight size={20} />
+                            Venue <ArrowUpRight size={20} />
                         </motion.button>
                     </div>
                 </div>
@@ -81,8 +82,8 @@ const Counter = () => {
                     viewport={{ once: true }}
                 >
                     <p className="mt-4 max-w-sm text-gray-600 md:text-right text-xl">
-                        Secure your spot at the Next-Gen AI Summit 2025 and join the future
-                        of AI innovation.
+                        Secure your spot at the Delhi Startup Summit 2025 and join the future
+                        of innovative Startups.
                     </p>
                 </motion.div>
             </motion.div>

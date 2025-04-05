@@ -37,13 +37,13 @@ export default function Home() {
         {/* <div className="hidden md:block">
           <SpeakerSection />
         </div > */}
-        <div className="block md:hidden px-4 my-24">
+        {/* <div className="block md:hidden px-4 my-24">
           <div className="flex flex-col gap-8  w-full text-left">
             <h1 className="text-5xl font-bold text-left">KEYNOTE <br /> SPEAKERS</h1>
             <p className=" text-left"> Meet the industry leaders shaping india’s startup ecosystem </p>
           </div>
           <InfiniteCarousel services={speakers} speed={2200} />
-        </div>
+        </div> */}
         <WhyAttend />
         <Counter />
         <Contact />

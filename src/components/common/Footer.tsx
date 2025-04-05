@@ -18,6 +18,7 @@ const Footer = () => {
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
                         viewport={{ once: true }}
+                        className="z-20"
                     >
                         <div className="max-w-[300px]">
                             <h2 className="text-2xl font-bold">Delhi Startup Summit </h2>
@@ -30,9 +31,9 @@ const Footer = () => {
                             <a href="tel:+91 8595870292" className="border px-7 py-4 max-sm:px-6 max-sm:py-2 rounded-full text-sm flex items-center w-full ">
                                 +91 8595870292
                             </a>
-                            <button className="border px-7 text-gray-400 py-4 max-sm:px-6 max-sm:py-2 rounded-full text-sm flex items-center">
-                                queries@neecop.com
-                            </button>
+                            <a href="mailto:yageshv9999@gmail.com" className="border px-7 text-gray-400 py-4 max-sm:px-6 max-sm:py-2 rounded-full text-sm flex items-center">
+                                yageshv9999@gmail.com
+                            </a>
                         </div>
                     </motion.div>
                     <motion.div

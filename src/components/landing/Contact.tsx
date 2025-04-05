@@ -9,10 +9,10 @@ const Contact = () => {
                     <h2 className="text-5xl font-bold mb-4">We’re Here To Connect And Assist You</h2>
                     <p className="text-gray-400 text-xl mb-6">
                         Have questions about the summit? Need help with registration or travel? Our team is ready to assist you.                    </p>
-                    <div className="flex flex-row flex-wrap gap-8 mb-6">
+                    <div className="flex flex-row flex-wrap gap-8 mb-6 z-20">
                         <div className="flex flex-col gap-8">
                             <h3 className="font-bold">CONTACT US</h3>
-                            <p className="text-gray-400">+91 8595870292</p>
+                            <a href="tel:+918595870292" className="text-gray-400">+91 8595870292</a>
                         </div>
                         <div className="flex flex-col gap-8">
                             <h3 className="font-bold">EVENT LOCATION</h3>
@@ -20,7 +20,7 @@ const Contact = () => {
                         </div>
                         <div className="flex flex-col gap-8">
                             <h3 className="font-bold">EMAIL</h3>
-                            <p className="text-gray-400">queries@neecop.com</p>
+                            <a href="mailto:yageshv9999@gmail.com" className="text-gray-400">yageshv9999@gmail.com</a>
                         </div>
                         <div className="flex flex-col gap-8">
                             <h3 className="font-bold">FOLLOW US</h3>
@@ -39,7 +39,7 @@ const Contact = () => {
                 </div>
                 <div className="w-full mb-8 md:w-1/2 bg-gradient-to-br from-purple-500 to-blue-400 p-4 mt-12 rounded-[30px] md:rounded-[40px] ">
                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1753.9234959603322!2d77.2395041!3d28.6195928!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce328e21150a5%3A0x1db02b6d0ba0702a!2sBharat%20Mandapam!5e0!3m2!1sen!2sin!4v1712301296734!5m2!1sen!2sin"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3500.2210540028186!2d77.20514447496059!3d28.683033375637226!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd91b4972361%3A0xd114167941a0a5ac!2sKirori%20Mal%20College!5e0!3m2!1sen!2sin!4v1743865009156!5m2!1sen!2sin"
                         width="100%"
                         height="100%"
                         style={{ border: 0 }}
