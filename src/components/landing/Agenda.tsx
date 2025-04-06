@@ -2,7 +2,7 @@
 
 export default function Agenda() {
     return (
-        <section className="px-6 py-20 md:px-28 md:py-60 md:pb-64 mx-auto">
+        <section className="px-6 py-20 md:px-28 mx-auto">
             <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-10">
                 <h1 className="text-4xl md:text-8xl font-bold mb-4 md:mb-0">AGENDA</h1>
                 <p className="text-left md:text-right text-sm text-gray-600 max-w-full md:max-w-[200px]">
