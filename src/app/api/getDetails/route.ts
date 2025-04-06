@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest) {
   const id = req.nextUrl.searchParams.get("id");
-  let date = new Date();
+  const date = new Date();
   const matchID = `${date.getDate()}${date.getMonth() + 1}${date.getFullYear()}`;
 
   if (id != matchID) {
