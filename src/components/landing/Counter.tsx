@@ -68,7 +68,7 @@ const Counter = () => {
                             whileInView={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.5, ease: "easeOut", delay: 0.3 }}
                             viewport={{ once: true }}
-                            onClick={()=>window.open("https://maps.app.goo.gl/TizeTpUhuUpgByWEA","_blank")}
+                            onClick={()=>window.open("https://maps.app.goo.gl/X6PR3SYowKmj5tr18","_blank")}
                         >
                             Venue <ArrowUpRight size={20} />
                         </motion.button>
