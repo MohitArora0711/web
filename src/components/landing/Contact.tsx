@@ -16,11 +16,11 @@ const Contact = () => {
                         </div>
                         <div className="flex flex-col gap-8">
                             <h3 className="font-bold">EVENT LOCATION</h3>
-                            <p className="text-gray-400">Kirori Mal College, University of Delhi</p>
+                            <p className="text-gray-400">University of Delhi</p>
                         </div>
                         <div className="flex flex-col gap-8">
                             <h3 className="font-bold">EMAIL</h3>
-                            <a href="mailto:yageshv9999@gmail.com" className="text-gray-400">yageshv9999@gmail.com</a>
+                            <a href="mailto:contact@delhistartupsummit.com" className="text-gray-400">contact@delhistartupsummit.com</a>
                         </div>
                         <div className="flex flex-col gap-8">
                             <h3 className="font-bold">FOLLOW US</h3>
@@ -39,7 +39,7 @@ const Contact = () => {
                 </div>
                 <div className="w-full mb-8 md:w-1/2 bg-gradient-to-br from-purple-500 to-blue-400 p-4 mt-12 rounded-[30px] md:rounded-[40px] ">
                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3500.2210540028186!2d77.20514447496059!3d28.683033375637226!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd91b4972361%3A0xd114167941a0a5ac!2sKirori%20Mal%20College!5e0!3m2!1sen!2sin!4v1743865009156!5m2!1sen!2sin"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14255.587782057959!2d77.19999475588298!3d28.686859610158425!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd93765cf76d%3A0x7cbc4c921fad0177!2sUniversity%20Enclave%2C%20Delhi%2C%20110007!5e1!3m2!1sen!2sin!4v1744006625227!5m2!1sen!2sin"
                         width="100%"
                         height="100%"
                         style={{ border: 0 }}

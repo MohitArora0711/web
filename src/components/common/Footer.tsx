@@ -31,8 +31,8 @@ const Footer = () => {
                             <a href="tel:+91 8595870292" className="border px-7 py-4 max-sm:px-6 max-sm:py-2 rounded-full text-sm flex items-center w-full ">
                                 +91 8595870292
                             </a>
-                            <a href="mailto:yageshv9999@gmail.com" className="border px-7 text-gray-400 py-4 max-sm:px-6 max-sm:py-2 rounded-full text-sm flex items-center">
-                                yageshv9999@gmail.com
+                            <a href="mailto:contact@delhistartupsummit.com" className="border px-7 text-gray-400 py-4 max-sm:px-6 max-sm:py-2 rounded-full text-sm flex items-center">
+                            contact@delhistartupsummit.com
                             </a>
                         </div>
                     </motion.div>

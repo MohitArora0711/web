@@ -81,9 +81,9 @@ export default function NewHero() {
                             >
                                 <p className="font-semibold text-lg ">Venue</p>
                                 <p className="font-bold text-xl">
-                                    <span className="bg-gradient-to-r from-[#C512F8] to-[#9747FF] text-transparent bg-clip-text">Kirori Mal College</span>
+                                    <span className="bg-gradient-to-r from-[#C512F8] to-[#9747FF] text-transparent bg-clip-text">North Campus</span>
                                 </p>
-                                <p className="text-lg text-cyan-500">( University of Delhi )</p>
+                                <p className="text-lg text-cyan-500">University of Delhi</p>
                             </motion.div>
 
                             <motion.div

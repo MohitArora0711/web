@@ -6,7 +6,7 @@ export default function Agenda() {
             <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-10">
                 <h1 className="text-4xl md:text-8xl font-bold mb-4 md:mb-0">AGENDA</h1>
                 <p className="text-left md:text-right text-sm text-gray-600 max-w-full md:max-w-[200px]">
-                    April 26-27, 2025 | Kirori Mal College,  University of Delhi
+                    April 26-27, 2025 | North Campus,  University of Delhi
                 </p>
             </div>
             <div className="mt-6 bg-gradient-to-b from-[#C512F8] to-[#00CFC3] rounded-[20px] md:rounded-[40px] p-6 md:p-10 text-white relative overflow-hidden md:px-28 md:py-32">
