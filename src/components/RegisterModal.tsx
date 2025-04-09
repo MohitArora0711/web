@@ -210,8 +210,8 @@ export function RegisterModal({ isOpen, onClose }: RegisterModalProps) {
                                         </div>
 
                                         {isLoading ? <div className="w-full bg-blue-600 p-3 flex justify-center items-center rounded-xl">
-                                            <Loader color="white" className="animate-spin duration-1000"/>
-                                        </div> :<button
+                                            <Loader color="white" className="animate-spin duration-1000" />
+                                        </div> : <button
                                             type="submit"
                                             className="w-full py-3 px-4 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700 transition-colors shadow-lg shadow-blue-500/20 hover:shadow-blue-500/30"
                                         >

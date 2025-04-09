@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { RegisterModal } from "../RegisterModal";
 import { Menu, X } from "lucide-react";
+import { FormButton } from "./Form";
 
 const navItems = [
     { name: "Home", link: "/" },
@@ -37,12 +38,8 @@ export default function Navbar() {
                         </span>
                     </Link>
                 ))}
-                <button
-                    onClick={() => setIsModalOpen(true)}
-                    className="bg-blue-600 hover:bg-blue-700 transition-colors rounded-xl px-5 py-2 font-semibold text-white"
-                >
-                    Register
-                </button>
+                <FormButton />
+
             </div>
 
             <button className="md:hidden max-sm:hidden" onClick={() => setIsMenuOpen(true)}>

@@ -5,6 +5,7 @@ import { ArrowUpRight } from "lucide-react";
 import { motion } from 'framer-motion';
 import { useState } from "react";
 import { RegisterModal } from '../RegisterModal';
+import { FormButton } from '../common/Form';
 
 export default function NewHero() {
 
@@ -153,7 +154,7 @@ export default function NewHero() {
                 onClick={() => {
                     setIsModalOpen(true);
                     // setIsMenuOpen(false);
-                    window.scrollTo({top:0});
+                    window.scrollTo({ top: 0 });
                 }}
             >
                 Register now
@@ -163,6 +164,9 @@ export default function NewHero() {
                     <ArrowUpRight size={25} />
                 </motion.span>
             </motion.button>
+            <div className='y-12'>
+                <FormButton />
+            </div>
             <RegisterModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
 
         </motion.section>
