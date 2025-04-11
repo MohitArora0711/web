@@ -31,7 +31,7 @@ export async function POST(req: NextRequest) {
 
         await collection.insertOne(entry);
 
-        return NextResponse.json({ success: true, message: "✅ Data saved successfully!" }, { status: 200 });
+        return NextResponse.json({ success: true, message: "Data saved successfully!" }, { status: 200 });
 
     } catch (error) {
         console.error("MongoDB Insert Error:", error);
