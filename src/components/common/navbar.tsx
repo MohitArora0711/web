@@ -6,6 +6,7 @@ import { useState } from "react";
 import { RegisterModal } from "../RegisterModal";
 import { Menu, X } from "lucide-react";
 import { FormButton } from "./Form";
+import { VolunteerForm } from "./VolunteerForm";
 
 const navItems = [
     { name: "Home", link: "/" },
@@ -27,7 +28,9 @@ export default function Navbar() {
             <h1 className="text-xl font-bold max-sm:text-center max-sm:w-full">Delhi Startup Summit</h1>
 
             <div className="hidden md:flex space-x-6 items-center">
+                <VolunteerForm />
                 {navItems.map((item) => (
+
                     <Link key={item.name} href={item.link}>
                         <span
                             className={`relative px-5 py-2 font-medium transition-all hover:text-black ${pathname === item.link
@@ -72,7 +75,6 @@ export default function Navbar() {
                     </button>
                 </div>
             </div>
-
             <RegisterModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
         </div>
     );
