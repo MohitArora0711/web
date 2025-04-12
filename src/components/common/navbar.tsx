@@ -7,6 +7,8 @@ import { RegisterModal } from "../RegisterModal";
 import { Menu, X } from "lucide-react";
 import { FormButton } from "./Form";
 import { VolunteerForm } from "./VolunteerForm";
+import StallBookingForm from "./stallBookingForm";
+// import { SandpForm } from "./sandpForm";
 // import { SandpForm } from "./sandpForm";
 
 const navItems = [
@@ -42,8 +44,11 @@ export default function Navbar() {
                         </span>
                     </Link>
                 ))}
+                <StallBookingForm />
+
                 <FormButton />
-                {/* <SandpForm /> */}
+
+                {/* <SandpForm/> */}
 
             </div>
 
