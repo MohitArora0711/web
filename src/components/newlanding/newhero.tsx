@@ -5,7 +5,7 @@ import { ArrowUpRight } from "lucide-react";
 import { motion } from 'framer-motion';
 import { useState } from "react";
 import { RegisterModal } from '../RegisterModal';
-import RegistrationForm, { FormButton } from '../common/Form';
+import { FormButton } from '../common/Form';
 
 export default function NewHero() {
 
