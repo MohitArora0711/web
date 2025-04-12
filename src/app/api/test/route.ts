@@ -9,6 +9,10 @@ export async function POST(req: NextRequest) {
         return NextResponse.json({ message: "MongoDB URI is missing!" }, { status: 500 });
     }
 
+    if (!body?.formType || !body?.data) {
+        return NextResponse.json({ success: false, message: "Missing formType or data in request!" }, { status: 400 });
+    }
+
     const client = new MongoClient(uri, {
         serverApi: {
             version: ServerApiVersion.v1,
@@ -19,14 +23,14 @@ export async function POST(req: NextRequest) {
 
     try {
         await client.connect();
-        const database = client.db("dss-du-fest");
+        const database = client.db("DelhiStartupSummit");
         const collection = database.collection("entries");
 
         const entry = {
             formType: body.formType,
             data: body.data,
-            message: body.message,
-            submittedAt: new Date()
+            message: body.message || "",
+            submittedAt: new Date(),
         };
 
         await collection.insertOne(entry);
@@ -35,7 +39,13 @@ export async function POST(req: NextRequest) {
 
     } catch (error) {
         console.error("MongoDB Insert Error:", error);
-        return NextResponse.json({ success: false, message: " Something went wrong while saving data!" }, { status: 500 });
+
+        return NextResponse.json({
+            success: false,
+            message: "Something went wrong while saving data!",
+            error: error instanceof Error ? error.message : String(error),
+        }, { status: 500 });
+
     } finally {
         await client.close();
     }

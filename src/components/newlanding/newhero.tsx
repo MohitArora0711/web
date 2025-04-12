@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { ArrowUpRight } from "lucide-react";
+// import { ArrowUpRight } from "lucide-react";
 import { motion } from 'framer-motion';
 import { useState } from "react";
 import { RegisterModal } from '../RegisterModal';
@@ -145,7 +145,7 @@ export default function NewHero() {
 
             </motion.div>
 
-            <motion.button
+            {/* <motion.button
                 className="flex items-center justify-center gap-2 my-8 px-8 py-4 text-white font-medium text-lg rounded-full bg-gradient-to-r from-[#C512F8] to-[#00CFC3] shadow-lg"
                 whileHover={{ scale: 1.05 }}
                 initial={{ opacity: 0, y: 20 }}
@@ -163,8 +163,8 @@ export default function NewHero() {
                 >
                     <ArrowUpRight size={25} />
                 </motion.span>
-            </motion.button>
-            <div className='y-12'>
+            </motion.button> */}
+            <div className='my-12'>
                 <FormButton />
             </div>
             {/* <RegistrationForm onClose={() => setIsModalOpen(true)} /> */}

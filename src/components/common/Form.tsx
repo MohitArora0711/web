@@ -40,7 +40,7 @@ interface FormData {
         established: string;
         description: string;
         category: string;
-        stallPackage: string;
+        categoryOther: string;
         discountApply: string;
         availableInDelhi: string;
         termsAgreed: boolean;
@@ -100,7 +100,7 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
             established: '',
             description: '',
             category: '',
-            stallPackage: '',
+            categoryOther: '',
             discountApply: '',
             availableInDelhi: '',
             termsAgreed: false,
@@ -220,7 +220,7 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
                 established: '',
                 description: '',
                 category: '',
-                stallPackage: '',
+                categoryOther: '',
                 discountApply: '',
                 availableInDelhi: '',
                 termsAgreed: false,
@@ -579,35 +579,19 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
                             </SelectContent>
                         </Select>
                     </div>
-                    <div className="space-y-2">
-                        <Label htmlFor="stallPackage">Choose Your Stall Package *</Label>
-                        <RadioGroup
-                            value={formData.startup.stallPackage}
-                            onValueChange={(value: string) => handleInputChange('startup', 'stallPackage', value)}
-                            className="flex flex-col space-y-2"
-                            required
-                        >
-                            <div className="flex items-center space-x-2">
-                                <RadioGroupItem value="Starter" id="starter" />
-                                <Label htmlFor="starter" className="font-medium">₹3,000 – Starter Stall</Label>
-                                <span className="ml-2 text-sm text-gray-500">(Basic Package)</span>
-                            </div>
-                            <div className="flex items-center space-x-2">
-                                <RadioGroupItem value="Standard" id="standard" />
-                                <Label htmlFor="standard" className="font-medium">₹10,000 – Standard Stall</Label>
-                                <span className="ml-2 text-sm text-gray-500">(Extra Visibility + Social Media)</span>
-                            </div>
-                            <div className="flex items-center space-x-2">
-                                <RadioGroupItem value="Premium" id="premium" />
-                                <Label htmlFor="premium" className="font-medium">₹25,000 – Premium Stall</Label>
-                                <span className="ml-2 text-sm text-gray-500">(Prime Location + Pitch + Media Coverage)</span>
-                            </div>
-                        </RadioGroup>
-                    </div>
-                </div>
-            </>,
-            <>
-                <div className="space-y-4">
+                    
+                    {formData.startup.category === 'Other' && (
+                        <div className="space-y-2">
+                            <Label htmlFor="categoryOther">Please specify category *</Label>
+                            <Input
+                                id="categoryOther"
+                                value={formData.startup.categoryOther}
+                                onChange={(e) => handleInputChange('startup', 'categoryOther', e.target.value)}
+                                required
+                            />
+                        </div>
+                    )}
+                    
                     <div className="space-y-2">
                         <Label>Would you like to apply for a discount (only for student/women-led startups)?</Label>
                         <RadioGroup
@@ -629,7 +613,10 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
                             </div>
                         </RadioGroup>
                     </div>
-
+                </div>
+            </>,
+            <>
+                <div className="space-y-4">
                     <div className="space-y-2">
                         <Label>Are you available in Delhi between April 25–28, 2025 for setup and event participation? *</Label>
                         <RadioGroup
@@ -692,7 +679,7 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
                             <div className="ml-auto text-sm font-normal text-gray-500">
                                 {currentStep === 0 ? "Basic Information" :
                                     currentStep === 1 ? "Company Details" :
-                                        currentStep === 2 ? "Category & Package" : "Additional Information"}
+                                        currentStep === 2 ? "Category Information" : "Additional Information"}
                             </div>
                         </CardTitle>
                         <div className="w-full bg-gray-200 rounded-full h-2">
