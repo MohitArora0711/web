@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Cookies from 'js-cookie';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronRight, ChevronLeft, CheckCircle, Award,Zap, Star } from 'lucide-react';
+import { ChevronRight, ChevronLeft, CheckCircle, Award, Zap, Star } from 'lucide-react';
+import axios from 'axios';
+import { toast } from 'react-hot-toast';
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -35,7 +37,7 @@ const StallBookingForm = () => {
     //     standard: 'bg-gradient-to-r from-[#015599] to-[#015599]/80',
     //     premium: 'bg-gradient-to-r from-[#8800aa] to-[#8800aa]/80'
     // };
-    
+
     const [selectedPackage, setSelectedPackage] = useState<'starter' | 'standard' | 'premium' | null>(null);
     const [currentStep, setCurrentStep] = useState(0);
     const [showPackageSelection, setShowPackageSelection] = useState(true);
@@ -131,12 +133,37 @@ const StallBookingForm = () => {
         setCurrentStep(0);
     };
 
-    const handleSubmit = () => {
-        console.log('Form submitted:', formData);
-        alert('Form submitted successfully!');
-        resetForm();
-        setOpen(false);
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+
+        const currentFormData = formData;
+
+        console.log('Form submitted:', currentFormData);
+        console.log("form type: ");
+
+        try {
+            const response = await axios.post('/api/stallbooking', {
+                data: currentFormData,
+                message: 'New form submission',
+            });
+
+            if (response.status === 200) {
+                toast.success('Form submitted successfully!');
+                resetForm();
+                setOpen(false);
+
+
+            }
+        } catch (error: unknown) {
+            console.error('Submission error:', error);
+            if (axios.isAxiosError(error) && error.response?.data?.message) {
+                toast.error(error.response.data.message);
+            } else {
+                toast.error('Failed to submit the form!');
+            }
+        }
     };
+
 
     const PackageCard = ({ title, price, features, color, onClick, icon }: { title: string; price: string; features: string[]; color: string; onClick: () => void; icon: React.ReactNode }) => (
         <motion.div
