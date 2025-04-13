@@ -76,7 +76,11 @@ export const FormButton = () => {
     );
 };
 
+
 const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
+    Cookies.remove('registrationFormData');
+    Cookies.remove('registrationFormType');
+    Cookies.remove('registrationFormStep');
     const [formType, setFormType] = useState<FormType | null>(null);
     const [currentStep, setCurrentStep] = useState(0);
     const [formData, setFormData] = useState<FormData>({

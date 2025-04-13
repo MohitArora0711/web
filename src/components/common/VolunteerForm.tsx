@@ -16,7 +16,7 @@ import { motion } from "framer-motion";
 import Cookies from 'js-cookie';
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-type FormType = 'volunteer' ;
+type FormType = 'volunteer';
 
 interface FormData {
     volunteer: {

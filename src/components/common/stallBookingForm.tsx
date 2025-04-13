@@ -32,12 +32,6 @@ const StallBookingForm = () => {
         premium: string;
     };
 
-    // const packageColors: PackageColors = {
-    //     starter: 'bg-gradient-to-r from-[#06c9c7] to-[#06c9c7]/80',
-    //     standard: 'bg-gradient-to-r from-[#015599] to-[#015599]/80',
-    //     premium: 'bg-gradient-to-r from-[#8800aa] to-[#8800aa]/80'
-    // };
-
     const [selectedPackage, setSelectedPackage] = useState<'starter' | 'standard' | 'premium' | null>(null);
     const [currentStep, setCurrentStep] = useState(0);
     const [showPackageSelection, setShowPackageSelection] = useState(true);
@@ -151,7 +145,6 @@ const StallBookingForm = () => {
                 toast.success('Form submitted successfully!');
                 resetForm();
                 setOpen(false);
-
 
             }
         } catch (error: unknown) {

@@ -27,6 +27,7 @@ export async function POST(req: NextRequest) {
         const collection = database.collection("entries");
 
         const entry = {
+            formType: body.formType || "stallbooking",
             data: body.data,
             message: body.message || "",
             submittedAt: new Date(),

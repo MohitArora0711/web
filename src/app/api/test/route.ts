@@ -12,7 +12,6 @@ export async function POST(req: NextRequest) {
     if (!body?.formType || !body?.data) {
         return NextResponse.json({ success: false, message: "Missing formType or data in request!" }, { status: 400 });
     }
-
     const client = new MongoClient(uri, {
         serverApi: {
             version: ServerApiVersion.v1,
