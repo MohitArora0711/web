@@ -32,18 +32,13 @@ interface ParticipantFormType {
 }
 
 interface StartupFormType {
-    startupName: string;
-    founderName: string;
+    username: string;
     email: string;
     phone: string;
-    location: string;
-    socialMedia: string;
-    established: string;
-    description: string;
+    message: string;
     category: string;
     categoryOther: string;
     discountApply: string;
-    availableInDelhi: string;
     termsAgreed: boolean;
 }
 
@@ -59,18 +54,13 @@ interface FormData {
         referral: string;
     };
     startup: {
-        startupName: string;
-        founderName: string;
+        username: string;
         email: string;
         phone: string;
-        location: string;
-        socialMedia: string;
-        established: string;
-        description: string;
+        message: string;
         category: string;
         categoryOther: string;
         discountApply: string;
-        availableInDelhi: string;
         termsAgreed: boolean;
     };
 }
@@ -127,7 +117,7 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
         participant: {},
         startup: {}
     });
-    
+
     const [formData, setFormData] = useState<FormData>({
         participant: {
             festivalDate: '',
@@ -140,22 +130,17 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
             referral: '',
         },
         startup: {
-            startupName: '',
-            founderName: '',
+            username: '',
             email: '',
             phone: '',
-            location: '',
-            socialMedia: '',
-            established: '',
-            description: '',
+            message: '',
             category: '',
             categoryOther: '',
             discountApply: '',
-            availableInDelhi: '',
             termsAgreed: false,
         }
     });
-    
+
     useEffect(() => {
         const savedForm = Cookies.get('registrationFormData');
         const savedType = Cookies.get('registrationFormType');
@@ -215,17 +200,17 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
     const validateForm = (): boolean => {
         const currentFormData = formType ? formData[formType] : null;
         if (!currentFormData) return false;
-    
+
         const newErrors: { [key: string]: string } = {};
         let isValid = true;
-    
+
         // Type guards
         const isParticipant = formType === 'participant';
         const isStartup = formType === 'startup';
-    
+
         if (isParticipant) {
             const data = currentFormData as ParticipantFormType;
-    
+
             if (currentStep === 0) {
                 if (!data.name.trim()) {
                     newErrors.name = 'Name is required';
@@ -262,14 +247,10 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
             }
         } else if (isStartup) {
             const data = currentFormData as StartupFormType;
-    
+
             if (currentStep === 0) {
-                if (!data.startupName.trim()) {
-                    newErrors.startupName = 'Startup name is required';
-                    isValid = false;
-                }
-                if (!data.founderName.trim()) {
-                    newErrors.founderName = 'Founder name is required';
+                if (!data.username.trim()) {
+                    newErrors.username = 'Username/Code is required';
                     isValid = false;
                 }
                 if (!data.email.trim()) {
@@ -284,15 +265,6 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
                     isValid = false;
                 }
             } else if (currentStep === 1) {
-                if (!data.location.trim()) {
-                    newErrors.location = 'Location is required';
-                    isValid = false;
-                }
-                if (!data.description.trim()) {
-                    newErrors.description = 'Description is required';
-                    isValid = false;
-                }
-            } else if (currentStep === 2) {
                 if (!data.category) {
                     newErrors.category = 'Please select a category';
                     isValid = false;
@@ -301,26 +273,22 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
                     newErrors.categoryOther = 'Please specify the category';
                     isValid = false;
                 }
-            } else if (currentStep === 3) {
-                if (!data.availableInDelhi) {
-                    newErrors.availableInDelhi = 'Please answer if you will be available in Delhi';
-                    isValid = false;
-                }
+            } else if (currentStep === 2) {
                 if (!data.termsAgreed) {
                     newErrors.termsAgreed = 'You must agree to the terms';
                     isValid = false;
                 }
             }
         }
-    
+
         setFormErrors(prev => ({
             ...prev,
             [formType as FormType]: newErrors
         }));
-    
+
         return isValid;
     };
-    
+
 
     const handleNextStep = () => {
         if (validateForm()) {
@@ -330,7 +298,7 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        
+
         if (!validateForm()) {
             toast.error('Please fill all required fields correctly');
             return;
@@ -350,7 +318,7 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
                 toast.success('Form submitted successfully!');
                 setFormSuccess(true);
                 clearAllCookies();
-                
+
                 setTimeout(() => {
                     if (onClose) {
                         onClose();
@@ -394,18 +362,13 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
                 referral: '',
             },
             startup: {
-                startupName: '',
-                founderName: '',
+                username: '',
                 email: '',
                 phone: '',
-                location: '',
-                socialMedia: '',
-                established: '',
-                description: '',
+                message: '',
                 category: '',
                 categoryOther: '',
                 discountApply: '',
-                availableInDelhi: '',
                 termsAgreed: false,
             }
         });
@@ -677,8 +640,8 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
                             )}
                         </div>
                         <div className="flex space-x-2">
-                            <Button 
-                                variant="ghost" 
+                            <Button
+                                variant="ghost"
                                 onClick={resetForm}
                                 disabled={isSubmitting}
                             >
@@ -719,28 +682,21 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
         const startupSteps = [
             <>
                 <div className="space-y-4">
-                    <div className="space-y-2">
-                        <Label htmlFor="startupName">Startup/MSME Name *</Label>
-                        <Input
-                            id="startupName"
-                            value={formData.startup.startupName}
-                            onChange={(e) => handleInputChange('startup', 'startupName', e.target.value)}
-                            required
-                            className={errors.startupName ? "border-red-500" : ""}
-                        />
-                        {errors.startupName && <p className="text-red-500 text-sm">{errors.startupName}</p>}
+                    <div className="p-4 bg-blue-50 border border-blue-200 rounded-md mb-4">
+                        <p className="text-blue-700 font-medium">Important Notice</p>
+                        <p className="text-blue-600">Please register your startup at <a href="https://neecop.com" target="_blank" rel="noopener noreferrer" className="underline font-medium">neecop.com</a> first. You will receive a code or username which is required to complete this registration.</p>
                     </div>
 
                     <div className="space-y-2">
-                        <Label htmlFor="founderName">Founder Full Name *</Label>
+                        <Label htmlFor="username">Username/Code from NEECOP *</Label>
                         <Input
-                            id="founderName"
-                            value={formData.startup.founderName}
-                            onChange={(e) => handleInputChange('startup', 'founderName', e.target.value)}
+                            id="username"
+                            value={formData.startup.username}
+                            onChange={(e) => handleInputChange('startup', 'username', e.target.value)}
                             required
-                            className={errors.founderName ? "border-red-500" : ""}
+                            className={errors.username ? "border-red-500" : ""}
                         />
-                        {errors.founderName && <p className="text-red-500 text-sm">{errors.founderName}</p>}
+                        {errors.username && <p className="text-red-500 text-sm">{errors.username}</p>}
                     </div>
 
                     <div className="space-y-2">
@@ -767,50 +723,15 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
                         />
                         {errors.phone && <p className="text-red-500 text-sm">{errors.phone}</p>}
                     </div>
-                </div>
-            </>,
-            <>
-                <div className="space-y-4">
-                    <div className="space-y-2">
-                        <Label htmlFor="location">Office Location (City, State) *</Label>
-                        <Input
-                            id="location"
-                            value={formData.startup.location}
-                            onChange={(e) => handleInputChange('startup', 'location', e.target.value)}
-                            required
-                            className={errors.location ? "border-red-500" : ""}
-                        />
-                        {errors.location && <p className="text-red-500 text-sm">{errors.location}</p>}
-                    </div>
 
                     <div className="space-y-2">
-                        <Label htmlFor="startupSocialMedia">Website / Social Media Handles</Label>
-                        <Input
-                            id="startupSocialMedia"
-                            value={formData.startup.socialMedia}
-                            onChange={(e) => handleInputChange('startup', 'socialMedia', e.target.value)}
-                        />
-                    </div>
-
-                    <div className="space-y-2">
-                        <Label htmlFor="established">Year of Establishment</Label>
-                        <Input
-                            id="established"
-                            value={formData.startup.established}
-                            onChange={(e) => handleInputChange('startup', 'established', e.target.value)}
-                        />
-                    </div>
-
-                    <div className="space-y-2">
-                        <Label htmlFor="description">Brief Description of Product/Service (Max 100 words) *</Label>
+                        <Label htmlFor="message">Message to us (Optional)</Label>
                         <Textarea
-                            id="description"
-                            value={formData.startup.description}
-                            onChange={(e) => handleInputChange('startup', 'description', e.target.value)}
-                            className={`min-h-24 ${errors.description ? "border-red-500" : ""}`}
-                            required
+                            id="message"
+                            value={formData.startup.message}
+                            onChange={(e) => handleInputChange('startup', 'message', e.target.value)}
+                            className="min-h-24"
                         />
-                        {errors.description && <p className="text-red-500 text-sm">{errors.description}</p>}
                     </div>
                 </div>
             </>,
@@ -840,7 +761,7 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
                         </Select>
                         {errors.category && <p className="text-red-500 text-sm">{errors.category}</p>}
                     </div>
-                    
+
                     {formData.startup.category === 'Other' && (
                         <div className="space-y-2">
                             <Label htmlFor="categoryOther">Please specify category *</Label>
@@ -854,7 +775,7 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
                             {errors.categoryOther && <p className="text-red-500 text-sm">{errors.categoryOther}</p>}
                         </div>
                     )}
-                    
+
                     <div className="space-y-2">
                         <Label>Would you like to apply for a discount (only for student/women-led startups)?</Label>
                         <RadioGroup
@@ -876,34 +797,6 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
                             </div>
                         </RadioGroup>
                     </div>
-                </div>
-            </>,
-            <>
-                <div className="space-y-4">
-                    <div className="space-y-2">
-                        <Label>Are you available in Delhi between April 25–28, 2025 for setup and event participation? *</Label>
-                        <RadioGroup
-                            value={formData.startup.availableInDelhi}
-                            onValueChange={(value: string) => handleInputChange('startup', 'availableInDelhi', value)}
-                            className="flex flex-col space-y-2"
-                            required
-                        >
-                            <div className="flex items-center space-x-2">
-                                <RadioGroupItem value="Yes" id="availableYes" />
-                                <Label htmlFor="availableYes">Yes</Label>
-                            </div>
-                            <div className="flex items-center space-x-2">
-                                <RadioGroupItem value="No" id="availableNo" />
-                                <Label htmlFor="availableNo">No</Label>
-                            </div>
-                            <div className="flex items-center space-x-2">
-                                <RadioGroupItem value="Maybe" id="availableMaybe" />
-                                <Label htmlFor="availableMaybe">Maybe</Label>
-                            </div>
-                        </RadioGroup>
-                        {errors.availableInDelhi && <p className="text-red-500 text-sm">{errors.availableInDelhi}</p>}
-                    </div>
-
                     <div className="flex items-start space-x-2 pt-4">
                         <Checkbox
                             id="terms"
@@ -920,7 +813,7 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
                     </div>
                     {errors.termsAgreed && <p className="text-red-500 text-sm ml-6">{errors.termsAgreed}</p>}
                 </div>
-            </>
+            </>,
         ];
 
         return (
@@ -975,8 +868,8 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
                             )}
                         </div>
                         <div className="flex space-x-2">
-                            <Button 
-                                variant="ghost" 
+                            <Button
+                                variant="ghost"
                                 onClick={resetForm}
                                 disabled={isSubmitting}
                             >
