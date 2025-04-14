@@ -171,7 +171,6 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
             const response = await axios.post('/api/test', {
                 formType,
                 data: currentFormData,
-                message: 'New form submission',
             });
 
             if (response.status === 200) {

@@ -569,9 +569,11 @@ const StallBookingForm = () => {
             >
                 <Dialog open={open} onOpenChange={setOpen}>
                     <DialogTrigger asChild>
-                        <Button className="bg-gradient-to-r from-[#8800aa] to-[#015599] hover:opacity-90 text-white text-lg rounded-full shadow-lg hover:shadow-xl transition-all">
-                            Book Your Stall Now
+                        
+                        <Button className="px-7 py-2 rounded-full border-2 border-transparent bg-gradient-to-r from-blue-600 to-purple-700 text-white shadow-md transition-all duration-300 ease-in-out hover:from-purple-600 hover:to-blue-700 hover:shadow-[1px] hover:scale-10">
+                            Book your stall
                         </Button>
+
                     </DialogTrigger>
                     <DialogContent className="sm:max-w-4xl max-h-[90vh] overflow-y-auto">
                         <AnimatePresence mode="wait">

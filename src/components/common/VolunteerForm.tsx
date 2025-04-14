@@ -43,7 +43,7 @@ export const VolunteerForm = () => {
         <Dialog open={isOpen} onOpenChange={setIsOpen}>
             <DialogTrigger asChild>
                 <button onClick={() => setIsOpen(true)}
-                    className='font-bold '
+                    className='font-bold underline'
                 >
                     Join as Volunteer
                 </button>

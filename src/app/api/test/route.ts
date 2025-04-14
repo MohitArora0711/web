@@ -28,7 +28,6 @@ export async function POST(req: NextRequest) {
         const entry = {
             formType: body.formType,
             data: body.data,
-            message: body.message || "",
             submittedAt: new Date(),
         };
 

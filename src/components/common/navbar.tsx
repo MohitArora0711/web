@@ -1,7 +1,7 @@
 "use client";
 
-import { usePathname } from "next/navigation";
-import Link from "next/link";
+// import { usePathname } from "next/navigation";
+// import Link from "next/link";
 import { useState } from "react";
 import { RegisterModal } from "../RegisterModal";
 import { Menu, X } from "lucide-react";
@@ -11,17 +11,17 @@ import StallBookingForm from "./stallBookingForm";
 // import { SandpForm } from "./sandpForm";
 // import { SandpForm } from "./sandpForm";
 
-const navItems = [
-    { name: "Home", link: "/" },
-    // { name: "Schedule", link: "/schedule" },
-    // { name: "Speakers", link: "/speakers" },
-    // { name: "Partner", link: "/partner" },
-    // { name: "Venue", link: "/venue" },
-    // { name: "Startup Social", link: "/startup-social" }
-];
+// const navItems = [
+//     { name: "Home", link: "/" },
+//     // { name: "Schedule", link: "/schedule" },
+//     // { name: "Speakers", link: "/speakers" },
+//     // { name: "Partner", link: "/partner" },
+//     // { name: "Venue", link: "/venue" },
+//     // { name: "Startup Social", link: "/startup-social" }
+// ];
 
 export default function Navbar() {
-    const pathname = usePathname();
+    // const pathname = usePathname();
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -32,7 +32,7 @@ export default function Navbar() {
 
             <div className="hidden md:flex space-x-6 items-center">
                 <VolunteerForm />
-                {navItems.map((item) => (
+                {/* {navItems.map((item) => (
 
                     <Link key={item.name} href={item.link}>
                         <span
@@ -43,12 +43,11 @@ export default function Navbar() {
                             {item.name}
                         </span>
                     </Link>
-                ))}
+                ))} */}
                 <StallBookingForm />
 
                 <FormButton />
 
-                {/* <SandpForm/> */}
 
             </div>
 
@@ -64,13 +63,13 @@ export default function Navbar() {
                     </button>
                 </div>
                 <div className="flex flex-col space-y-6 p-6 bg-white">
-                    {navItems.map((item) => (
+                    {/* {navItems.map((item) => (
                         <Link key={item.name} href={item.link}>
                             <span className={`block text-lg font-medium transition-all ${pathname === item.link ? "text-black font-bold" : "text-gray-600 hover:text-black"}`}>
                                 {item.name}
                             </span>
                         </Link>
-                    ))}
+                    ))} */}
                     <button
                         onClick={() => {
                             setIsModalOpen(true);
