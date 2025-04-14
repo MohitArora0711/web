@@ -1,6 +1,6 @@
 import { MongoClient, ServerApiVersion } from "mongodb";
 import { NextRequest, NextResponse } from "next/server";
-import axios from "axios"; // ✅ Added axios import
+import axios from "axios";
 
 export async function POST(req: NextRequest) {
     const body = await req.json();
@@ -61,13 +61,19 @@ export async function POST(req: NextRequest) {
         
         if (body.formType === "startup" && body.data.username) {
             try {
-                const response = await axios.get(`https://d6wmewta323aj.cloudfront.net/api/v1/company/verify/${body.data.username}/${body.data.email}/${body.data.phone}`);
+                const response = await axios.get(`https://d6wmewta323aj.cloudfront.net/api/v1/company/verify/${body.data.username}/${body.data.email}/+91${body.data.phone}`);
                 const validationResult = response.data;
                 
-                if (!validationResult || validationResult === false) {
+                if (!validationResult || validationResult.verify === true) {
+                    return NextResponse.json({
+                        success: true,
+                        message: "Your verified"
+                    }, { status: 200 });
+                }
+                else{
                     return NextResponse.json({
                         success: false,
-                        message: "Your code is not valid."
+                        message: "Your code is not valid. Please check your code."
                     }, { status: 400 });
                 }
             } catch (validationError) {
