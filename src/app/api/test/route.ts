@@ -1,5 +1,6 @@
 import { MongoClient, ServerApiVersion } from "mongodb";
 import { NextRequest, NextResponse } from "next/server";
+import axios from "axios"; // ✅ Added axios import
 
 export async function POST(req: NextRequest) {
     const body = await req.json();
@@ -60,8 +61,8 @@ export async function POST(req: NextRequest) {
         
         if (body.formType === "startup" && body.data.username) {
             try {
-                const response = await fetch(`https://neecop.com/valid/${body.data.username}`);
-                const validationResult = await response.json();
+                const response = await axios.get(`https://d6wmewta323aj.cloudfront.net/api/v1/company/verify/${body.data.username}/${body.data.email}/${body.data.phone}`);
+                const validationResult = response.data;
                 
                 if (!validationResult || validationResult === false) {
                     return NextResponse.json({
