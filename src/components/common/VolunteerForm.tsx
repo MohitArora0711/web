@@ -14,7 +14,7 @@ import { toast } from 'react-hot-toast';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import Cookies from 'js-cookie';
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { AlertCircle,  CheckCircle, ChevronLeft, ChevronRight, Loader2 } from "lucide-react";
 
 type FormType = 'volunteer';
 
@@ -34,6 +34,10 @@ interface FormData {
         specialSkills: string;
         hearAboutUs: string;
     };
+}
+
+interface FormErrors {
+    [key: string]: string;
 }
 
 export const VolunteerForm = () => {
@@ -84,6 +88,12 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
             hearAboutUs: '',
         },
     });
+    const [errors, setErrors] = useState<FormErrors>({});
+    const [isLoading, setIsLoading] = useState(false);
+    const [isSubmitted, setIsSubmitted] = useState(false);
+    const [submissionMessage, setSubmissionMessage] = useState({ type: '', message: '' });
+    // Removed unused formError state
+
     useEffect(() => {
         const savedForm = Cookies.get('registrationFormData');
         const savedType = Cookies.get('registrationFormType');
@@ -117,6 +127,14 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
     const handleInputChange = (type: FormType, field: string, value: string | boolean) => {
         if (!type || !(type in formData)) return;
 
+        if (errors[field]) {
+            setErrors(prev => {
+                const newErrors = { ...prev };
+                delete newErrors[field];
+                return newErrors;
+            });
+        }
+
         setFormData(prev => ({
             ...prev,
             [type]: {
@@ -132,50 +150,132 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
         Cookies.remove('registrationFormStep');
     };
 
+    const validateForm = (step: number): boolean => {
+        const newErrors: FormErrors = {};
+        let isValid = true;
+
+        if (step === 0) {
+            if (!formData.volunteer.fullName.trim()) {
+                newErrors.fullName = 'Full name is required';
+                isValid = false;
+            }
+            
+            if (!formData.volunteer.email.trim()) {
+                newErrors.email = 'Email is required';
+                isValid = false;
+            } else if (!/\S+@\S+\.\S+/.test(formData.volunteer.email)) {
+                newErrors.email = 'Email is invalid';
+                isValid = false;
+            }
+            
+            if (!formData.volunteer.phone.trim()) {
+                newErrors.phone = 'Phone number is required';
+                isValid = false;
+            }
+            
+            if (!formData.volunteer.city.trim()) {
+                newErrors.city = 'City is required';
+                isValid = false;
+            }
+        } else if (step === 1) {
+            if (!formData.volunteer.institution.trim()) {
+                newErrors.institution = 'Institution name is required';
+                isValid = false;
+            }
+            
+            if (!formData.volunteer.courseYear.trim()) {
+                newErrors.courseYear = 'Course and year is required';
+                isValid = false;
+            }
+        } else if (step === 2) {
+            if (!formData.volunteer.availableInPerson) {
+                newErrors.availableInPerson = 'Please select an option';
+                isValid = false;
+            }
+            
+            if (!formData.volunteer.volunteerArea) {
+                newErrors.volunteerArea = 'Please select a volunteering area';
+                isValid = false;
+            }
+        } else if (step === 3) {
+            if (!formData.volunteer.motivation.trim()) {
+                newErrors.motivation = 'Motivation is required';
+                isValid = false;
+            }
+        }
+
+        setErrors(newErrors);
+        return isValid;
+    };
+
+    const handleNextStep = () => {
+        if (validateForm(currentStep)) {
+            setCurrentStep(currentStep + 1);
+            setSubmissionMessage({ type: '', message: '' });
+        } else {
+            setSubmissionMessage({ type: 'error', message: 'Please fill in all required fields correctly.' });
+        }
+    };
+
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        
+        if (!validateForm(currentStep)) {
+            setSubmissionMessage({ type: 'error', message: 'Please fill in all required fields correctly.' });
+            return;
+        }
 
-        const currentFormData = formData;
-
-        console.log('Form submitted:', formType, currentFormData);
-        console.log("form type: ", formType);
+        setIsLoading(true);
+        const currentFormData = formData.volunteer;
 
         try {
             //url apne hisab se change kr dena  waise ye api/test wale me check kr lia he maine
             const response = await axios.post('/api/test', {
                 formType,
                 data: currentFormData,
-                message: 'New form submission',
             });
 
             if (response.status === 200) {
+                setSubmissionMessage({
+                    type: 'success',
+                    message: 'Your volunteer application has been submitted successfully! We will contact you soon.'
+                });
+                setIsSubmitted(true);
                 toast.success('Form submitted successfully!');
                 clearAllCookies();
-                setFormType(null);
-                setCurrentStep(0);
-
-                if (onClose) {
-                    onClose();
-                }
             } else {
+                setSubmissionMessage({
+                    type: 'error',
+                    message: 'Something went wrong. Please try again.'
+                });
                 toast.error('Something went wrong. Please try again.');
             }
         } catch (error: unknown) {
             console.error('Submission error:', error);
             if (axios.isAxiosError(error) && error.response?.data?.message) {
+                setSubmissionMessage({
+                    type: 'error',
+                    message: error.response.data.message
+                });
                 toast.error(error.response.data.message);
             } else {
+                setSubmissionMessage({
+                    type: 'error',
+                    message: 'Failed to submit the form. Please try again later.'
+                });
                 toast.error('Failed to submit the form!');
             }
+        } finally {
+            setIsLoading(false);
         }
     };
 
-
     const resetForm = () => {
         clearAllCookies();
-
         setCurrentStep(0);
-
+        setIsSubmitted(false);
+        setSubmissionMessage({ type: '', message: '' });
+        setErrors({});
         setFormData({
             volunteer: {
                 fullName: '',
@@ -195,6 +295,89 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
         });
     };
 
+    const SuccessCard = () => (
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+        >
+            <Card className="border-green-500">
+                <CardContent className="pt-6 pb-6">
+                    <div className="flex flex-col items-center text-center">
+                        <CheckCircle className="w-12 h-12 text-green-500 mb-4" />
+                        <h3 className="text-xl font-bold mb-2">Registration Successful!</h3>
+                        <p className="text-gray-600 mb-4">
+                            Thank youuuuuuuuuuuu for registering for Delhi Startup Summit 2025. We have received your information and will be in touch soon.
+                        </p>
+                        <Button onClick={onClose} className="mt-2">
+                            Close
+                        </Button>
+                    </div>
+                </CardContent>
+            </Card>
+        </motion.div>
+    );
+
+    const ErrorCard = () => (
+        <Card className="border-red-500 mt-4">
+            <CardContent className="pt-4 pb-4">
+                <div className="flex items-center">
+                    <AlertCircle className="w-6 h-6 text-red-500 mr-2" />
+                    <p className="text-red-500 font-medium">{submissionMessage.message}</p>
+                </div>
+            </CardContent>
+        </Card>
+    );
+
+    if (isSubmitted && submissionMessage.type === 'success') {
+        return <SuccessCard />;
+    }
+
+    if (isSubmitted && submissionMessage.type === 'error') {
+        return (
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.3 }}
+                className="space-y-6"
+            >
+                <Card className="overflow-hidden">
+                    <CardHeader className="bg-red-50 p-6">
+                        <div className="flex items-center justify-center mb-4">
+                            <div className="h-12 w-12 rounded-full bg-red-100 flex items-center justify-center">
+                                <AlertCircle className="h-6 w-6 text-red-600" />
+                            </div>
+                        </div>
+                        <CardTitle className="text-2xl font-bold text-center">
+                            Submission Error
+                        </CardTitle>
+                    </CardHeader>
+                    <CardContent className="p-6">
+                        <p className="text-center text-gray-700 mb-6">
+                            {submissionMessage.message}
+                        </p>
+                        <div className="flex justify-center">
+                            <div className="flex space-x-4">
+                                <Button 
+                                    variant="outline" 
+                                    onClick={resetForm}
+                                >
+                                    Try Again
+                                </Button>
+                                <Button 
+                                    onClick={onClose}
+                                    className="bg-gray-600 hover:bg-gray-700"
+                                >
+                                    Close
+                                </Button>
+                            </div>
+                        </div>
+                    </CardContent>
+                </Card>
+            </motion.div>
+        );
+    }
+
     if (formType === 'volunteer') {
         const volunteerSteps = [
             <>
@@ -206,7 +389,9 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
                             value={formData.volunteer.fullName}
                             onChange={(e) => handleInputChange('volunteer', 'fullName', e.target.value)}
                             required
+                            className={errors.fullName ? "border-red-500" : ""}
                         />
+                        {errors.fullName && <p className="text-sm text-red-500">{errors.fullName}</p>}
                     </div>
 
                     <div className="space-y-2">
@@ -217,7 +402,9 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
                             value={formData.volunteer.email}
                             onChange={(e) => handleInputChange('volunteer', 'email', e.target.value)}
                             required
+                            className={errors.email ? "border-red-500" : ""}
                         />
+                        {errors.email && <p className="text-sm text-red-500">{errors.email}</p>}
                     </div>
 
                     <div className="space-y-2">
@@ -227,7 +414,9 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
                             value={formData.volunteer.phone}
                             onChange={(e) => handleInputChange('volunteer', 'phone', e.target.value)}
                             required
+                            className={errors.phone ? "border-red-500" : ""}
                         />
+                        {errors.phone && <p className="text-sm text-red-500">{errors.phone}</p>}
                     </div>
 
                     <div className="space-y-2">
@@ -237,7 +426,9 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
                             value={formData.volunteer.city}
                             onChange={(e) => handleInputChange('volunteer', 'city', e.target.value)}
                             required
+                            className={errors.city ? "border-red-500" : ""}
                         />
+                        {errors.city && <p className="text-sm text-red-500">{errors.city}</p>}
                     </div>
                 </div>
             </>,
@@ -250,7 +441,9 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
                             value={formData.volunteer.institution}
                             onChange={(e) => handleInputChange('volunteer', 'institution', e.target.value)}
                             required
+                            className={errors.institution ? "border-red-500" : ""}
                         />
+                        {errors.institution && <p className="text-sm text-red-500">{errors.institution}</p>}
                     </div>
 
                     <div className="space-y-2">
@@ -260,7 +453,9 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
                             value={formData.volunteer.courseYear}
                             onChange={(e) => handleInputChange('volunteer', 'courseYear', e.target.value)}
                             required
+                            className={errors.courseYear ? "border-red-500" : ""}
                         />
+                        {errors.courseYear && <p className="text-sm text-red-500">{errors.courseYear}</p>}
                     </div>
 
                     <div className="space-y-2">
@@ -296,6 +491,7 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
                                 <Label htmlFor="notSure">Not Sure Yet</Label>
                             </div>
                         </RadioGroup>
+                        {errors.availableInPerson && <p className="text-sm text-red-500">{errors.availableInPerson}</p>}
                     </div>
                     <div className="space-y-2">
                         <Label htmlFor="volunteerArea">Which volunteering area interests you the most? *</Label>
@@ -304,7 +500,7 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
                             onValueChange={(value) => handleInputChange('volunteer', 'volunteerArea', value)}
                             required
                         >
-                            <SelectTrigger id="volunteerArea">
+                            <SelectTrigger id="volunteerArea" className={errors.volunteerArea ? "border-red-500" : ""}>
                                 <SelectValue placeholder="Select an area" />
                             </SelectTrigger>
                             <SelectContent>
@@ -321,6 +517,7 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
                                 <SelectItem value="Any area">Any area – I just want to volunteer!</SelectItem>
                             </SelectContent>
                         </Select>
+                        {errors.volunteerArea && <p className="text-sm text-red-500">{errors.volunteerArea}</p>}
                     </div>
                 </div>
             </>,
@@ -342,9 +539,10 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
                             id="motivation"
                             value={formData.volunteer.motivation}
                             onChange={(e) => handleInputChange('volunteer', 'motivation', e.target.value)}
-                            className="min-h-24"
+                            className={`min-h-24 ${errors.motivation ? "border-red-500" : ""}`}
                             required
                         />
+                        {errors.motivation && <p className="text-sm text-red-500">{errors.motivation}</p>}
                     </div>
 
                     <div className="space-y-2">
@@ -385,6 +583,9 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
                         </DialogDescription>
                     </DialogHeader>
                 </Dialog>
+                
+                {/* {formError && <ErrorCard />} */}
+                
                 <Card>
                     <CardHeader>
                         <CardTitle className="text-lg font-medium flex items-center">
@@ -406,6 +607,7 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
                         <form>
                             {volunteerSteps[currentStep]}
                         </form>
+                        {submissionMessage.type==="error" && <ErrorCard />}
                     </CardContent>
                     <CardFooter className="flex justify-between">
                         <div>
@@ -414,19 +616,25 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
                                     variant="outline"
                                     onClick={() => setCurrentStep(currentStep - 1)}
                                     className="flex items-center"
+                                    disabled={isLoading}
                                 >
                                     <ChevronLeft className="w-4 h-4 mr-1" /> Back
                                 </Button>
                             )}
                         </div>
                         <div className="flex space-x-2">
-                            <Button variant="ghost" onClick={resetForm}>
+                            <Button 
+                                variant="ghost" 
+                                onClick={resetForm}
+                                disabled={isLoading}
+                            >
                                 Reset
                             </Button>
                             {currentStep < volunteerSteps.length - 1 ? (
                                 <Button
-                                    onClick={() => setCurrentStep(currentStep + 1)}
+                                    onClick={handleNextStep}
                                     className="bg-purple-600 hover:bg-purple-700 flex items-center"
+                                    disabled={isLoading}
                                 >
                                     Next <ChevronRight className="w-4 h-4 ml-1" />
                                 </Button>
@@ -434,8 +642,16 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
                                 <Button
                                     onClick={handleSubmit}
                                     className="bg-green-600 hover:bg-green-700"
+                                    disabled={isLoading}
                                 >
-                                    Submit
+                                    {isLoading ? (
+                                        <>
+                                            <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                                            Submitting...
+                                        </>
+                                    ) : (
+                                        'Submit'
+                                    )}
                                 </Button>
                             )}
                         </div>

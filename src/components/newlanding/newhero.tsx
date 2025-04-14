@@ -18,7 +18,7 @@ export default function NewHero() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true }}
-            className="w-full flex flex-col items-center justify-center text-center  px-2 md:px-28 pt-28"
+            className="w-full flex flex-col items-center justify-center text-center  px-2 md:px-24 pt-24"
         >
             <motion.div
                 className="relative w-full shadow-lg py-8 px-4 md:p-10 overflow-hidden"

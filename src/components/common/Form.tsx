@@ -1,4 +1,3 @@
-// RegistrationForm.tsx
 import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -15,9 +14,38 @@ import { toast } from 'react-hot-toast';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import Cookies from 'js-cookie';
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
 
 type FormType = 'participant' | 'startup';
+
+
+
+interface ParticipantFormType {
+    name: string;
+    email: string;
+    phone: string;
+    age: string;
+    gender: string;
+    profession: string;
+    referral: string;
+    festivalDate: string;
+}
+
+interface StartupFormType {
+    startupName: string;
+    founderName: string;
+    email: string;
+    phone: string;
+    location: string;
+    socialMedia: string;
+    established: string;
+    description: string;
+    category: string;
+    categoryOther: string;
+    discountApply: string;
+    availableInDelhi: string;
+    termsAgreed: boolean;
+}
 
 interface FormData {
     participant: {
@@ -44,6 +72,15 @@ interface FormData {
         discountApply: string;
         availableInDelhi: string;
         termsAgreed: boolean;
+    };
+}
+
+interface FormErrors {
+    participant: {
+        [key: string]: string;
+    };
+    startup: {
+        [key: string]: string;
     };
 }
 
@@ -83,6 +120,14 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
     Cookies.remove('registrationFormStep');
     const [formType, setFormType] = useState<FormType | null>(null);
     const [currentStep, setCurrentStep] = useState(0);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [formSuccess, setFormSuccess] = useState(false);
+    const [formError, setFormError] = useState<string | null>(null);
+    const [formErrors, setFormErrors] = useState<FormErrors>({
+        participant: {},
+        startup: {}
+    });
+    
     const [formData, setFormData] = useState<FormData>({
         participant: {
             festivalDate: '',
@@ -110,6 +155,7 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
             termsAgreed: false,
         }
     });
+    
     useEffect(() => {
         const savedForm = Cookies.get('registrationFormData');
         const savedType = Cookies.get('registrationFormType');
@@ -143,6 +189,14 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
     const handleInputChange = (type: FormType, field: string, value: string | boolean) => {
         if (!type) return;
 
+        setFormErrors(prev => ({
+            ...prev,
+            [type]: {
+                ...prev[type],
+                [field]: ''
+            }
+        }));
+
         setFormData(prev => ({
             ...prev,
             [type]: {
@@ -158,16 +212,135 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
         Cookies.remove('registrationFormStep');
     };
 
+    const validateForm = (): boolean => {
+        const currentFormData = formType ? formData[formType] : null;
+        if (!currentFormData) return false;
+    
+        const newErrors: { [key: string]: string } = {};
+        let isValid = true;
+    
+        // Type guards
+        const isParticipant = formType === 'participant';
+        const isStartup = formType === 'startup';
+    
+        if (isParticipant) {
+            const data = currentFormData as ParticipantFormType;
+    
+            if (currentStep === 0) {
+                if (!data.name.trim()) {
+                    newErrors.name = 'Name is required';
+                    isValid = false;
+                }
+                if (!data.email.trim()) {
+                    newErrors.email = 'Email is required';
+                    isValid = false;
+                } else if (!/\S+@\S+\.\S+/.test(data.email)) {
+                    newErrors.email = 'Valid email is required';
+                    isValid = false;
+                }
+                if (!data.phone.trim()) {
+                    newErrors.phone = 'Phone number is required';
+                    isValid = false;
+                }
+                if (!data.age.trim()) {
+                    newErrors.age = 'Age is required';
+                    isValid = false;
+                }
+            } else if (currentStep === 1) {
+                if (!data.gender) {
+                    newErrors.gender = 'Please select your gender';
+                    isValid = false;
+                }
+                if (!data.profession.trim()) {
+                    newErrors.profession = 'Profession is required';
+                    isValid = false;
+                }
+                if (!data.festivalDate) {
+                    newErrors.festivalDate = 'Please select which day(s) you will attend';
+                    isValid = false;
+                }
+            }
+        } else if (isStartup) {
+            const data = currentFormData as StartupFormType;
+    
+            if (currentStep === 0) {
+                if (!data.startupName.trim()) {
+                    newErrors.startupName = 'Startup name is required';
+                    isValid = false;
+                }
+                if (!data.founderName.trim()) {
+                    newErrors.founderName = 'Founder name is required';
+                    isValid = false;
+                }
+                if (!data.email.trim()) {
+                    newErrors.email = 'Email is required';
+                    isValid = false;
+                } else if (!/\S+@\S+\.\S+/.test(data.email)) {
+                    newErrors.email = 'Valid email is required';
+                    isValid = false;
+                }
+                if (!data.phone.trim()) {
+                    newErrors.phone = 'Phone number is required';
+                    isValid = false;
+                }
+            } else if (currentStep === 1) {
+                if (!data.location.trim()) {
+                    newErrors.location = 'Location is required';
+                    isValid = false;
+                }
+                if (!data.description.trim()) {
+                    newErrors.description = 'Description is required';
+                    isValid = false;
+                }
+            } else if (currentStep === 2) {
+                if (!data.category) {
+                    newErrors.category = 'Please select a category';
+                    isValid = false;
+                }
+                if (data.category === 'Other' && !data.categoryOther.trim()) {
+                    newErrors.categoryOther = 'Please specify the category';
+                    isValid = false;
+                }
+            } else if (currentStep === 3) {
+                if (!data.availableInDelhi) {
+                    newErrors.availableInDelhi = 'Please answer if you will be available in Delhi';
+                    isValid = false;
+                }
+                if (!data.termsAgreed) {
+                    newErrors.termsAgreed = 'You must agree to the terms';
+                    isValid = false;
+                }
+            }
+        }
+    
+        setFormErrors(prev => ({
+            ...prev,
+            [formType as FormType]: newErrors
+        }));
+    
+        return isValid;
+    };
+    
+
+    const handleNextStep = () => {
+        if (validateForm()) {
+            setCurrentStep(currentStep + 1);
+        }
+    };
+
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        
+        if (!validateForm()) {
+            toast.error('Please fill all required fields correctly');
+            return;
+        }
 
         const currentFormData = formData[formType as FormType];
-
-        console.log('Form submitted:', formType, currentFormData);
-        console.log("form type: ", formType);
+        setIsSubmitting(true);
+        setFormError(null);
 
         try {
-            //url apne hisab se change kr dena  waise ye api/test wale me check kr lia he maine
             const response = await axios.post('/api/test', {
                 formType,
                 data: currentFormData,
@@ -175,32 +348,39 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
 
             if (response.status === 200) {
                 toast.success('Form submitted successfully!');
+                setFormSuccess(true);
                 clearAllCookies();
-                setFormType(null);
-                setCurrentStep(0);
-
-                if (onClose) {
-                    onClose();
-                }
+                
+                setTimeout(() => {
+                    if (onClose) {
+                        onClose();
+                    }
+                }, 3000);
             } else {
+                setFormError('Something went wrong. Please try again.');
                 toast.error('Something went wrong. Please try again.');
             }
         } catch (error: unknown) {
             console.error('Submission error:', error);
             if (axios.isAxiosError(error) && error.response?.data?.message) {
+                setFormError(error.response.data.message);
                 toast.error(error.response.data.message);
             } else {
+                setFormError('Failed to submit the form!');
                 toast.error('Failed to submit the form!');
             }
+        } finally {
+            setIsSubmitting(false);
         }
     };
-
 
     const resetForm = () => {
         clearAllCookies();
 
         setFormType(null);
         setCurrentStep(0);
+        setFormSuccess(false);
+        setFormError(null);
 
         setFormData({
             participant: {
@@ -230,6 +410,44 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
             }
         });
     };
+
+    const SuccessCard = () => (
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+        >
+            <Card className="border-green-500">
+                <CardContent className="pt-6 pb-6">
+                    <div className="flex flex-col items-center text-center">
+                        <CheckCircle className="w-12 h-12 text-green-500 mb-4" />
+                        <h3 className="text-xl font-bold mb-2">Registration Successful!</h3>
+                        <p className="text-gray-600 mb-4">
+                            Thank you for registering for Delhi Startup Summit 2025. We have received your information and will be in touch soon.
+                        </p>
+                        <Button onClick={resetForm} className="mt-2">
+                            Close
+                        </Button>
+                    </div>
+                </CardContent>
+            </Card>
+        </motion.div>
+    );
+
+    const ErrorCard = () => (
+        <Card className="border-red-500 mt-4">
+            <CardContent className="pt-4 pb-4">
+                <div className="flex items-center">
+                    <AlertCircle className="w-6 h-6 text-red-500 mr-2" />
+                    <p className="text-red-500 font-medium">{formError}</p>
+                </div>
+            </CardContent>
+        </Card>
+    );
+
+    if (formSuccess) {
+        return <SuccessCard />;
+    }
 
     if (!formType) {
         return (
@@ -271,6 +489,7 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
     }
 
     if (formType === 'participant') {
+        const errors = formErrors.participant;
         const participantSteps = [
             <>
                 <div className="space-y-4">
@@ -281,7 +500,9 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
                             value={formData.participant.name}
                             onChange={(e) => handleInputChange('participant', 'name', e.target.value)}
                             required
+                            className={errors.name ? "border-red-500" : ""}
                         />
+                        {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
                     </div>
 
                     <div className="space-y-2">
@@ -292,7 +513,9 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
                             value={formData.participant.email}
                             onChange={(e) => handleInputChange('participant', 'email', e.target.value)}
                             required
+                            className={errors.email ? "border-red-500" : ""}
                         />
+                        {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
                     </div>
 
                     <div className="space-y-2">
@@ -302,7 +525,9 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
                             value={formData.participant.phone}
                             onChange={(e) => handleInputChange('participant', 'phone', e.target.value)}
                             required
+                            className={errors.phone ? "border-red-500" : ""}
                         />
+                        {errors.phone && <p className="text-red-500 text-sm">{errors.phone}</p>}
                     </div>
 
                     <div className="space-y-2">
@@ -312,7 +537,9 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
                             value={formData.participant.age}
                             onChange={(e) => handleInputChange('participant', 'age', e.target.value)}
                             required
+                            className={errors.age ? "border-red-500" : ""}
                         />
+                        {errors.age && <p className="text-red-500 text-sm">{errors.age}</p>}
                     </div>
                 </div>
             </>,
@@ -343,6 +570,7 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
                                 <Label htmlFor="preferNotToSay">Prefer not to say</Label>
                             </div>
                         </RadioGroup>
+                        {errors.gender && <p className="text-red-500 text-sm">{errors.gender}</p>}
                     </div>
 
                     <div className="space-y-2">
@@ -352,7 +580,9 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
                             value={formData.participant.profession}
                             onChange={(e) => handleInputChange('participant', 'profession', e.target.value)}
                             required
+                            className={errors.profession ? "border-red-500" : ""}
                         />
+                        {errors.profession && <p className="text-red-500 text-sm">{errors.profession}</p>}
                     </div>
 
                     <div className="space-y-2">
@@ -362,7 +592,7 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
                             onValueChange={(value) => handleInputChange('participant', 'festivalDate', value)}
                             required
                         >
-                            <SelectTrigger id="festivalDate">
+                            <SelectTrigger id="festivalDate" className={errors.festivalDate ? "border-red-500" : ""}>
                                 <SelectValue placeholder="Select day(s)" />
                             </SelectTrigger>
                             <SelectContent>
@@ -371,6 +601,7 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
                                 <SelectItem value="bothDays">Both Days</SelectItem>
                             </SelectContent>
                         </Select>
+                        {errors.festivalDate && <p className="text-red-500 text-sm">{errors.festivalDate}</p>}
                     </div>
 
                     <div className="space-y-2">
@@ -430,6 +661,7 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
                         <form>
                             {participantSteps[currentStep]}
                         </form>
+                        {formError && <ErrorCard />}
                     </CardContent>
                     <CardFooter className="flex justify-between">
                         <div>
@@ -438,28 +670,41 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
                                     variant="outline"
                                     onClick={() => setCurrentStep(currentStep - 1)}
                                     className="flex items-center"
+                                    disabled={isSubmitting}
                                 >
                                     <ChevronLeft className="w-4 h-4 mr-1" /> Back
                                 </Button>
                             )}
                         </div>
                         <div className="flex space-x-2">
-                            <Button variant="ghost" onClick={resetForm}>
+                            <Button 
+                                variant="ghost" 
+                                onClick={resetForm}
+                                disabled={isSubmitting}
+                            >
                                 Reset
                             </Button>
                             {currentStep < participantSteps.length - 1 ? (
                                 <Button
-                                    onClick={() => setCurrentStep(currentStep + 1)}
+                                    onClick={handleNextStep}
                                     className="bg-purple-600 hover:bg-purple-700 flex items-center"
+                                    disabled={isSubmitting}
                                 >
                                     Next <ChevronRight className="w-4 h-4 ml-1" />
                                 </Button>
                             ) : (
                                 <Button
                                     onClick={handleSubmit}
-                                    className="bg-green-600 hover:bg-green-700"
+                                    className="bg-green-600 hover:bg-green-700 flex items-center"
+                                    disabled={isSubmitting}
                                 >
-                                    Submit
+                                    {isSubmitting ? (
+                                        <>
+                                            <Loader2 className="w-4 h-4 mr-2 animate-spin" /> Submitting...
+                                        </>
+                                    ) : (
+                                        "Submit"
+                                    )}
                                 </Button>
                             )}
                         </div>
@@ -470,6 +715,7 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
     }
 
     if (formType === 'startup') {
+        const errors = formErrors.startup;
         const startupSteps = [
             <>
                 <div className="space-y-4">
@@ -480,7 +726,9 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
                             value={formData.startup.startupName}
                             onChange={(e) => handleInputChange('startup', 'startupName', e.target.value)}
                             required
+                            className={errors.startupName ? "border-red-500" : ""}
                         />
+                        {errors.startupName && <p className="text-red-500 text-sm">{errors.startupName}</p>}
                     </div>
 
                     <div className="space-y-2">
@@ -490,7 +738,9 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
                             value={formData.startup.founderName}
                             onChange={(e) => handleInputChange('startup', 'founderName', e.target.value)}
                             required
+                            className={errors.founderName ? "border-red-500" : ""}
                         />
+                        {errors.founderName && <p className="text-red-500 text-sm">{errors.founderName}</p>}
                     </div>
 
                     <div className="space-y-2">
@@ -501,7 +751,9 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
                             value={formData.startup.email}
                             onChange={(e) => handleInputChange('startup', 'email', e.target.value)}
                             required
+                            className={errors.email ? "border-red-500" : ""}
                         />
+                        {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
                     </div>
 
                     <div className="space-y-2">
@@ -511,7 +763,9 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
                             value={formData.startup.phone}
                             onChange={(e) => handleInputChange('startup', 'phone', e.target.value)}
                             required
+                            className={errors.phone ? "border-red-500" : ""}
                         />
+                        {errors.phone && <p className="text-red-500 text-sm">{errors.phone}</p>}
                     </div>
                 </div>
             </>,
@@ -524,7 +778,9 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
                             value={formData.startup.location}
                             onChange={(e) => handleInputChange('startup', 'location', e.target.value)}
                             required
+                            className={errors.location ? "border-red-500" : ""}
                         />
+                        {errors.location && <p className="text-red-500 text-sm">{errors.location}</p>}
                     </div>
 
                     <div className="space-y-2">
@@ -551,9 +807,10 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
                             id="description"
                             value={formData.startup.description}
                             onChange={(e) => handleInputChange('startup', 'description', e.target.value)}
-                            className="min-h-24"
+                            className={`min-h-24 ${errors.description ? "border-red-500" : ""}`}
                             required
                         />
+                        {errors.description && <p className="text-red-500 text-sm">{errors.description}</p>}
                     </div>
                 </div>
             </>,
@@ -566,7 +823,7 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
                             onValueChange={(value) => handleInputChange('startup', 'category', value)}
                             required
                         >
-                            <SelectTrigger id="category">
+                            <SelectTrigger id="category" className={errors.category ? "border-red-500" : ""}>
                                 <SelectValue placeholder="Select a category" />
                             </SelectTrigger>
                             <SelectContent>
@@ -581,6 +838,7 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
                                 <SelectItem value="Other">Other (Please specify)</SelectItem>
                             </SelectContent>
                         </Select>
+                        {errors.category && <p className="text-red-500 text-sm">{errors.category}</p>}
                     </div>
                     
                     {formData.startup.category === 'Other' && (
@@ -591,7 +849,9 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
                                 value={formData.startup.categoryOther}
                                 onChange={(e) => handleInputChange('startup', 'categoryOther', e.target.value)}
                                 required
+                                className={errors.categoryOther ? "border-red-500" : ""}
                             />
+                            {errors.categoryOther && <p className="text-red-500 text-sm">{errors.categoryOther}</p>}
                         </div>
                     )}
                     
@@ -641,6 +901,7 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
                                 <Label htmlFor="availableMaybe">Maybe</Label>
                             </div>
                         </RadioGroup>
+                        {errors.availableInDelhi && <p className="text-red-500 text-sm">{errors.availableInDelhi}</p>}
                     </div>
 
                     <div className="flex items-start space-x-2 pt-4">
@@ -651,11 +912,13 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
                                 handleInputChange('startup', 'termsAgreed', checked === true)
                             }
                             required
+                            className={errors.termsAgreed ? "border-red-500" : ""}
                         />
                         <Label htmlFor="terms" className="text-sm">
                             I understand that submission of this form does not confirm final allotment, and the organizing team will contact me regarding next steps. *
                         </Label>
                     </div>
+                    {errors.termsAgreed && <p className="text-red-500 text-sm ml-6">{errors.termsAgreed}</p>}
                 </div>
             </>
         ];
@@ -696,6 +959,7 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
                         <form>
                             {startupSteps[currentStep]}
                         </form>
+                        {formError && <ErrorCard />}
                     </CardContent>
                     <CardFooter className="flex justify-between">
                         <div>
@@ -704,28 +968,41 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
                                     variant="outline"
                                     onClick={() => setCurrentStep(currentStep - 1)}
                                     className="flex items-center"
+                                    disabled={isSubmitting}
                                 >
                                     <ChevronLeft className="w-4 h-4 mr-1" /> Back
                                 </Button>
                             )}
                         </div>
                         <div className="flex space-x-2">
-                            <Button variant="ghost" onClick={resetForm}>
+                            <Button 
+                                variant="ghost" 
+                                onClick={resetForm}
+                                disabled={isSubmitting}
+                            >
                                 Cancel
                             </Button>
                             {currentStep < startupSteps.length - 1 ? (
                                 <Button
-                                    onClick={() => setCurrentStep(currentStep + 1)}
+                                    onClick={handleNextStep}
                                     className="bg-blue-600 hover:bg-blue-700 flex items-center"
+                                    disabled={isSubmitting}
                                 >
                                     Next <ChevronRight className="w-4 h-4 ml-1" />
                                 </Button>
                             ) : (
                                 <Button
                                     onClick={handleSubmit}
-                                    className="bg-green-600 hover:bg-green-700"
+                                    className="bg-green-600 hover:bg-green-700 flex items-center"
+                                    disabled={isSubmitting}
                                 >
-                                    Submit
+                                    {isSubmitting ? (
+                                        <>
+                                            <Loader2 className="w-4 h-4 mr-2 animate-spin" /> Submitting...
+                                        </>
+                                    ) : (
+                                        "Submit"
+                                    )}
                                 </Button>
                             )}
                         </div>
