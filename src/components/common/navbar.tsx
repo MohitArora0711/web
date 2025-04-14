@@ -1,87 +1,86 @@
 "use client";
 
-// import { usePathname } from "next/navigation";
-// import Link from "next/link";
 import { useState } from "react";
-import { RegisterModal } from "../RegisterModal";
-import { Menu, X } from "lucide-react";
+import { FiMenu, FiX } from "react-icons/fi";
+import { FaInstagram, FaFacebookF, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 import { FormButton } from "./Form";
 import { VolunteerForm } from "./VolunteerForm";
 import StallBookingForm from "./stallBookingForm";
-// import { SandpForm } from "./sandpForm";
-// import { SandpForm } from "./sandpForm";
-
-// const navItems = [
-//     { name: "Home", link: "/" },
-//     // { name: "Schedule", link: "/schedule" },
-//     // { name: "Speakers", link: "/speakers" },
-//     // { name: "Partner", link: "/partner" },
-//     // { name: "Venue", link: "/venue" },
-//     // { name: "Startup Social", link: "/startup-social" }
-// ];
 
 export default function Navbar() {
-    // const pathname = usePathname();
-    const [isModalOpen, setIsModalOpen] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-
     return (
-        <div className="fixed z-10 bg-white/30 backdrop-blur-lg shadow-s flex w-full justify-between items-center px-12 py-4 rounded-lg">
-            <h1 className="text-xl font-bold max-sm:text-center max-sm:w-full">Delhi Startup Summit</h1>
+        <nav className="fixed z-10 w-full bg-white backdrop-blur-lg shadow-sm px-4 sm:px-12 py-4 flex justify-between items-center rounded-lg">
+            <h1 className="text-xl font-bold text-gray-800">Delhi Startup Summit</h1>
 
-            <div className="hidden md:flex space-x-6 items-center">
+            <div className="hidden md:flex items-center space-x-6">
                 <VolunteerForm />
-                {/* {navItems.map((item) => (
-
-                    <Link key={item.name} href={item.link}>
-                        <span
-                            className={`relative px-5 py-2 font-medium transition-all hover:text-black ${pathname === item.link
-                                ? "text-black before:absolute before:inset-0 before:rounded-full border-[2px] rounded-full  border-black before:-z-10"
-                                : "text-gray-600"}`}
-                        >
-                            {item.name}
-                        </span>
-                    </Link>
-                ))} */}
                 <StallBookingForm />
-
                 <FormButton />
-
-
             </div>
 
-            <button className="md:hidden max-sm:hidden" onClick={() => setIsMenuOpen(true)}>
-                <Menu size={28} />
+            <button
+                className="block md:hidden"
+                onClick={() => setIsMenuOpen(true)}
+                aria-label="Open menu"
+            >
+                <FiMenu size={28} />
             </button>
 
-            <div className={`fixed z-10 top-0 right-0 h-full w-3/4 bg-white shadow-lg transform transition-transform duration-300 ease-in-out ${isMenuOpen ? "translate-x-0" : "translate-x-full"}`}>
-                <div className="flex justify-end w-full items-center p-5 border-b">
-                    {/* <h2 className="text-xl font-bold">Menu</h2> */}
-                    <button onClick={() => setIsMenuOpen(false)}>
-                        <X size={28} />
+            <div
+                className={`fixed top-0 right-0 z-30 min-h-screen w-3/4 max-w-xs bg-white shadow-lg transition-transform duration-300 ease-in-out transform ${isMenuOpen ? "translate-x-0" : "translate-x-full"
+                    }`}
+            >
+                <div className="flex justify-end p-4 border-b">
+                    <button
+                        onClick={() => setIsMenuOpen(false)}
+                        aria-label="Close menu"
+                    >
+                        <FiX size={28} />
                     </button>
                 </div>
-                <div className="flex flex-col space-y-6 p-6 bg-white">
-                    {/* {navItems.map((item) => (
-                        <Link key={item.name} href={item.link}>
-                            <span className={`block text-lg font-medium transition-all ${pathname === item.link ? "text-black font-bold" : "text-gray-600 hover:text-black"}`}>
-                                {item.name}
-                            </span>
-                        </Link>
-                    ))} */}
-                    <button
-                        onClick={() => {
-                            setIsModalOpen(true);
-                            setIsMenuOpen(false);
-                        }}
-                        className="bg-blue-600 hover:bg-blue-700 transition-colors rounded-xl px-5 py-2 font-semibold text-white w-full"
-                    >
-                        Register
-                    </button>
+                <div className="flex flex-col h-full justify-between">
+                    <div className="flex flex-col space-y-6 p-6 ">
+                        <VolunteerForm />
+                        <StallBookingForm />
+                        <FormButton />
+                    </div>
+
+                    <div className="mt-8 px-6 pb-6 border-t text-sm text-gray-700 space-y-4">
+                        <div>
+                            <h2 className="font-semibold text-gray-900">Contact Us</h2>
+                            <p>+91 8595870292</p>
+                        </div>
+                        <div>
+                            <h2 className="font-semibold text-gray-900">Event Location</h2>
+                            <p>North Campus</p>
+                            <p>University of Delhi</p>
+                        </div>
+                        <div>
+                            <h2 className="font-semibold text-gray-900">Email</h2>
+                            <p>contact@delhistartupsummit.com</p>
+                        </div>
+                        <div>
+                            <h2 className="font-semibold text-gray-900">Follow Us</h2>
+                            <div className="flex space-x-4 mt-2 text-lg">
+                                <a href="#" aria-label="Instagram" className="hover:text-pink-600">
+                                    <FaInstagram />
+                                </a>
+                                <a href="#" aria-label="Facebook" className="hover:text-blue-600">
+                                    <FaFacebookF />
+                                </a>
+                                <a href="#" aria-label="LinkedIn" className="hover:text-blue-500">
+                                    <FaLinkedinIn />
+                                </a>
+                                <a href="#" aria-label="Twitter" className="hover:text-sky-500">
+                                    <FaTwitter />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <RegisterModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
-        </div>
+        </nav>
     );
 }
