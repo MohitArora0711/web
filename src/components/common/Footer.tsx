@@ -28,9 +28,9 @@ const Footer = () => {
                             </p>
                         </div>
                         <div className="flex max-sm:flex-col gap-3 mt-6 text-2xl">
-                            <a href="tel:+91 8595870292" className="border px-7 py-4 max-sm:px-6 max-sm:py-2 rounded-full text-sm flex items-center w-full ">
+                            {/* <a href="tel:+91 8595870292" className="border px-7 py-4 max-sm:px-6 max-sm:py-2 rounded-full text-sm flex items-center w-full ">
                                 +91 8595870292
-                            </a>
+                            </a> */}
                             <a href="mailto:contact@delhistartupsummit.com" className="border px-7 text-gray-400 py-4 max-sm:px-6 max-sm:py-2 rounded-full text-sm flex items-center">
                             contact@delhistartupsummit.com
                             </a>
