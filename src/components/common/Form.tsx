@@ -249,10 +249,10 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
             const data = currentFormData as StartupFormType;
 
             if (currentStep === 0) {
-                if (!data.username.trim()) {
-                    newErrors.username = 'Username/Code is required';
-                    isValid = false;
-                }
+                // if (!data.username.trim()) {
+                //     newErrors.username = 'Username/Code is required';
+                //     isValid = false;
+                // }
                 if (!data.email.trim()) {
                     newErrors.email = 'Email is required';
                     isValid = false;
@@ -682,12 +682,12 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
         const startupSteps = [
             <>
                 <div className="space-y-4">
-                    <div className="p-4 bg-blue-50 border border-blue-200 rounded-md mb-4">
+                    {/* <div className="p-4 bg-blue-50 border border-blue-200 rounded-md mb-4">
                         <p className="text-blue-700 font-medium">Important Notice</p>
                         <p className="text-blue-600">Please register your startup at <a href="https://neecop.com" target="_blank" rel="noopener noreferrer" className="underline font-medium">neecop.com</a> first. You will receive a code or username which is required to complete this registration.</p>
-                    </div>
+                    </div> */}
 
-                    <div className="space-y-2">
+                    {/* <div className="space-y-2">
                         <Label htmlFor="username">Username/Code from NEECOP *</Label>
                         <Input
                             id="username"
@@ -697,7 +697,7 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
                             className={errors.username ? "border-red-500" : ""}
                         />
                         {errors.username && <p className="text-red-500 text-sm">{errors.username}</p>}
-                    </div>
+                    </div> */}
 
                     <div className="space-y-2">
                         <Label htmlFor="startupEmail">Email Address *</Label>
