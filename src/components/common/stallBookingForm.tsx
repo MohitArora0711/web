@@ -225,7 +225,7 @@ const StallBookingForm = () => {
                         "1 table and 2 chairs",
                         "Entry for 2 team members",
                         "Listing in event directory",
-                        "Basic Wi-Fi access"
+                        // "Basic Wi-Fi access"
                     ]}
                     onClick={() => handlePackageSelect('starter')}
                 />
@@ -241,7 +241,7 @@ const StallBookingForm = () => {
                         "Entry for 3 team members",
                         "Premium listing in event directory",
                         "Social media promotion (2 posts)",
-                        "High-speed Wi-Fi access",
+                        // "High-speed Wi-Fi access",
                         "Access to networking lounge"
                     ]}
                     onClick={() => handlePackageSelect('standard')}
