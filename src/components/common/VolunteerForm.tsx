@@ -307,7 +307,7 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
                         <CheckCircle className="w-12 h-12 text-green-500 mb-4" />
                         <h3 className="text-xl font-bold mb-2">Registration Successful!</h3>
                         <p className="text-gray-600 mb-4">
-                            Thank youuuuuuuuuuuu for registering for Delhi Startup Summit 2025. We have received your information and will be in touch soon.
+                            Thank you for registering for Delhi Startup Summit 2025. We have received your information and will be in touch soon.
                         </p>
                         <Button onClick={onClose} className="mt-2">
                             Close
