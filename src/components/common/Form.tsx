@@ -684,7 +684,7 @@ const RegistrationForm = ({ onClose }: { onClose?: () => void }) => {
                 <div className="space-y-4">
                     <div className="p-4 bg-blue-50 border border-blue-200 rounded-md mb-4">
                         <p className="text-blue-700 font-medium">Important Notice</p>
-                        <p className="text-blue-600">Please register your startup at <a href="https://neecop.com" target="_blank" rel="noopener noreferrer" className="underline font-medium">neecop.com</a> first. You will receive a code or username which is required to complete this registration.</p>
+                        <p className="text-blue-600">Please register your startup at <a href="https://neecop.com" target="_blank" rel="noopener noreferrer" className="underline font-medium">neecop.com</a> first. You will receive a code or username on your Register Email address of Neecop which is required to complete this registration.</p>
                     </div>
 
                     <div className="space-y-2">
