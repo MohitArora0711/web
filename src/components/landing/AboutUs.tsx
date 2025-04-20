@@ -50,7 +50,7 @@ export default function AboutUs() {
                         Mission
                     </div>
                     <p className="mt-6 text-white text-center text-sm md:text-lg leading-relaxed">
-                        The Delhi Startup Summit 2025 is dedicated to empowering student
+                        The Delhi Startup Summit 2025 is dedicated to empower student
                         entrepreneurs by providing them with the right resources, mentorship,
                         funding opportunities, and networking platforms.
                     </p>
@@ -64,7 +64,7 @@ export default function AboutUs() {
                         Vision
                     </div>
                     <p className="mt-6 text-white text-center text-sm md:text-lg leading-relaxed">
-                        The Delhi Startup Summit 2025 is dedicated to empowering student
+                        The Delhi Startup Summit 2025 is dedicated to empower student
                         entrepreneurs by providing them with the right resources, mentorship,
                         funding opportunities, and networking platforms.
                     </p>
