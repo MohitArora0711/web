@@ -220,13 +220,7 @@ const StallBookingForm = () => {
                     price="3,000"
                     color="bg-[#06c9c7]"
                     icon={<Zap className="h-6 w-6" />}
-                    features={[
-                        "Basic booth setup (6x6 ft space)",
-                        "1 table and 2 chairs",
-                        "Entry for 2 team members",
-                        "Listing in event directory",
-                        // "Basic Wi-Fi access"
-                    ]}
+                    features={["1 Canopy (6*6 ft)", "1 Table", "2 Chairs", "1 Fan", "No Standing Flex", "No Session-based Sponsorship", "Discounts available for Students"]}
                     onClick={() => handlePackageSelect('starter')}
                 />
 
@@ -235,35 +229,16 @@ const StallBookingForm = () => {
                     price="10,000"
                     color="bg-[#015599]"
                     icon={<Star className="h-6 w-6" />}
-                    features={[
-                        "Enhanced booth setup (8x8 ft space)",
-                        "1 table and 3 chairs",
-                        "Entry for 3 team members",
-                        "Premium listing in event directory",
-                        "Social media promotion (2 posts)",
-                        // "High-speed Wi-Fi access",
-                        "Access to networking lounge"
-                    ]}
+                    features={["1 Canopy (66 ft)", "2 Tables", "4 Chairs", "1 Fan", "1 Standing Flex (63 ft)", "Title Sponsors of 2 Sessions", "Exclusive Social Media Posts", "No Discounts Available"]}
                     onClick={() => handlePackageSelect('standard')}
                 />
 
                 <PackageCard
                     title="Premium Stall"
-                    price="25,000"
+                    price="15,000"
                     color="bg-[#8800aa]"
                     icon={<Award className="h-6 w-6" />}
-                    features={[
-                        "Prime location booth (10x10 ft space)",
-                        "Custom booth branding options",
-                        "2 tables and 4 chairs",
-                        "Entry for 4 team members",
-                        "Featured listing in event directory",
-                        "Dedicated social media campaign (5 posts)",
-                        "3-minute pitch opportunity on main stage",
-                        "Media interview opportunity",
-                        "VIP access to all event areas",
-                        "Priority technical support"
-                    ]}
+                    features={["2 Canopies (66 ft)", "4 Tables", "8 Chairs", "2 Fans", "2 Standing Flexes (63 ft)", "Title Sponsors of 4 Sessions", "Exclusive Social Media Posts on DSS", "Exclusive Social Media Posts on official pages of the College", "No Discounts Available"]}
                     onClick={() => handlePackageSelect('premium')}
                 />
             </div>
@@ -569,7 +544,7 @@ const StallBookingForm = () => {
             >
                 <Dialog open={open} onOpenChange={setOpen}>
                     <DialogTrigger asChild>
-                        
+
                         <Button className="px-7 py-2 rounded-full border-2 border-transparent bg-gradient-to-r from-blue-600 to-purple-700 text-white shadow-md transition-all duration-300 ease-in-out hover:from-purple-600 hover:to-blue-700 hover:shadow-[1px] hover:scale-10">
                             Book your stall
                         </Button>
