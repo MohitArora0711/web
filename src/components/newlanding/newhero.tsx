@@ -3,14 +3,10 @@
 import Image from 'next/image';
 // import { ArrowUpRight } from "lucide-react";
 import { motion } from 'framer-motion';
-import { useState } from "react";
-import { RegisterModal } from '../RegisterModal';
-import { FormButton } from '../common/Form';
+
 
 export default function NewHero() {
 
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    // const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     return (
         <motion.section
@@ -144,32 +140,6 @@ export default function NewHero() {
 
 
             </motion.div>
-
-            {/* <motion.button
-                className="flex items-center justify-center gap-2 my-8 px-8 py-4 text-white font-medium text-lg rounded-full bg-gradient-to-r from-[#C512F8] to-[#00CFC3] shadow-lg"
-                whileHover={{ scale: 1.05 }}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: .1, duration: 0.1 }}
-                onClick={() => {
-                    setIsModalOpen(true);
-                    // setIsMenuOpen(false);
-                    window.scrollTo({ top: 0 });
-                }}
-            >
-                Register now
-                <motion.span
-                    animate={{ x: [0, 5, 0] }}
-                >
-                    <ArrowUpRight size={25} />
-                </motion.span>
-            </motion.button> */}
-            <div className='my-12'>
-                <FormButton />
-            </div>
-            {/* <RegistrationForm onClose={() => setIsModalOpen(true)} /> */}
-
-            <RegisterModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
 
         </motion.section>
 

@@ -32,8 +32,8 @@ const InfiniteCarousel: React.FC<InfiniteCarouselProps> = ({ services, speed }) 
         autoplaySpeed: speed,
         arrows: true,
         infinite: true,
-        slidesToShow: windowWidth < 768 ? 1 : 5,
-        slidesToScroll: windowWidth < 768 ? 1 : 5,
+        slidesToShow: windowWidth < 768 ? 1 : 4,
+        slidesToScroll: windowWidth < 768 ? 1 : 4,
     };
 
     return (

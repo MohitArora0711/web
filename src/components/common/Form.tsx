@@ -81,7 +81,7 @@ export const FormButton = () => {
         <Dialog open={isOpen} onOpenChange={setIsOpen}>
             <DialogTrigger asChild>
                 <Button
-                    className="bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600 text-white font-medium rounded-full px-6 py-5 shadow-lg transition duration-300 ease-in-out"
+                    className="bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600 text-white font-medium rounded-full md:px-6 md:py-5 shadow-lg transition duration-300 ease-in-out"
                     onClick={() => setIsOpen(true)}
                 >
                     Register now

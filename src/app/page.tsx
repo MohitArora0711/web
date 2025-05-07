@@ -6,6 +6,9 @@ import Agenda from "@/components/landing/Agenda";
 import Contact from "@/components/landing/Contact";
 import Counter from "@/components/landing/Counter";
 import Features from "@/components/landing/Feature";
+// import HeroBanner from "@/components/landing/HeroBanner";
+import HighlightsDisplay from "@/components/landing/HighlightsDisplay";
+// import OurHero from "@/components/landing/OurHero";
 // import InfiniteCarousel from "@/components/landing/Slider";
 // import SpeakerSection from "@/components/landing/Speaker"
 import WhyAttend from "@/components/landing/WhyAttend";
@@ -31,13 +34,16 @@ export default function Home() {
       <div className="bg-white" >
         <Navbar />
         <NewHero />
+        <HighlightsDisplay/>
+        {/* <HeroBanner/> */}
+        {/* <OurHero /> */}
         <Features />
         <Agenda />
         <AboutUs />
         {/* <div className="hidden md:block">
           <SpeakerSection />
-        </div > */}
-        {/* <div className="block md:hidden px-4 my-24">
+        </div >
+        <div className="block md:hidden px-4 my-24">
           <div className="flex flex-col gap-8  w-full text-left">
             <h1 className="text-5xl font-bold text-left">KEYNOTE <br /> SPEAKERS</h1>
             <p className=" text-left"> Meet the industry leaders shaping india’s startup ecosystem </p>
