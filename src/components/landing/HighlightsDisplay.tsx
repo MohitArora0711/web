@@ -98,7 +98,7 @@ export default function HighlightsDisplay() {
                     viewport={{ once: true, amount: 0.3 }}
                     variants={fadeInUp}
                 >
-                    <Image className="rounded-md md:rounded-2xl" height={200} width={400} src="/img2.jpg" alt="Image 1" />
+                    <Image className="rounded-md md:rounded-2xl" height={200} width={400} src="/img2.jpg" alt="Image 2" />
                 </motion.div>
                 <motion.div 
                     className="relative top-[-rem] md:top-[-7rem] md:left-[10rem]"
