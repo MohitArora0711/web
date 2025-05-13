@@ -120,3 +120,6 @@
   transform-style: preserve-3d;
 }
 
+.highContrastImage {
+  filter: contrast(140%) brightness(1.2) saturate(130%);
+}
