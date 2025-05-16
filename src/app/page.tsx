@@ -12,6 +12,7 @@ import HighlightsDisplay from "@/components/landing/HighlightsDisplay";
 // import OurHero from "@/components/landing/OurHero";
 import InfiniteCarousel from "@/components/landing/Slider";
 import SpeakerSection from "@/components/landing/Speaker"
+import TestimonialSlider from "@/components/landing/Testimonial";
 import WhyAttend from "@/components/landing/WhyAttend";
 import CurrentHero from "@/components/newlanding/currenthero";
 import NewHero from "@/components/newlanding/newhero";
@@ -56,6 +57,7 @@ export default function Home() {
         </div> 
         {/* <WhyAttend /> */}
          {/* <Counter /> */}
+         <TestimonialSlider/>
         <Contact />
         <Footer />
         <Analytics />
