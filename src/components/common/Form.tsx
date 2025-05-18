@@ -15,6 +15,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/componen
 import { motion } from "framer-motion";
 import Cookies from 'js-cookie';
 import { ChevronLeft, ChevronRight, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
+import Image from 'next/image';
 
 type FormType = 'participant' | 'startup';
 
@@ -81,10 +82,10 @@ export const FormButton = () => {
         <Dialog open={isOpen} onOpenChange={setIsOpen}>
             <DialogTrigger asChild>
                 <Button
-                    className="bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600 text-white font-medium rounded-full md:px-6 md:py-5 shadow-lg transition duration-300 ease-in-out"
+                    className="bg-gradient-to-r syne from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600 text-white font-medium rounded-full md:px-8 text-[16px] md:py-6 shadow-lg transition duration-300 ease-in-out"
                     onClick={() => setIsOpen(true)}
                 >
-                    Register now
+                    Register now <Image className='' width={10} height={10} src="/arrow.png" alt=">" />
                 </Button>
             </DialogTrigger>
             <DialogContent className="sm:max-w-2xl max-h-[90vh] overflow-y-auto">

@@ -11,8 +11,8 @@ export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     return (
-        <nav className="fixed z-10 w-full bg-white backdrop-blur-lg shadow-sm px-4 sm:px-12 py-4 flex justify-between items-center rounded-lg">
-            <h1 className="text-xl font-bold text-gray-800">Delhi Startup Summit</h1>
+        <nav className="fixed z-20 w-full bg-white backdrop-blur-lg shadow-sm px-4 sm:px-12 py-4 md:py-2 flex justify-between items-center rounded-lg">
+            <h1 className="text-xl bricolage-grotesque font-bold text-gray-800">Delhi Startup Summit</h1>
 
             <div className="hidden md:flex items-center space-x-6">
                 <VolunteerForm />

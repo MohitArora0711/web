@@ -10,6 +10,7 @@ import "slick-carousel/slick/slick-theme.css";
 interface Service {
     title: string;
     image: string;
+    position?: string; // Added position field as optional
 }
 
 interface InfiniteCarouselProps {
@@ -38,18 +39,18 @@ const InfiniteCarousel: React.FC<InfiniteCarouselProps> = ({ services, speed }) 
 
     return (
         <div className="w-full flex justify-center items-center py-10">
-            <div className="w-[95%]">
+            <div className="w-full">
                 <Slider {...settings}>
                     {services.map((service, index) => (
                         <motion.div
                             key={index}
-                            className="px-2"
+                            className="px-4"
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, ease: "easeOut" }}
                         >
                             <a href="#" className="block relative group">
-                                <div className="relative h-[300px] rounded-[30px] overflow-hidden">
+                                <div className="relative h-[400px] rounded-[40px] overflow-hidden">
                                     <Image
                                         src={service.image}
                                         alt={service.title}
@@ -71,6 +72,11 @@ const InfiniteCarousel: React.FC<InfiniteCarouselProps> = ({ services, speed }) 
                                         />
                                         {service.title}
                                     </div>
+                                    {service.position && (
+                                        <div className="px-2 py-1 mt-2 text-xs text-white bg-white/30 backdrop-blur-lg rounded-full">
+                                            {service.position}
+                                        </div>
+                                    )}
                                 </div>
                             </a>
                         </motion.div>

@@ -6,7 +6,7 @@ const Contact = () => {
         <div className="p-4 md:p-28 flex">
             <div className="bg-black px-8 md:px-16 md:py-24 text-white rounded-[40px] flex flex-col md:flex-row md:justify-between md:items-center w-full ">
                 <div className="w-full md:w-1/3 mt-16">
-                    <h2 className="text-5xl font-bold mb-4">We’re Here To Connect And Assist You</h2>
+                    <h2 className="text-5xl syne font-bold mb-4">We’re Here To Connect And Assist You</h2>
                     <p className="text-gray-400 text-xl mb-6">
                         Have questions about the summit? Need help with registration or travel? Our team is ready to assist you.                    </p>
                     <div className="flex flex-row flex-wrap gap-8 mb-6 z-20">

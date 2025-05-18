@@ -36,7 +36,7 @@ export default function CurrentHero() {
                     <div className="blur-bottom" />
                 </div>
 
-                <div className="absolute bottom-[2rem] left-[45%] z-20">
+                <div className="absolute bottom-[2rem] left-[30%] md:left-[45%] z-10">
                     <FormButton />
                 </div>
             </motion.div>

@@ -27,7 +27,7 @@ export default function AboutUs() {
                 </motion.div>
 
                 <motion.div className="w-full md:w-2/3 text-center md:text-left" variants={fadeIn}>
-                    <h2 className="text-6xl md:text-8xl font-bold text-black">About us</h2>
+                    <h2 className="text-6xl md:text-8xl font-bold text-black  bricolage-grotesque">About us</h2>
                     <p className="mt-4 text-base md:text-lg text-gray-700 leading-relaxed">
                         The Delhi Startup Summit 2025 is a premier event designed to bring together aspiring
                         entrepreneurs, investors, policymakers, and industry leaders to foster innovation,

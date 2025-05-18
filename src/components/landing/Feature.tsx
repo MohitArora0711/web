@@ -34,7 +34,7 @@ export default function Features() {
                     className="rounded-[40px] flex flex-col justify-between w-full h-full bg-gradient-to-b from-[#C512F8] to-[#00CFC3] md:w-1/2 p-10"
                 >
                     <div className="flex flex-col items-start">
-                        <h1 className="text-4xl text-white font-bold">Speakers</h1>
+                        <h1 className="text-4xl text-white bricolage-grotesque font-bold">Speakers</h1>
                         <div className="flex flex-row mt-10 gap-4">
                             <div className="flex w-1/3">
                                 <div className="hidden w-12 h-12 bg-gray-200 rounded-full md:flex items-center justify-center">
@@ -58,7 +58,7 @@ export default function Features() {
                         transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
                         className="flex flex-col gap-6 w-full h-1/2 bg-white border-2 border-gray-800 text-black rounded-[40px] p-10 "
                     >
-                        <h1 className="text-4xl font-bold">Workshops</h1>
+                        <h1 className="text-4xl bricolage-grotesque font-bold">Workshops</h1>
                         <p className="w-[95%] text-lg">
                             Practical sessions on fundraising, MVP building, product development, and team building.
                             Gain expert insights and actionable strategies to launch, scale, and sustain a successful business.
@@ -72,7 +72,7 @@ export default function Features() {
                     >
                         <div className="absolute inset-0 bg-gradient-to-b from-[#00CFC3] to-[#C512F8] opacity-25 rounded-[40px]"></div>
                         <div className="relative flex flex-col gap-6 w-full h-full text-black">
-                            <h1 className="text-4xl font-bold">Networking Opportunities</h1>
+                            <h1 className="text-4xl bricolage-grotesque font-bold">Networking Opportunities</h1>
                             <p className="w-[95%] text-lg">
                                 Connect with MSME owners, startup founders, investors, and industry experts. Build meaningful relationships, explore collaborations, and unlock new business opportunities in a dynamic networking environment.
                             </p>
@@ -86,7 +86,7 @@ export default function Features() {
                 transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
                 className="flex flex-col gap-6 w-full h-1/2 bg-black rounded-[40px] p-10 text-white"
             >
-                <h1 className="text-4xl font-bold">Exhibition</h1>
+                <h1 className="text-4xl bricolage-grotesque font-bold">Exhibition</h1>
                 <p className="w-[95%] text-lg">
                     Practical sessions on fundraising, MVP building, product development, and team building.
                     Gain expert insights and actionable strategies to launch, scale, and sustain a successful business.
