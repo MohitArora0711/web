@@ -173,7 +173,7 @@ export default function EventHighlights() {
               className="flex flex-row sm:flex-row md:justify-between md:items-center mb-8 md:mb-12 md:gap-4"
             >
                 <motion.h2
-                    className="md:w-full items-center text-3xl mt-8 sm:text-5xl bricolage-grotesque md:text-5xl font-bold text-white bg-gradient-to-r from-fuchsia-500 to-cyan-400 py-2 sm:py-3 px-4 sm:px-6 rounded-full inline-block"
+                    className=" items-center text-3xl mt-8 sm:text-5xl bricolage-grotesque md:text-5xl font-bold text-white bg-gradient-to-r from-fuchsia-500 to-cyan-400 py-2 sm:py-3 px-4 sm:px-6 rounded-full inline-block"
                     initial={{ opacity: 0, y: 20, scale: 0.9 }}
                     animate={isHeaderInView ? 
                       { opacity: 1, y: 0, scale: 1 } : 
