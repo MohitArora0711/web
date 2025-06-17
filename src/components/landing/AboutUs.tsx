@@ -14,6 +14,7 @@ export default function AboutUs() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
+            id="about"
         >
             <motion.div className="w-full flex flex-col md:flex-row items-center gap-8" variants={fadeIn}>
                 <motion.div className="w-full md:w-1/3 flex justify-center" variants={fadeIn}>
@@ -28,7 +29,7 @@ export default function AboutUs() {
 
                 <motion.div className="w-full md:w-2/3 text-center md:text-left" variants={fadeIn}>
                     <h2 className="text-6xl md:text-8xl font-bold text-black  bricolage-grotesque">About us</h2>
-                    <p className="mt-4 text-base md:text-lg text-gray-700 leading-relaxed">
+                    <p className="mt-4 text-base md:text-lg text-gray-700 leading-relaxed syne">
                         The Delhi Startup Summit 2025 is a premier event designed to bring together aspiring
                         entrepreneurs, investors, policymakers, and industry leaders to foster innovation,
                         collaboration, and growth in the startup ecosystem. Organized by Neecop Consultants
@@ -49,7 +50,7 @@ export default function AboutUs() {
                     <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-black text-white text-sm md:text-lg font-semibold py-2 md:py-3 px-16 md:px-24 rounded-full">
                         Mission
                     </div>
-                    <p className="mt-6 text-white text-center text-sm md:text-lg leading-relaxed">
+                    <p className="mt-6 text-white text-center text-sm md:text-lg leading-relaxed syne">
                         The Delhi Startup Summit 2025 is dedicated to empower student
                         entrepreneurs by providing them with the right resources, mentorship,
                         funding opportunities, and networking platforms.
@@ -63,7 +64,7 @@ export default function AboutUs() {
                     <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-black text-white text-sm md:text-lg font-semibold py-2 md:py-3 px-20 md:px-28 rounded-full">
                         Vision
                     </div>
-                    <p className="mt-6 text-white text-center text-sm md:text-lg leading-relaxed">
+                    <p className="mt-6 text-white text-center text-sm md:text-lg leading-relaxed syne">
                         The Delhi Startup Summit 2025 is dedicated to empower student
                         entrepreneurs by providing them with the right resources, mentorship,
                         funding opportunities, and networking platforms.

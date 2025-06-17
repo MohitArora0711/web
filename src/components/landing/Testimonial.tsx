@@ -19,7 +19,7 @@ export default function TestimonialStatic() {
     {
       category: "GAME-CHANGING INSIGHTS",
       quote: "This summit opened my eyes to the potential of AI and how it will shape industries.",
-      name: "Mark",
+      name: "Mohit",
       title: "CTO,",
       company: "NeuralTech",
       image: "/logo.png",
@@ -30,7 +30,7 @@ export default function TestimonialStatic() {
     {
       category: "THE BEST AI EVENT!",
       quote: "Incredible speakers, top-tier networking, and cutting-edge discussions all in one place.",
-      name: "Elena",
+      name: "Aditya",
       title: "AI Researcher,",
       company: "DeepMind",
       image: "/logo.png",
@@ -41,7 +41,7 @@ export default function TestimonialStatic() {
     {
       category: "UNMATCHED OPPORTUNITIES",
       quote: "From hands-on workshops to visionary talks, this summit is a must-attend for AI professionals.",
-      name: "David",
+      name: "Nishant",
       title: "CEO,",
       company: "FutureAI Labs",
       image: "/logo.png",
@@ -97,8 +97,8 @@ export default function TestimonialStatic() {
             variants={cardVariants}
           >
             <div>
-              <h2 className="text-2xl font-bold mb-6">{testimonial.category}</h2>
-              <p className="text-lg mb-8">&quot;{testimonial.quote}&quot;</p>
+              <h2 className="text-2xl font-bold mb-6 bricolage-grotesque">{testimonial.category}</h2>
+              <p className="text-lg mb-8 syne">&quot;{testimonial.quote}&quot;</p>
             </div>
 
             <div className="flex items-center">

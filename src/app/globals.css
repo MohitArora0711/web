@@ -144,3 +144,7 @@
   font-weight: 600;
   font-style: normal;
 }
+
+.grayscale {
+  filter: grayscale(100%);
+}

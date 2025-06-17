@@ -1,5 +1,5 @@
 "use client"
-import Footer from "@/components/common/Footer";
+// import Footer from "@/components/common/Footer";
 import Navbar from "@/components/common/navbar";
 import AboutUs from "@/components/landing/AboutUs";
 // import Agenda from "@/components/landing/Agenda";
@@ -47,7 +47,7 @@ export default function Home() {
         {/* <Counter /> */}
         <TestimonialSlider />
         <Contact />
-        <Footer />
+        {/* <Footer /> */}
         <Analytics />
       </div>
     </>

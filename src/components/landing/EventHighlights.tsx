@@ -8,55 +8,55 @@ import { useRef } from 'react';
 const events = [
   {
     img: '/event1.png',
-    tag: 'Technology',
+    tag: 'Session 1',
     title: 'Srijan: The Inaugural Session',
     author: 'Delhi Startup Summit',
-    date: 'Aprail 26, 2025',
+    date: 'May 10, 2025',
     avatar: '/logo.png',
     link: '/events/srijan-inaugural-session',
   },
   {
     img: '/event2.png',
-    tag: 'Technology',
+    tag: 'Session 2',
     title: 'Igniting Ideas into Impact: From Ideation to Product Development',
     author: 'Delhi Startup Summit',
-    date: 'Aprail 26, 2025',
+    date: 'May 10, 2025',
     avatar: '/logo.png',
     link: '/events/ideation-to-product',
   },
   {
     img: '/event3.png',
-    tag: 'Technology',
+    tag: 'Session 3',
     title: 'Vision 2040: Mapping the Next-Gen Startup Landscape',
     author: 'Delhi Startup Summit',
-    date: 'Aprail 26, 2025',
+    date: 'May 12, 2025',
     avatar: '/logo.png',
     link: '/events/vision-2040-startup-landscape',
   },
   {
     img: '/event4.png',
-    tag: 'Technology',
+    tag: 'Session 4',
     title: 'Funding Unlocked: The Capital Catalyst',
     author: 'Delhi Startup Summit',
-    date: 'Aprail 26, 2025',
+    date: 'May 27, 2025',
     avatar: '/logo.png',
     link: '/events/funding-unlocked',
   },
   {
     img: '/event5.png',
-    tag: 'Technology',
+    tag: 'Session 5',
     title: 'Bridging the Gap: From Policy Interventions to Technological Advancements',
     author: 'Delhi Startup Summit',
-    date: 'Aprail 26, 2025',
+    date: 'May 30, 2025',
     avatar: '/logo.png',
     link: '/events/bridging-policy-gap',
   },
   {
     img: '/event6.png',
-    tag: 'Technology',
+    tag: 'Session 6',
     title: 'The Growth Engine: Scaling Beyond Limits',
     author: 'Delhi Startup Summit',
-    date: 'Aprail 26, 2025',
+    date: 'May 17, 2025',
     avatar: '/logo.png',
     link: '/events/growth-engine-scaling',
   }
@@ -75,7 +75,7 @@ interface Event {
 const EventCard = ({ event, index }: { event: Event; index: number }) => {
   const cardRef = useRef(null);
   const isInView = useInView(cardRef, { once: true, amount: 0.3 });
-  
+
   return (
     <Link href={event.link} className="block h-full">
       <motion.div
@@ -149,55 +149,56 @@ const EventCard = ({ event, index }: { event: Event; index: number }) => {
 };
 
 export default function EventHighlights() {
-    const headerRef = useRef(null);
-    const isHeaderInView = useInView(headerRef, { once: true, amount: 0.5 });
-    
-    const gridRef = useRef(null);
-    const isGridInView = useInView(gridRef, { once: true, amount: 0.1 });
-    
-    const containerVariants = {
-      hidden: { opacity: 0 },
-      visible: {
-        opacity: 1,
-        transition: {
-          staggerChildren: 0.1,
-          delayChildren: 0.2
-        }
+  const headerRef = useRef(null);
+  const isHeaderInView = useInView(headerRef, { once: true, amount: 0.5 });
+
+  const gridRef = useRef(null);
+  const isGridInView = useInView(gridRef, { once: true, amount: 0.1 });
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2
       }
-    };
+    }
+  };
 
-    return (
-        <section className="w-full px-4 md:px-24 md:py-16 py-8">
-            <div 
-              ref={headerRef}
-              className="flex flex-row sm:flex-row md:justify-between md:items-center mb-8 md:mb-12 md:gap-4"
-            >
-                <motion.h2
-                    className=" items-center text-3xl mt-8 sm:text-5xl bricolage-grotesque md:text-5xl font-bold text-white bg-gradient-to-r from-fuchsia-500 to-cyan-400 py-2 sm:py-3 px-4 sm:px-6 rounded-full inline-block"
-                    initial={{ opacity: 0, y: 20, scale: 0.9 }}
-                    animate={isHeaderInView ? 
-                      { opacity: 1, y: 0, scale: 1 } : 
-                      { opacity: 0, y: 20, scale: 0.9 }
-                    }
-                    transition={{ duration: 0.6 }}
-                >
-                    Event Highlights
-                </motion.h2>
-                <Image  src="/star.png" height={100} width={100} alt="Description" className=" w-8 h-8   md:w-16 md:h-16 relative left-[50px] md:left-[-400px]" />
-                
-            </div>
+  return (
+    <section id='highlight'
+      className="w-full px-4 md:px-24 md:py-16 py-8">
+      <div
+        ref={headerRef}
+        className="flex flex-row sm:flex-row md:justify-between md:items-center mb-8 md:mb-12 md:gap-4"
+      >
+        <motion.h2
+          className=" items-center text-3xl mt-8 sm:text-5xl bricolage-grotesque md:text-5xl font-bold text-white bg-gradient-to-r from-fuchsia-500 to-cyan-400 py-2 sm:py-3 px-4 sm:px-6 rounded-full inline-block"
+          initial={{ opacity: 0, y: 20, scale: 0.9 }}
+          animate={isHeaderInView ?
+            { opacity: 1, y: 0, scale: 1 } :
+            { opacity: 0, y: 20, scale: 0.9 }
+          }
+          transition={{ duration: 0.6 }}
+        >
+          Event Highlights
+        </motion.h2>
+        <Image src="/star.png" height={100} width={100} alt="Description" className=" w-8 h-8   md:w-16 md:h-16 relative left-[50px] md:left-[-400px]" />
 
-            <motion.div
-                ref={gridRef}
-                className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 rounded-md p-2 sm:p-4"
-                variants={containerVariants}
-                initial="hidden"
-                animate={isGridInView ? "visible" : "hidden"}
-            >
-                {events.map((event, index) => (
-                    <EventCard key={index} event={event} index={index} />
-                ))}
-            </motion.div>
-        </section>
-    );
+      </div>
+
+      <motion.div
+        ref={gridRef}
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 rounded-md p-2 sm:p-4"
+        variants={containerVariants}
+        initial="hidden"
+        animate={isGridInView ? "visible" : "hidden"}
+      >
+        {events.map((event, index) => (
+          <EventCard key={index} event={event} index={index} />
+        ))}
+      </motion.div>
+    </section>
+  );
 }

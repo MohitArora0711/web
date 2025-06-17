@@ -10,12 +10,12 @@ import "slick-carousel/slick/slick-theme.css";
 interface Service {
     title: string;
     image: string;
-    position?: string; // Added position field as optional
+    position?: string;
 }
 
 interface InfiniteCarouselProps {
     services: Service[];
-    speed: number; 
+    speed: number;
 }
 
 const InfiniteCarousel: React.FC<InfiniteCarouselProps> = ({ services, speed }) => {
@@ -44,7 +44,8 @@ const InfiniteCarousel: React.FC<InfiniteCarouselProps> = ({ services, speed }) 
                     {services.map((service, index) => (
                         <motion.div
                             key={index}
-                            className="px-4"
+                            className="px-4 "
+
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, ease: "easeOut" }}
@@ -54,29 +55,36 @@ const InfiniteCarousel: React.FC<InfiniteCarouselProps> = ({ services, speed }) 
                                     <Image
                                         src={service.image}
                                         alt={service.title}
-                                        width={10} height={10} 
+                                        width={400} height={400}
                                         // layout="fill"
-                                        objectFit="cover"
-                                        className="transition-transform duration-500 group-hover:scale-105"
+                                        objectFit="cover "
+                                        className="transition-transform grayscale h-[400px] w-[100%] object-fit-cover duration-500 group-hover:scale-105"
                                     />
                                     <div className="absolute inset-0 bg-black/10"></div>
                                 </div>
                                 <div className="absolute bottom-5 left-5">
-                                    <div className="px-2 py-2 text-sm text-white bg-white/30 backdrop-blur-lg font-bold rounded-full gap-2 flex">
+                                    <div className="px-2 py-2 text text-white bg-gradient-to-br from-[#6e2dd3] to-[#15bac8] backdrop-blur-3xl font-bold rounded-full gap-2 flex">
                                         <Image
-                                            className="w-5 h-5 bg-white/80 backdrop-blur-lg rounded-full"
+                                            className="w-10 h-10 bg-white/80 backdrop-blur-lg rounded-full"
                                             src="/landing/arrow.png"
                                             alt="Arrow"
-                                            width={20}
-                                            height={20}
+                                            width={40}
+                                            height={40}
                                         />
-                                        {service.title}
+                                        <div className="pr-2">
+                                            {service.title}
+                                            {service.position && (
+                                                <div className="text-xs font-normal text-white  rounded-full">
+                                                    {service.position}
+                                                </div>
+                                            )}
+                                        </div>
                                     </div>
-                                    {service.position && (
-                                        <div className="px-2 py-1 mt-2 text-xs text-white bg-white/30 backdrop-blur-lg rounded-full">
+                                    {/* {service.position && (
+                                        <div className="px-2 py-1 mt-2 text-xs text-white bg-gradient-to-br from-[#6e2dd3] to-[#15bac8]  backdrop-blur-lg rounded-full">
                                             {service.position}
                                         </div>
-                                    )}
+                                    )} */}
                                 </div>
                             </a>
                         </motion.div>
