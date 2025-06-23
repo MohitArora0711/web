@@ -13,7 +13,7 @@ const events = [
     author: 'Delhi Startup Summit',
     date: 'May 10, 2025',
     avatar: '/logo.png',
-    link: '/events/srijan-inaugural-session',
+    link: 'https://www.linkedin.com/posts/neecop_delhistartupsummit2025-srijansession-neecopxkmc-activity-7326843002214121472-EOcp?utm_source=share&utm_medium=member_desktop&rcm=ACoAADNyBSkBB1D4GWv4nuwZgmK3POh6lFrarn4',
   },
   {
     img: '/event2.png',
@@ -22,7 +22,7 @@ const events = [
     author: 'Delhi Startup Summit',
     date: 'May 10, 2025',
     avatar: '/logo.png',
-    link: '/events/ideation-to-product',
+    link: 'https://www.linkedin.com/posts/neecop_delhistartupsummit2025-neecopxkmc-session2-activity-7327210247024975874-bGHt?utm_source=share&utm_medium=member_desktop&rcm=ACoAADNyBSkBB1D4GWv4nuwZgmK3POh6lFrarn4',
   },
   {
     img: '/event3.png',
@@ -31,7 +31,7 @@ const events = [
     author: 'Delhi Startup Summit',
     date: 'May 12, 2025',
     avatar: '/logo.png',
-    link: '/events/vision-2040-startup-landscape',
+    link: 'https://www.linkedin.com/posts/neecop_delhistartupsummit2025-vision2040-neecopxkmc-activity-7327566766144921601-uMdF?utm_source=share&utm_medium=member_desktop&rcm=ACoAADNyBSkBB1D4GWv4nuwZgmK3POh6lFrarn4',
   },
   {
     img: '/event4.png',
@@ -40,7 +40,7 @@ const events = [
     author: 'Delhi Startup Summit',
     date: 'May 27, 2025',
     avatar: '/logo.png',
-    link: '/events/funding-unlocked',
+    link: 'https://www.linkedin.com/posts/neecop_delhistartupsummit-capitalcatalyst-startupfunding-activity-7333017810807275525-cbMf?utm_source=share&utm_medium=member_desktop&rcm=ACoAADNyBSkBB1D4GWv4nuwZgmK3POh6lFrarn4',
   },
   {
     img: '/event5.png',
@@ -49,7 +49,7 @@ const events = [
     author: 'Delhi Startup Summit',
     date: 'May 30, 2025',
     avatar: '/logo.png',
-    link: '/events/bridging-policy-gap',
+    link: 'https://www.linkedin.com/posts/neecop_delhistartupsummit-techmeetspolicy-startupsupport-activity-7334108931369144320-Wgc-?utm_source=share&utm_medium=member_desktop&rcm=ACoAADNyBSkBB1D4GWv4nuwZgmK3POh6lFrarn4',
   },
   {
     img: '/event6.png',
@@ -58,7 +58,7 @@ const events = [
     author: 'Delhi Startup Summit',
     date: 'May 17, 2025',
     avatar: '/logo.png',
-    link: '/events/growth-engine-scaling',
+    link: 'https://www.linkedin.com/posts/neecop_delhistartupsummit-startupindia-thegrowthengine-activity-7340643432899497984-Cslq?utm_source=share&utm_medium=member_desktop&rcm=ACoAADNyBSkBB1D4GWv4nuwZgmK3POh6lFrarn4',
   }
 ];
 

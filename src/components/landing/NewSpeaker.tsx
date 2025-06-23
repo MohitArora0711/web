@@ -4,16 +4,22 @@ import InfiniteCarousel from './Slider';
 import { ArrowUpRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 const speakers = [
-    { title: "Vivek Sharma", image: "/vivek.jpeg", position: "Founder, TechBridge" },
-    { title: "Abhir Saxena", image: "/abhir.jpeg", position: "Startup Mentor & Advisor" },
-    { title: "Apeksha Verma", image: "/apeksha.jpeg", position: "CEO, EduGrow" },
-    { title: "Lokesh Sharma", image: "/lokesh.jpeg", position: "Product Manager, Google" },
-    { title: "Nischay Joshi", image: "/nischay.jpeg", position: "AI Researcher at TCS" },
-    { title: "Ravi Bansal", image: "/ravi.jpeg", position: "VP of Engineering, Zomato" },
-    { title: "Raja Kumar", image: "/raja.jpeg", position: "Angel Investor & Entrepreneur" },
-    { title: "Anish Khandelwal", image: "/anish.jpeg", position: "CTO, FinTechPro" },
-    { title: "Vrinda Kapoor", image: "/vrinda.jpeg", position: "Founder, HealthBuddy" },
+  { title: "Vivek Chadha", image: "/vivek.jpeg", position: "Serial Entrepreneur" },
+  { title: "Apeksha Jain", image: "/apeksha.jpeg", position: "Founder, The Gourmet Jar" },
+  { title: "Nitish Singh", image: "/nitish.jpeg", position: "CEO, Blue Tea" },
+  { title: "Ravi Kaushik", image: "/ravi.jpeg", position: "CEO, Airth" },
+  { title: "Aarushi Kapoor", image: "/aarushi.jpeg", position: "Brand Manager, Innovist" },
+  { title: "VR Rajesh", image: "/rajesh.jpeg", position: "CRO, Cluix Clean Tech" },
+  { title: "Abhi Bhalla", image: "/abhi.jpeg", position: "Environmentalist" },
+  { title: "Lokesh Jain", image: "/lokesh.jpeg", position: "Eximius Ventures" },
+  { title: "Vibhor Gupta", image: "/vibhor.jpeg", position: "Lawyer" },
+  { title: "Nishchay Pradhan", image: "/nishchay.jpeg", position: "Founding Member, Favcy" },
+  { title: "GA Raza", image: "/raza.jpeg", position: "Founder and CEO, Oxeir Technologies" },
+  { title: "Anish Tuteja", image: "/anish.jpeg", position: "Fundvice" },
+  { title: "Kaustubh Prasad", image: "/kaustubh.jpeg", position: "Managing Director, Sudyog" },
+  { title: "Dr. Arunendra Tiwari", image: "/arunendra.jpeg", position: "Associate Fellow, TERI" },
 ];
+
 
 const fadeIn = {
     hidden: { opacity: 0, y: 50 },

@@ -33,7 +33,7 @@ export default function Home() {
         <CurrentHero />
         <AboutUs />
         {/* <HighlightsDisplay /> */}
-        <EventHighlights />
+        <EventHighlights/>
         {/* <HeroBanner/> */}
         {/* <OurHero /> */}
         <Features />

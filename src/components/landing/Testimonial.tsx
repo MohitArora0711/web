@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 // Types for testimonial data
 interface Testimonial {
@@ -11,28 +12,28 @@ interface Testimonial {
   image: string;
   background: string;
   textColor: string;
-  className: string; // Added className property
+  className: string;
 }
 
 export default function TestimonialStatic() {
   const testimonials: Testimonial[] = [
     {
       category: "GAME-CHANGING INSIGHTS",
-      quote: "This summit opened my eyes to the potential of AI and how it will shape industries.",
-      name: "Mohit",
-      title: "CTO,",
-      company: "NeuralTech",
+      quote: "Summit insights on UX, innovation, and design thinking will help me build products that solve real problems.",
+      name: "Aditiya",
+      title: "Product Designer",
+      company: "",
       image: "/logo.png",
       background: "bg-black",
       textColor: "text-white",
-      className: "relative "
+      className: "relative"
     },
     {
       category: "THE BEST AI EVENT!",
-      quote: "Incredible speakers, top-tier networking, and cutting-edge discussions all in one place.",
-      name: "Aditya",
-      title: "AI Researcher,",
-      company: "DeepMind",
+      quote: "Delhi Startup Summit helped Rewaysoft Technologies learn, connect, and find partners and investors. Great for startups.",
+      name: "Divyansh",
+      title: "Founder Reway",
+      company: ", DeepMind",
       image: "/logo.png",
       background: "bg-gradient-to-b from-purple-600 to-cyan-500",
       textColor: "text-white",
@@ -40,10 +41,10 @@ export default function TestimonialStatic() {
     },
     {
       category: "UNMATCHED OPPORTUNITIES",
-      quote: "From hands-on workshops to visionary talks, this summit is a must-attend for AI professionals.",
-      name: "Nishant",
-      title: "CEO,",
-      company: "FutureAI Labs",
+      quote: "I walked in with curiosity and walked out full of ideas! Delhi Startup Summit wasn’t just an event it felt like a crash course in innovation, creativity, and what it truly takes to build the future. Every session left me excited to do more.",
+      name: "Seema",
+      title: "Economics Student",
+      company: ", FutureAI Labs",
       image: "/logo.png",
       background: "bg-gray-200",
       textColor: "text-black",
@@ -102,9 +103,9 @@ export default function TestimonialStatic() {
             </div>
 
             <div className="flex items-center">
-              <div className="w-12 h-12 rounded-full overflow-hidden mr-4">
-                <img src={testimonial.image} alt={testimonial.name} className="w-full h-full object-cover" />
-              </div>
+                <div className="w-12 h-12 rounded-full overflow-hidden mr-4">
+                <Image height={50} width={50} src={testimonial.image} alt={testimonial.name} className="w-full h-full object-cover" />
+                </div>
               <div>
                 <p className="font-bold">{testimonial.name}</p>
                 <p>{testimonial.title} {testimonial.company}</p>
