@@ -24,7 +24,7 @@ export default function CurrentHero() {
                     alt="Neecop"
                     width={300}
                     height={100}
-                    className="w-auto h-10 mt-2 bricolage-grotesque"
+                    className="w-auto mt-2 mh-10 bricolage-grotesque"
                 />  
             </div>
             <motion.div
@@ -45,7 +45,7 @@ export default function CurrentHero() {
                         alt="Beautiful Landscape"
                         width={1000}
                         height={500}
-                        className="object-cover w-full h-[600px] rounded-xl shadow-lg "
+                        className="object-cover w-full md:h-[600px] rounded-xl shadow-lg "
                     />
                 </div>
                 {/* <div className="absolute bottom-[2rem] left-[30%] md:left-[43%] z-10">
