@@ -12,22 +12,23 @@ export default function CurrentHero() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true }}
             id='home'
-            className="w-full flex flex-col items-start justify-center text-center px-2 md:px-24 pt-16"
+            className="flex flex-col items-start justify-center w-full px-2 pt-16 text-center md:px-24"
         >
-            <div className='py-4 flex gap-4 flex-row items-center justify-center'>
+            <div className='flex flex-row items-center justify-center gap-4 py-4'>
                 <h1 className=''>
                     Powered by
                 </h1>
+                
                 <Image
                     src="/neecoplogo.png"
                     alt="Neecop"
                     width={300}
                     height={100}
-                    className="h-10 w-auto bricolage-grotesque  mt-2"
+                    className="w-auto h-10 mt-2 bricolage-grotesque"
                 />  
             </div>
             <motion.div
-                className="relative w-full shadow-lg overflow-hidden"
+                className="relative w-full overflow-hidden shadow-lg"
                 style={{
                     border: '3px solid transparent',
                     borderRadius: '30px',
@@ -40,7 +41,7 @@ export default function CurrentHero() {
             >
                 <div className="relative cloudy-blur">
                     <Image
-                        src="/hero.png"
+                        src="/heroimg.png"
                         alt="Beautiful Landscape"
                         width={1000}
                         height={500}
