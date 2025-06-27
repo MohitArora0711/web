@@ -19,32 +19,32 @@ export default function TestimonialStatic() {
   const testimonials: Testimonial[] = [
     {
       category: "GAME-CHANGING INSIGHTS",
-      quote: "Summit insights on UX, innovation, and design thinking will help me build products that solve real problems.",
+      quote: "Summit insights on UX, innovation, and design thinking will help me build better products.",
       name: "Aditiya",
       title: "Product Designer",
       company: "",
       image: "/logo.png",
       background: "bg-black",
       textColor: "text-white",
-      className: "relative"
+      className: "relative pr-20"
     },
     {
-      category: "THE BEST AI EVENT!",
+      category: "THE BEST EVENT!",
       quote: "Delhi Startup Summit helped Rewaysoft Technologies learn, connect, and find partners and investors. Great for startups.",
       name: "Divyansh",
-      title: "Founder Reway",
-      company: ", DeepMind",
+      title: "Founder,",
+      company: "Reway DeepMind",
       image: "/logo.png",
       background: "bg-gradient-to-b from-purple-600 to-cyan-500",
       textColor: "text-white",
-      className: "md:relative left-[-85px]"
+      className: "md:relative left-[-80px]"
     },
     {
       category: "UNMATCHED OPPORTUNITIES",
-      quote: "I walked in with curiosity and walked out full of ideas! Delhi Startup Summit wasn’t just an event it felt like a crash course in innovation, creativity, and what it truly takes to build the future. Every session left me excited to do more.",
+      quote: "I walked in with curiosity and walked out full of ideas! Delhi Startup Summit wasn’t just an event it felt like a crash course in innovation, creativity, and what it truly takes to build the future.",
       name: "Seema",
-      title: "Economics Student",
-      company: ", FutureAI Labs",
+      title: "Economics Student",
+      company: "FutureAI Labs",
       image: "/logo.png",
       background: "bg-gray-200",
       textColor: "text-black",
@@ -77,34 +77,34 @@ export default function TestimonialStatic() {
 
   return (
     <motion.div
-      className="w-full mx-auto px-4 md:px-24 py-8"
+      className="w-full px-4 py-8 mx-auto md:px-24"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
       variants={containerVariants}
     >
-      <div className='flex justify-between items-center h-full mb-12'>
-        <h1 className="text-5xl bricolage-grotesque font-bold md:mb-12 text-black">What Past Attendees Say</h1>
-        <div className='md:flex gap-4 hidden'>
-          <span className='w-14 h-14 rounded-full border-2 '></span>
-          <span className='w-14 h-14 rounded-full bg-gray-500  '></span>
+      <div className='flex items-center justify-between h-full mb-12'>
+        <h1 className="text-5xl font-bold text-black bricolage-grotesque md:mb-12 ">What Past Attendees Say</h1>
+        <div className='hidden gap-4 md:flex'>
+          <span className='border-2 rounded-full w-14 h-14 '></span>
+          <span className='bg-gray-500 rounded-full w-14 h-14 '></span>
         </div>
       </div>
-      <div className="flex flex-col md:flex-row gap-4 relative">
+      <div className="relative flex flex-col gap-4 md:flex-row">
         {testimonials.map((testimonial, index) => (
           <motion.div
             key={index}
-            className={`${testimonial.background} ${testimonial.textColor} ${testimonial.className} rounded-[40px] p-8 flex flex-col justify-between shadow-xl w-full md:min-w-[calc(33.333%+1rem)] h-96`}
+            className={`${testimonial.background} ${testimonial.textColor} ${testimonial.className} overflow-hidden rounded-[40px] p-8 flex flex-col justify-between shadow-xl w-full md:min-w-[calc(33.333%+1rem)] h-96`}
             variants={cardVariants}
           >
             <div>
-              <h2 className="text-2xl font-bold mb-6 bricolage-grotesque">{testimonial.category}</h2>
-              <p className="text-lg mb-8 syne">&quot;{testimonial.quote}&quot;</p>
+              <h2 className="mb-6 text-2xl font-bold bricolage-grotesque">{testimonial.category}</h2>
+              <p className="mb-8 text-lg syne">&quot;{testimonial.quote}&quot;</p>
             </div>
 
             <div className="flex items-center">
-                <div className="w-12 h-12 rounded-full overflow-hidden mr-4">
-                <Image height={50} width={50} src={testimonial.image} alt={testimonial.name} className="w-full h-full object-cover" />
+                <div className="w-12 h-12 mr-4 overflow-hidden rounded-full">
+                <Image height={50} width={50} src={testimonial.image} alt={testimonial.name} className="object-cover w-full h-full" />
                 </div>
               <div>
                 <p className="font-bold">{testimonial.name}</p>

@@ -38,7 +38,7 @@ const InfiniteCarousel: React.FC<InfiniteCarouselProps> = ({ services, speed }) 
     };
 
     return (
-        <div className="w-full flex justify-center items-center py-10">
+        <div className="flex items-center justify-center w-full py-10">
             <div className="w-full">
                 <Slider {...settings}>
                     {services.map((service, index) => (
@@ -50,22 +50,20 @@ const InfiniteCarousel: React.FC<InfiniteCarouselProps> = ({ services, speed }) 
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, ease: "easeOut" }}
                         >
-                            <a href="#" className="block relative group">
+                            <a href="#" className="relative block group">
                                 <div className="relative h-[400px] rounded-[40px] overflow-hidden">
                                     <Image
                                         src={service.image}
                                         alt={service.title}
-                                        width={400} height={400}
-                                        // layout="fill"
-                                        objectFit="cover "
-                                        className="transition-transform grayscale h-[400px] w-[100%] object-fit-cover duration-500 group-hover:scale-105"
+                                        height={400} width={400}
+                                        className="transition-transform grayscale h-[400px] object-cover  duration-500 group-hover:scale-105"
                                     />
                                     <div className="absolute inset-0 bg-black/10"></div>
                                 </div>
                                 <div className="absolute bottom-5 left-5">
                                     <div className="px-2 py-2 text text-white bg-gradient-to-br from-[#6e2dd3] to-[#15bac8] backdrop-blur-3xl font-bold rounded-full gap-2 flex">
                                         <Image
-                                            className="w-10 h-10 bg-white/80 backdrop-blur-lg rounded-full"
+                                            className="w-10 h-10 rounded-full bg-white/80 backdrop-blur-lg"
                                             src="/landing/arrow.png"
                                             alt="Arrow"
                                             width={40}
@@ -74,7 +72,7 @@ const InfiniteCarousel: React.FC<InfiniteCarouselProps> = ({ services, speed }) 
                                         <div className="pr-2">
                                             {service.title}
                                             {service.position && (
-                                                <div className="text-xs font-normal text-white  rounded-full">
+                                                <div className="text-xs font-normal text-white rounded-full">
                                                     {service.position}
                                                 </div>
                                             )}
